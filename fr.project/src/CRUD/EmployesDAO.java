@@ -15,30 +15,30 @@ public class EmployesDAO {
     private Statement test;
 
     public EmployesDAO() throws SQLException, ClassNotFoundException {
-        this.con = fr.noah.CRUD.SingleConnection.getInstance(url,password,login);
+        this.con = CRUD.SingleConnection.getInstance(url,password,login);
     }
 
 
-    public fr.noah.CRUD.Employes findById(String id) throws SQLException {
+    public CRUD.Employes findById(String id) throws SQLException {
 
         String rqt1 = "SELECT * FROM employes WHERE id = ?" ;
         PreparedStatement test = this.con.prepareStatement(rqt1);
         test.setString(1, id);
         ResultSet res = test.executeQuery();
         res.next();
-        fr.noah.CRUD.Employes Wow = new fr.noah.CRUD.Employes(res.getInt("id"), res.getString("lastname"), res.getString("firstname"), res.getString("city"), res.getInt("salary"));
+       CRUD.Employes Wow = new CRUD.Employes(res.getInt("id"), res.getString("lastname"), res.getString("firstname"), res.getString("city"), res.getInt("salary"));
 
         return Wow;
     }
 
 
-    public List<fr.noah.CRUD.Employes> findAll(){
-        List<fr.noah.CRUD.Employes> l = new ArrayList<fr.noah.CRUD.Employes>();
+    public List<CRUD.Employes> findAll(){
+        List<CRUD.Employes> l = new ArrayList<CRUD.Employes>();
         try{
             test = con.createStatement();
             ResultSet res = test.executeQuery("SELECT * FROM employes");
             while (res.next()){
-                fr.noah.CRUD.Employes e = new fr.noah.CRUD.Employes();
+                CRUD.Employes e = new CRUD.Employes();
                 e.setId(res.getInt("id"));
                 e.setLastname(res.getString("lastname"));
                 e.setFirstname(res.getString("firstname"));

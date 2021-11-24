@@ -1,6 +1,6 @@
 package Personne;
 
-import fr.noah.Personne.Personne;
+
 import jdk.jfr.Timestamp;
 
 public class Conférence {

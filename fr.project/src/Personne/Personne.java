@@ -1,6 +1,6 @@
 package Personne;
 
-import fr.noah.Entreprise.Entreprise;
+import Entreprise.Entreprise;
 
 import java.sql.SQLException;
 
