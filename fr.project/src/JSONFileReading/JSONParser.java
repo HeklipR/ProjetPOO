@@ -12,6 +12,8 @@ public class JSONParser {
 
     public static void main(String[] args){
 
+        //Not usable for now need to finish it at one point though.
+
         try{
 
             //Create the Gson instance
