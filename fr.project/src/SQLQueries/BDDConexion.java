@@ -1,6 +1,6 @@
 package SQLQueries;
 
-import fr.noah.CRUD.SingleConnection;
+import CRUD.SingleConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
