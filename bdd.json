@@ -1,5 +1,6 @@
 {
   "url" : "jdbc:mysql://localhost:8889/projetbdd?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC",
+  "dbName" : "projetbdd",
   "login" : "root",
   "password" : "root"
 
