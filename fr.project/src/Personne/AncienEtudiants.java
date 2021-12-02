@@ -72,6 +72,8 @@ public class AncienEtudiants {
 
     public void AncienEtudiantsAddBDD(){
 
+        String random = "test";
+
     }
 
     public void AncienEtudiantsRemoveBDD(){
