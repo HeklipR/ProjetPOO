@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class TestSQLRequest {
 
+    // Class de Test de requête SQL
 
     private final String url="jdbc:mysql://localhost:8889/projetbdd?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final String login="root";

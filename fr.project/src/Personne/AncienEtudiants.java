@@ -4,13 +4,15 @@ import jdk.jfr.Timestamp;
 
 public class AncienEtudiants {
 
+
+    // Variable de la classe AncienEtudiants
     private String niveauEtude;
     private Timestamp annee;
     private String typeDeContrat;
     private Timestamp duree;
     private Personne personne;
 
-
+    //Constructeur de la class AncienEtudiants
     public AncienEtudiants(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) {
         this.niveauEtude = niveauEtude;
         this.annee = annee;
@@ -19,6 +21,7 @@ public class AncienEtudiants {
         this.personne = personne;
     }
 
+    //Getter and setter de la class AncienEtudiants
     public String getNiveauEtude() {
         return niveauEtude;
     }
@@ -59,6 +62,7 @@ public class AncienEtudiants {
         this.personne = personne;
     }
 
+    //ToString de la class AncienEtudiants
     @Override
     public String toString() {
         return "AncienEtudiants{" +
@@ -70,14 +74,15 @@ public class AncienEtudiants {
                 '}';
     }
 
+    // Fonction permettant l'ajout d'un Ancien Etudiant à la BDD
     public void AncienEtudiantsAddBDD(){
 
     }
-
+    // Fonction permettant de supprimer un Ancien Etudiant de la BDD
     public void AncienEtudiantsRemoveBDD(){
 
     }
-
+    // Fonction permettant de modifier les valeurs d'un Ancien Etudiant puis les changer sur la BDD
     public void AncienEtudiantsModifBDD(){
 
     }

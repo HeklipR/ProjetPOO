@@ -6,11 +6,13 @@ import java.sql.SQLException;
 
 public class Personne {
 
+    //Variable de la class Personne
     private String nom;
     private String prenom;
     private int age;
     private Entreprise entreprise;
 
+    //Constructeur de la class Personne
     public Personne(String nom, String prenom, int age, Entreprise entreprise) {
         this.nom = nom;
         this.prenom = prenom;
@@ -18,6 +20,7 @@ public class Personne {
         this.entreprise = entreprise;
     }
 
+    //Getter and Setter de la calss Personne
     public String getNom() {
         return nom;
     }
@@ -42,6 +45,7 @@ public class Personne {
         this.age = age;
     }
 
+    //ToString de la class Personne
     @Override
     public String toString() {
         return "Personne{" +
@@ -52,15 +56,17 @@ public class Personne {
     }
 
 
-
+    // Fonction permettant l'ajout d'une Personne à la BDD
     public void PersonneAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer une Personne de la BDD
     public void PersonneRemoveBDD(){
 
     }
 
+    // Fonction permettant de modifier les valeurs d'une Personne puis les changer sur la BDD
     public void PersonneModifBDD(String nom, String prenom, int age) throws SQLException {
         String rqt1 = "UPDATE PERSONNE SET nom = ?, prenom = ?, age = ? WHERE idPersonne = ?";
 

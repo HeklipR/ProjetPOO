@@ -2,12 +2,15 @@ package Entreprise;
 
 public class Event {
 
+
+    //Variable de la class Event
     private String type;
     private String lieu;
     private boolean presence;
     private Entreprise entreprise;
 
 
+    //Constructeur de la class Event
     public Event(String type, String lieu, boolean presence, Entreprise entreprise) {
         this.type = type;
         this.lieu = lieu;
@@ -15,7 +18,7 @@ public class Event {
         this.entreprise = entreprise;
     }
 
-
+    //Getter and Setter de la class Event
     public String getType() {
         return type;
     }
@@ -48,6 +51,9 @@ public class Event {
         this.entreprise = entreprise;
     }
 
+
+
+    // ToString de la class Event
     @Override
     public String toString() {
         return "Event{" +
@@ -58,14 +64,15 @@ public class Event {
                 '}';
     }
 
+    // Fonction permettant l'ajout d'un Event à la BDD
     public void EventAddBDD(){
 
     }
-
+    // Fonction permettant de supprimer un Event de la BDD
     public void EventRemoveBDD(){
 
     }
-
+    // Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
     public void EventModifBDD(){
 
     }

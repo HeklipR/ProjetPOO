@@ -13,21 +13,21 @@ public class JSONParser {
     public static void main(String[] args) {
 
 
-        //String initialization
+        //Initialisation des String pour récupérer les valeurs du fichier json
         String url = null,password = null, dbName = null, login = null;
 
         try{
 
-            //Create the Gson instance
+            //Creation d'une instance Gson
             Gson gson = new Gson();
 
-            //Create a Reader
+            //Creation d'un reader de fichier
             Reader reader = Files.newBufferedReader(Path.of("./bdd.json"));
 
-            //Mapping JSON File
+            //Mappage du fichier JSon
             Map<?, ?> map = gson.fromJson(reader, Map.class);
 
-            //Put the JSon information in String probably work but not optimized at all
+            //Code non optimiser pour mettre les valeurs du JSON dans les Variables initialisé avant
 
             for(Map.Entry<?,?> test : map.entrySet()){
                 if(test.getKey().equals("url")){
@@ -41,17 +41,17 @@ public class JSONParser {
                 }
             }
 
-            //Test print String
+            //Test pour voir si le code au dessus fonctionne
             System.out.println(url + " " + password + " " + dbName + " " + login);
 
-            //Print the Map entries
+            //Affichage du mappage avec les Clef et les Valeurs associé
 
             for(Map.Entry<?,?> entry : map.entrySet()){
                 System.out.println(entry.getKey() + " = " + entry.getValue());
             }
 
 
-            //close reader
+            //Fermeture du Reader
 
             reader.close();
 

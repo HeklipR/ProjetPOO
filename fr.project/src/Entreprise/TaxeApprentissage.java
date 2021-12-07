@@ -4,12 +4,15 @@ import jdk.jfr.Timestamp;
 
 public class TaxeApprentissage {
 
+
+    //Variable de la class TaxeApprentissage
     private Timestamp date;
     private double somme;
     private String commentaire;
     private Entreprise entreprise;
 
 
+    //Constructeur de la class TaxeApprentissage
     public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise) {
         this.date = date;
         this.somme = somme;
@@ -17,6 +20,7 @@ public class TaxeApprentissage {
         this.entreprise = entreprise;
     }
 
+    //Getter and Setter de la class TaxeApprentissage
     public Timestamp getDate() {
         return date;
     }
@@ -49,6 +53,8 @@ public class TaxeApprentissage {
         this.entreprise = entreprise;
     }
 
+
+    //ToString de la class TaxeApprentissage
     @Override
     public String toString() {
         return "TaxeApprentissage{" +
@@ -59,15 +65,16 @@ public class TaxeApprentissage {
                 '}';
     }
 
-
+    // Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
     public void TaxeApprentissageAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
     public void TaxeApprentissageRemoveBDD(){
 
     }
-
+    // Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
     public void TaxeApprentissageModifBDD(){
 
     }

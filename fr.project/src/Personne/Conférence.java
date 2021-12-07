@@ -5,13 +5,14 @@ import jdk.jfr.Timestamp;
 
 public class Conférence {
 
+    // Variable de la class Conférence
     private Timestamp date;
     private String theme;
     private int nombrePublique;
     private Timestamp duree;
     private Personne personne;
 
-
+    //Constructeur de la classe Conférence
     public Conférence(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) {
         this.date = date;
         this.theme = theme;
@@ -20,6 +21,7 @@ public class Conférence {
         this.personne = personne;
     }
 
+    //Getter and Setter de la class Conférence
     public Timestamp getDate() {
         return date;
     }
@@ -60,6 +62,7 @@ public class Conférence {
         this.personne = personne;
     }
 
+    //ToString de la classe Conférence
     @Override
     public String toString() {
         return "Conférence{" +
@@ -71,15 +74,15 @@ public class Conférence {
                 '}';
     }
 
-
+    // Fonction permettant l'ajout d'une conférence à la BDD
     public void ConferenceAddBDD(){
 
     }
-
+    // Fonction permettant de supprimer une conférence de la BDD
     public void ConferenceRemoveBDD(){
 
     }
-
+    // Fonction permettant de modifier les valeurs d'une conférence puis les changer sur la BDD
     public void ConferenceModifBDD(){
 
     }

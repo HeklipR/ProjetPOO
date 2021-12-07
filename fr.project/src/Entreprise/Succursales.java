@@ -4,12 +4,16 @@ import jdk.jfr.Timestamp;
 
 public class Succursales {
 
+
+    // Variable de la class Succursales
     private String nomSucc;
     private Timestamp dateCreation;
     private String lieu;
     private String siteInternet;
     private Entreprise entreprise;
 
+
+    // Constructeur de la class Succursales
     public Succursales(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) {
         this.nomSucc = nomSucc;
         this.dateCreation = dateCreation;
@@ -18,6 +22,7 @@ public class Succursales {
         this.entreprise = entreprise;
     }
 
+    // Getter and Setter de la class Succursales
     public String getNomSucc() {
         return nomSucc;
     }
@@ -58,6 +63,8 @@ public class Succursales {
         this.entreprise = entreprise;
     }
 
+
+    // ToString de la class Succursales
     @Override
     public String toString() {
         return "Succursales{" +
@@ -69,14 +76,17 @@ public class Succursales {
                 '}';
     }
 
+    // Fonction permettant l'ajout d'une Succursale à la BDD
     public void SuccursalesAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer une Succursale de la BDD
     public void SuccursalesRemoveBDD(){
 
     }
 
+    // Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
     public void SuccursalesModifBDD(){
 
     }

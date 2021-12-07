@@ -2,12 +2,14 @@ package Personne;
 
 public class Contact {
 
+    //Variable de la class Contact
     private String fonction;
     private String mail;
     private String telephone;
     private String LinkeedIn;
     private Personne personne;
 
+    //Constructeur de la class Contact
     public Contact(String fonction, String mail, String telephone, String linkeedIn, Personne personne) {
         this.fonction = fonction;
         this.mail = mail;
@@ -16,6 +18,7 @@ public class Contact {
         this.personne = personne;
     }
 
+    //Getter and Setter de la class Contact
     public String getFonction() {
         return fonction;
     }
@@ -56,6 +59,7 @@ public class Contact {
         this.personne = personne;
     }
 
+    //ToString de la class Contact
     @Override
     public String toString() {
         return "Contact{" +
@@ -67,14 +71,17 @@ public class Contact {
                 '}';
     }
 
+    // Fonction permettant l'ajout d'un contact à la BDD
     public void ContactAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer un contact de la BDD
     public void ContactRemoveBDD(){
 
     }
 
+    // Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
     public void ContactModifBDD(){
 
     }

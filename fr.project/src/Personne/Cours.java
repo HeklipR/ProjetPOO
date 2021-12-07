@@ -2,13 +2,14 @@ package Personne;
 
 public class Cours {
 
-
+    //Variable de la class Cours
     private String matiere;
     private String filliere;
     private int annee;
     private Personne personne;
 
 
+    //Constructeur de la class Cours
     public Cours(String matiere, String filliere, int annee, Personne personne) {
         this.matiere = matiere;
         this.filliere = filliere;
@@ -16,6 +17,7 @@ public class Cours {
         this.personne = personne;
     }
 
+    //Getter and Setter de la class Cours
     public String getMatiere() {
         return matiere;
     }
@@ -48,6 +50,7 @@ public class Cours {
         this.personne = personne;
     }
 
+    //ToString de la class Cours
     @Override
     public String toString() {
         return "Cours{" +
@@ -60,15 +63,16 @@ public class Cours {
 
 
 
-
+    // Fonction permettant l'ajout d'un cours à la BDD
     public void CoursAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer un cours de la BDD
     public void CoursRemoveBDD(){
 
     }
-
+    // Fonction permettant de modifier les valeurs d'un cours puis les changer sur la BDD
     public void CoursModifBDD(){
 
     }

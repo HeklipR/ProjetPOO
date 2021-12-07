@@ -4,6 +4,7 @@ import jdk.jfr.Timestamp;
 
 public class Entreprise {
 
+    // Variable de la class Entreprise
 
     private String nomEntreprise;
     private String raisonSociale;
@@ -13,6 +14,7 @@ public class Entreprise {
     private Timestamp dateCreation;
     private String siteInternet;
 
+    //Constructeur de la classe Entreprise
 
     public Entreprise(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) {
         this.nomEntreprise = nomEntreprise;
@@ -23,6 +25,8 @@ public class Entreprise {
         this.dateCreation = dateCreation;
         this.siteInternet = siteInternet;
     }
+
+    //Getter et Setter de la class Entreprise
 
     public String getNomEntreprise() {
         return nomEntreprise;
@@ -81,6 +85,7 @@ public class Entreprise {
     }
 
 
+    // To String de la classe Entreprise
     @Override
     public String toString() {
         return "Entreprise{" +
@@ -95,14 +100,17 @@ public class Entreprise {
     }
 
 
+    // Fonction permettant l'ajout d'une entreprise à la BDD
     public void EntrepriseAddBDD(){
 
     }
 
+    // Fonction permettant de supprimer une entreprise de la BDD
     public void EntrepriseRemoveBDD(){
 
     }
 
+    // Fonction permettant de modifier les valeurs d'une entreprise puis les changer sur la BDD
     public void EntrepriseModifBDD(){
 
     }
