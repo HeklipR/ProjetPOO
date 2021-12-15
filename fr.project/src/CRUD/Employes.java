@@ -2,10 +2,13 @@ package CRUD;
 
 public class Employes {
 
+
+
     private int id,salary;
     private String lastname;
     private String firstname;
     private String city;
+
 
     public Employes(int id, String lastname, String firstname, String city, int salary) {
         this.id = id;

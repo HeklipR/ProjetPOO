@@ -6,7 +6,12 @@ public class Specialite {
     private String Technologie;
     private Personne personne;
 
-    //Constructeur de la class Specialite
+
+    /**
+     * Constructeur de la class Specialite
+     * @param technologie
+     * @param personne
+     */
     public Specialite(String technologie, Personne personne) {
         Technologie = technologie;
         this.personne = personne;
