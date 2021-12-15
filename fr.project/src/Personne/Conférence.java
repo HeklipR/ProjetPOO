@@ -12,7 +12,15 @@ public class Conférence {
     private Timestamp duree;
     private Personne personne;
 
-    //Constructeur de la classe Conférence
+
+    /**
+     * Constructeur de la classe Conférence
+     * @param date
+     * @param theme
+     * @param nombrePublique
+     * @param duree
+     * @param personne
+     */
     public Conférence(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) {
         this.date = date;
         this.theme = theme;
@@ -21,7 +29,11 @@ public class Conférence {
         this.personne = personne;
     }
 
-    //Getter and Setter de la class Conférence
+
+    /**
+     * Getter and Setter de la class Conférence
+     * @return
+     */
     public Timestamp getDate() {
         return date;
     }
@@ -62,7 +74,11 @@ public class Conférence {
         this.personne = personne;
     }
 
-    //ToString de la classe Conférence
+
+    /**
+     * ToString de la classe Conférence
+     * @return
+     */
     @Override
     public String toString() {
         return "Conférence{" +
@@ -74,16 +90,39 @@ public class Conférence {
                 '}';
     }
 
-    // Fonction permettant l'ajout d'une conférence à la BDD
-    public void ConferenceAddBDD(){
+    /**
+     * Fonction permettant l'ajout d'une conférence à la BDD
+     * @param date
+     * @param theme
+     * @param nombrePublique
+     * @param duree
+     * @param personne
+     */
+    public void ConferenceAddBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
 
     }
-    // Fonction permettant de supprimer une conférence de la BDD
-    public void ConferenceRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer une conférence de la BDD
+     * @param date
+     * @param theme
+     * @param nombrePublique
+     * @param duree
+     * @param personne
+     */
+    public void ConferenceRemoveBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
 
     }
-    // Fonction permettant de modifier les valeurs d'une conférence puis les changer sur la BDD
-    public void ConferenceModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'une conférence puis les changer sur la BDD
+     * @param date
+     * @param theme
+     * @param nombrePublique
+     * @param duree
+     * @param personne
+     */
+    public void ConferenceModifBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
 
     }
 

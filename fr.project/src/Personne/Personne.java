@@ -12,7 +12,13 @@ public class Personne {
     private int age;
     private Entreprise entreprise;
 
-    //Constructeur de la class Personne
+    /**
+     * Constructeur de la class Personne
+     * @param nom
+     * @param prenom
+     * @param age
+     * @param entreprise
+     */
     public Personne(String nom, String prenom, int age, Entreprise entreprise) {
         this.nom = nom;
         this.prenom = prenom;
@@ -45,7 +51,10 @@ public class Personne {
         this.age = age;
     }
 
-    //ToString de la class Personne
+    /**
+     * ToString de la class Personne
+     * @return
+     */
     @Override
     public String toString() {
         return "Personne{" +
@@ -56,18 +65,41 @@ public class Personne {
     }
 
 
-    // Fonction permettant l'ajout d'une Personne à la BDD
-    public void PersonneAddBDD(){
+    /**
+     * Fonction permettant l'ajout d'une Personne à la BDD
+     * @param nom
+     * @param prenom
+     * @param age
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void PersonneAddBDD(String nom, String prenom, int age, Entreprise entreprise){
 
     }
 
-    // Fonction permettant de supprimer une Personne de la BDD
-    public void PersonneRemoveBDD(){
+    /**
+     * Fonction permettant de supprimer une Personne de la BDD
+     * @param nom
+     * @param prenom
+     * @param age
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void PersonneRemoveBDD(String nom, String prenom, int age, Entreprise entreprise){
 
     }
 
-    // Fonction permettant de modifier les valeurs d'une Personne puis les changer sur la BDD
-    public void PersonneModifBDD(String nom, String prenom, int age) throws SQLException {
+    //
+
+    /**
+     * Fonction permettant de modifier les valeurs d'une Personne puis les changer sur la BDD
+     * @param nom
+     * @param prenom
+     * @param age
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void PersonneModifBDD(String nom, String prenom, int age, Entreprise entreprise) throws SQLException {
         String rqt1 = "UPDATE PERSONNE SET nom = ?, prenom = ?, age = ? WHERE idPersonne = ?";
 
 

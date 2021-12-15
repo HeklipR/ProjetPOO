@@ -6,13 +6,22 @@ public class AncienEtudiants {
 
 
     // Variable de la classe AncienEtudiants
+
     private String niveauEtude;
     private Timestamp annee;
     private String typeDeContrat;
     private Timestamp duree;
     private Personne personne;
 
-    //Constructeur de la class AncienEtudiants
+
+    /**
+     * Constructeur de la class AncienEtudiants
+     * @param niveauEtude
+     * @param annee
+     * @param typeDeContrat
+     * @param duree
+     * @param personne
+     */
     public AncienEtudiants(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) {
         this.niveauEtude = niveauEtude;
         this.annee = annee;
@@ -21,7 +30,12 @@ public class AncienEtudiants {
         this.personne = personne;
     }
 
-    //Getter and setter de la class AncienEtudiants
+
+
+    /**
+     * /Getter and setter de la class AncienEtudiants
+     * @return
+     */
     public String getNiveauEtude() {
         return niveauEtude;
     }
@@ -62,7 +76,11 @@ public class AncienEtudiants {
         this.personne = personne;
     }
 
-    //ToString de la class AncienEtudiants
+
+    /**
+     * ToString de la class AncienEtudiants
+     * @return
+     */
     @Override
     public String toString() {
         return "AncienEtudiants{" +
@@ -74,16 +92,40 @@ public class AncienEtudiants {
                 '}';
     }
 
-    // Fonction permettant l'ajout d'un Ancien Etudiant à la BDD
-    public void AncienEtudiantsAddBDD(){
+
+    /**
+     * Fonction permettant l'ajout d'un Ancien Etudiant à la BDD
+     * @param niveauEtude
+     * @param annee
+     * @param typeDeContrat
+     * @param duree
+     * @param personne
+     */
+    public void AncienEtudiantsAddBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
 
     }
-    // Fonction permettant de supprimer un Ancien Etudiant de la BDD
-    public void AncienEtudiantsRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer un Ancien Etudiant de la BDD
+     * @param niveauEtude
+     * @param annee
+     * @param typeDeContrat
+     * @param duree
+     * @param personne
+     */
+    public void AncienEtudiantsRemoveBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
 
     }
-    // Fonction permettant de modifier les valeurs d'un Ancien Etudiant puis les changer sur la BDD
-    public void AncienEtudiantsModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'un Ancien Etudiant puis les changer sur la BDD
+     * @param niveauEtude
+     * @param annee
+     * @param typeDeContrat
+     * @param duree
+     * @param personne
+     */
+    public void AncienEtudiantsModifBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
 
     }
 

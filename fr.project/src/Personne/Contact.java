@@ -9,7 +9,15 @@ public class Contact {
     private String LinkeedIn;
     private Personne personne;
 
-    //Constructeur de la class Contact
+
+    /**
+     * Constructeur de la class Contact
+     * @param fonction
+     * @param mail
+     * @param telephone
+     * @param linkeedIn
+     * @param personne
+     */
     public Contact(String fonction, String mail, String telephone, String linkeedIn, Personne personne) {
         this.fonction = fonction;
         this.mail = mail;
@@ -18,7 +26,11 @@ public class Contact {
         this.personne = personne;
     }
 
-    //Getter and Setter de la class Contact
+
+    /**
+     * Getter and Setter de la class Contact
+     * @return
+     */
     public String getFonction() {
         return fonction;
     }
@@ -59,7 +71,11 @@ public class Contact {
         this.personne = personne;
     }
 
-    //ToString de la class Contact
+
+    /**
+     * ToString de la class Contact
+     * @return
+     */
     @Override
     public String toString() {
         return "Contact{" +
@@ -71,18 +87,25 @@ public class Contact {
                 '}';
     }
 
-    // Fonction permettant l'ajout d'un contact à la BDD
-    public void ContactAddBDD(){
+    /**
+     * Fonction permettant l'ajout d'un contact à la BDD
+     * @param fonction
+     * @param mail
+     * @param telephone
+     * @param linkeedIn
+     * @param personne
+     */
+    public void ContactAddBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
 
     }
 
     // Fonction permettant de supprimer un contact de la BDD
-    public void ContactRemoveBDD(){
+    public void ContactRemoveBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
 
     }
 
     // Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
-    public void ContactModifBDD(){
+    public void ContactModifBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
 
     }
 

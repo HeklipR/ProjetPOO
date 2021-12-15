@@ -10,25 +10,57 @@ import java.util.Map;
 
 public class JSONParser {
 
-    public static void main(String[] args) {
+    //Initialisation des String pour récupérer les valeurs du fichier json
+    String url = null,password = null, dbName = null, login = null;
 
+    /**
+     * Getter and setter
+     * @return
+     */
 
-        //Initialisation des String pour récupérer les valeurs du fichier json
-        String url = null,password = null, dbName = null, login = null;
+    public String getUrl() {
+        return url;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void ParseValue(){
 
         try{
 
-            //Creation d'une instance Gson
+
+            /**
+             * Creation d'un instance Gson (librairie)
+             */
             Gson gson = new Gson();
 
-            //Creation d'un reader de fichier
+
+            /**
+             * Creation d'un reader de fichier avec comme source le fichier bdd.json
+             */
             Reader reader = Files.newBufferedReader(Path.of("./bdd.json"));
 
-            //Mappage du fichier JSon
+
+            /**
+             * Mappage du fichier JSon bdd.json
+             */
             Map<?, ?> map = gson.fromJson(reader, Map.class);
 
-            //Code non optimiser pour mettre les valeurs du JSON dans les Variables initialisé avant
 
+
+            /**
+             * Code pour récuperer les valeurs des entrées du fichier JSon et les initialisé dans des variables
+             */
             for(Map.Entry<?,?> test : map.entrySet()){
                 if(test.getKey().equals("url")){
                     url = (String) test.getValue();
@@ -41,17 +73,10 @@ public class JSONParser {
                 }
             }
 
-            //Test pour voir si le code au dessus fonctionne
-            System.out.println(url + " " + password + " " + dbName + " " + login);
 
-            //Affichage du mappage avec les Clef et les Valeurs associé
-
-            for(Map.Entry<?,?> entry : map.entrySet()){
-                System.out.println(entry.getKey() + " = " + entry.getValue());
-            }
-
-
-            //Fermeture du Reader
+            /**
+             * Fermeture du reader
+             */
 
             reader.close();
 
@@ -60,6 +85,18 @@ public class JSONParser {
         }
 
 
+
+        //Test pour voir si le code au dessus fonctionne
+        System.out.println(url + " " + password + " " + dbName + " " + login);
+
+
     }
 
 }
+
+
+//            Affichage du mappage avec les Clef et les Valeurs associé
+//
+//            for(Map.Entry<?,?> entry : map.entrySet()){
+//                System.out.println(entry.getKey() + " = " + entry.getValue());
+//            }

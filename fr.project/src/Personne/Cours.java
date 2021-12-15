@@ -9,7 +9,13 @@ public class Cours {
     private Personne personne;
 
 
-    //Constructeur de la class Cours
+    /**
+     * Constructeur de la class Cours
+     * @param matiere
+     * @param filliere
+     * @param annee
+     * @param personne
+     */
     public Cours(String matiere, String filliere, int annee, Personne personne) {
         this.matiere = matiere;
         this.filliere = filliere;
@@ -50,7 +56,12 @@ public class Cours {
         this.personne = personne;
     }
 
-    //ToString de la class Cours
+
+
+    /**
+     * ToString de la class Cours
+     * @return
+     */
     @Override
     public String toString() {
         return "Cours{" +
@@ -62,18 +73,38 @@ public class Cours {
     }
 
 
-
-    // Fonction permettant l'ajout d'un cours à la BDD
-    public void CoursAddBDD(){
+    /**
+     * Fonction permettant l'ajout d'un cours à la BDD
+     * @param matiere
+     * @param filliere
+     * @param annee
+     * @param personne
+     */
+    public void CoursAddBDD(String matiere, String filliere, int annee, Personne personne){
 
     }
 
-    // Fonction permettant de supprimer un cours de la BDD
-    public void CoursRemoveBDD(){
+
+
+    /**
+     * Fonction permettant de supprimer un cours de la BDD
+     * @param matiere
+     * @param filliere
+     * @param annee
+     * @param personne
+     */
+    public void CoursRemoveBDD(String matiere, String filliere, int annee, Personne personne){
 
     }
-    // Fonction permettant de modifier les valeurs d'un cours puis les changer sur la BDD
-    public void CoursModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'un cours puis les changer sur la BDD
+     * @param matiere
+     * @param filliere
+     * @param annee
+     * @param personne
+     */
+    public void CoursModifBDD(String matiere, String filliere, int annee, Personne personne){
 
     }
 

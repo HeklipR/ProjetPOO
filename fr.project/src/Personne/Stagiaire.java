@@ -57,7 +57,14 @@ public class Stagiaire {
                 '}';
     }
 
-    //Constructeur de la class Stagiaire
+
+    /**
+     * Constructeur de la class Stagiaire
+     * @param niveauEtude
+     * @param annee
+     * @param duree
+     * @param personne
+     */
     public Stagiaire(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne) {
         this.niveauEtude = niveauEtude;
         this.annee = annee;

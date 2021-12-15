@@ -8,19 +8,33 @@ public class Login {
     private String password;
 
 
-    //Constructeur de la classe Login
+
+    /**
+     * Constructeur de la classe Login
+     * @param role
+     * @param login
+     * @param password
+     */
     public Login(String role, String login, String password) {
         this.role = role;
         this.login = login;
         this.password = password;
     }
 
-    //Getter pour récupérer le role de l'utilisateur
+    /**
+     * Getter pour récupérer le role de l'utilisateur
+     * @return
+     */
     public String getRole() {
         return role;
     }
 
     //ToString de la class Login (Pour les test à supprimer plus tard)
+
+    /**
+     * ToString de la class Login
+     * @return
+     */
     @Override
     public String toString() {
         return "Login{" +
@@ -31,7 +45,10 @@ public class Login {
     }
 
 
-    //Fonction permettant de vérifier la validité du compte ainsi que son rôle afin d'afficher les bonnes interfaces
+
+    /**
+     * Fonction permettant de vérifier la validité du compte ainsi que son rôle afin d'afficher les bonnes interfaces
+     */
     public void AccountcheckBDD(){
 
     }
