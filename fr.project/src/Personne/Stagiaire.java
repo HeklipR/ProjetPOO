@@ -2,6 +2,8 @@ package Personne;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class Stagiaire {
 
 
@@ -73,16 +75,40 @@ public class Stagiaire {
 
     }
     // Fonction permettant l'ajout d'un Stagiaire à la BDD
-    public void StagiaireAddBDD(){
+
+    /**
+     * Fonction permettant l'ajout d'un Stagiaire à la BDD
+     * @param niveauEtude
+     * @param annee
+     * @param duree
+     * @param personne
+     * @throws SQLException
+     */
+    public void StagiaireAddBDD(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne){
 
     }
     // Fonction permettant de supprimer un Stagiaire de la BDD
-    public void StagiaireRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer un Stagiaire de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void StagiaireRemoveBDD(int ligne){
 
     }
 
     // Fonction permettant de modifier les valeurs d'un Stagiaire puis les changer sur la BDD
-    public void StagiaireModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'un Stagiaire puis les changer sur la BDD
+     * @param niveauEtude
+     * @param annee
+     * @param duree
+     * @param personne
+     * @throws SQLException
+     */
+    public void StagiaireModifBDD(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne) throws SQLException {
 
     }
 

@@ -1,5 +1,7 @@
 package Personne;
 
+import java.sql.SQLException;
+
 public class Contact {
 
     //Variable de la class Contact
@@ -94,18 +96,35 @@ public class Contact {
      * @param telephone
      * @param linkeedIn
      * @param personne
+     * @throws SQLException
      */
-    public void ContactAddBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
+    public void ContactAddBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne) throws SQLException {
 
     }
 
-    // Fonction permettant de supprimer un contact de la BDD
-    public void ContactRemoveBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
+    // Fonction permettant de supprimer un contact de la BDD$
+
+    /**
+     * Fonction permettant de supprimer un contact de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void ContactRemoveBDD(int ligne) throws SQLException{
 
     }
 
     // Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
-    public void ContactModifBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
+     * @param fonction
+     * @param mail
+     * @param telephone
+     * @param linkeedIn
+     * @param personne
+     * @throws SQLException
+     */
+    public void ContactModifBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne) throws SQLException{
 
     }
 

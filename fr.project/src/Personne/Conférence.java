@@ -3,6 +3,8 @@ package Personne;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class Conférence {
 
     // Variable de la class Conférence
@@ -97,20 +99,18 @@ public class Conférence {
      * @param nombrePublique
      * @param duree
      * @param personne
+     * @throws SQLException
      */
-    public void ConferenceAddBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
+    public void ConferenceAddBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) throws SQLException {
 
     }
 
     /**
      * Fonction permettant de supprimer une conférence de la BDD
-     * @param date
-     * @param theme
-     * @param nombrePublique
-     * @param duree
-     * @param personne
+     * @param ligne
+     * @throws SQLException
      */
-    public void ConferenceRemoveBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
+    public void ConferenceRemoveBDD(int ligne) throws SQLException{
 
     }
 
@@ -121,8 +121,9 @@ public class Conférence {
      * @param nombrePublique
      * @param duree
      * @param personne
+     * @throws SQLException
      */
-    public void ConferenceModifBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne){
+    public void ConferenceModifBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) throws SQLException{
 
     }
 

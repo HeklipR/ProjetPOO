@@ -1,5 +1,7 @@
 package Login;
 
+import java.sql.SQLException;
+
 public class Login {
 
     // Variable de la class Login
@@ -48,8 +50,9 @@ public class Login {
 
     /**
      * Fonction permettant de vérifier la validité du compte ainsi que son rôle afin d'afficher les bonnes interfaces
+     * @throws SQLException
      */
-    public void AccountcheckBDD(){
+    public void AccountcheckBDD() throws SQLException{
 
     }
 

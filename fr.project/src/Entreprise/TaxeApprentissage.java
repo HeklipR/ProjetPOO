@@ -2,6 +2,8 @@ package Entreprise;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class TaxeApprentissage {
 
 
@@ -13,6 +15,14 @@ public class TaxeApprentissage {
 
 
     //Constructeur de la class TaxeApprentissage
+
+    /**
+     * Constructeur de la class TaxeApprentissage
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     */
     public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise) {
         this.date = date;
         this.somme = somme;
@@ -66,16 +76,40 @@ public class TaxeApprentissage {
     }
 
     // Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
-    public void TaxeApprentissageAddBDD(){
+
+    /**
+     * Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise){
 
     }
 
     // Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
-    public void TaxeApprentissageRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void TaxeApprentissageRemoveBDD(int ligne){
 
     }
     // Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
-    public void TaxeApprentissageModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void TaxeApprentissageModifBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException {
 
     }
 }

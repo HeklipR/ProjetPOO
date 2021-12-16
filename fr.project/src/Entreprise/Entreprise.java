@@ -2,6 +2,8 @@ package Entreprise;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class Entreprise {
 
     // Variable de la class Entreprise
@@ -14,7 +16,16 @@ public class Entreprise {
     private Timestamp dateCreation;
     private String siteInternet;
 
-    //Constructeur de la classe Entreprise
+    /**
+     * Constructeur de la classe Entreprise
+     * @param nomEntreprise
+     * @param raisonSociale
+     * @param denomination
+     * @param adresseDuSiege
+     * @param secteurActivite
+     * @param dateCreation
+     * @param siteInternet
+     */
 
     public Entreprise(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) {
         this.nomEntreprise = nomEntreprise;
@@ -100,18 +111,46 @@ public class Entreprise {
     }
 
 
-    // Fonction permettant l'ajout d'une entreprise à la BDD
-    public void EntrepriseAddBDD(){
+
+
+    /**
+     * Fonction permettant l'ajout d'une entreprise à la BDD
+     * @param nomEntreprise
+     * @param raisonSociale
+     * @param denomination
+     * @param adresseDuSiege
+     * @param secteurActivite
+     * @param dateCreation
+     * @param siteInternet
+     * @throws SQLException
+     */
+    public void EntrepriseAddBDD(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) throws SQLException {
 
     }
 
-    // Fonction permettant de supprimer une entreprise de la BDD
-    public void EntrepriseRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer une entreprise de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void EntrepriseRemoveBDD(int ligne) throws SQLException {
 
     }
 
-    // Fonction permettant de modifier les valeurs d'une entreprise puis les changer sur la BDD
-    public void EntrepriseModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'une entreprise puis les changer sur la BDD
+     * @param nomEntreprise
+     * @param raisonSociale
+     * @param denomination
+     * @param adresseDuSiege
+     * @param secteurActivite
+     * @param dateCreation
+     * @param siteInternet
+     * @throws SQLException
+     */
+    public void EntrepriseModifBDD(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) throws SQLException {
 
     }
 

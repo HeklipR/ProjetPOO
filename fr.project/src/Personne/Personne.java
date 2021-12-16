@@ -79,13 +79,10 @@ public class Personne {
 
     /**
      * Fonction permettant de supprimer une Personne de la BDD
-     * @param nom
-     * @param prenom
-     * @param age
-     * @param entreprise
+     * @param ligne
      * @throws SQLException
      */
-    public void PersonneRemoveBDD(String nom, String prenom, int age, Entreprise entreprise){
+    public void PersonneRemoveBDD(int ligne){
 
     }
 

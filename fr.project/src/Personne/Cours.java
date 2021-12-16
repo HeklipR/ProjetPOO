@@ -1,5 +1,7 @@
 package Personne;
 
+import java.sql.SQLException;
+
 public class Cours {
 
     //Variable de la class Cours
@@ -79,8 +81,9 @@ public class Cours {
      * @param filliere
      * @param annee
      * @param personne
+     * @throws SQLException
      */
-    public void CoursAddBDD(String matiere, String filliere, int annee, Personne personne){
+    public void CoursAddBDD(String matiere, String filliere, int annee, Personne personne) throws SQLException {
 
     }
 
@@ -88,12 +91,10 @@ public class Cours {
 
     /**
      * Fonction permettant de supprimer un cours de la BDD
-     * @param matiere
-     * @param filliere
-     * @param annee
-     * @param personne
+     * @param ligne
+     * @throws SQLException
      */
-    public void CoursRemoveBDD(String matiere, String filliere, int annee, Personne personne){
+    public void CoursRemoveBDD(int ligne) throws SQLException{
 
     }
 
@@ -103,8 +104,9 @@ public class Cours {
      * @param filliere
      * @param annee
      * @param personne
+     * @throws SQLException
      */
-    public void CoursModifBDD(String matiere, String filliere, int annee, Personne personne){
+    public void CoursModifBDD(String matiere, String filliere, int annee, Personne personne) throws SQLException {
 
     }
 

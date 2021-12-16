@@ -2,6 +2,8 @@ package Personne;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class AncienEtudiants {
 
 
@@ -100,20 +102,18 @@ public class AncienEtudiants {
      * @param typeDeContrat
      * @param duree
      * @param personne
+     * @throws SQLException
      */
-    public void AncienEtudiantsAddBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
+    public void AncienEtudiantsAddBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) throws SQLException {
 
     }
 
     /**
      * Fonction permettant de supprimer un Ancien Etudiant de la BDD
-     * @param niveauEtude
-     * @param annee
-     * @param typeDeContrat
-     * @param duree
-     * @param personne
+     * @param ligne
+     * @throws SQLException
      */
-    public void AncienEtudiantsRemoveBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
+    public void AncienEtudiantsRemoveBDD(int ligne) throws SQLException{
 
     }
 
@@ -124,8 +124,9 @@ public class AncienEtudiants {
      * @param typeDeContrat
      * @param duree
      * @param personne
+     * @throws SQLException
      */
-    public void AncienEtudiantsModifBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne){
+    public void AncienEtudiantsModifBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) throws SQLException{
 
     }
 

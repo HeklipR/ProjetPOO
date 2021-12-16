@@ -2,6 +2,8 @@ package Entreprise;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class Succursales {
 
 
@@ -14,6 +16,15 @@ public class Succursales {
 
 
     // Constructeur de la class Succursales
+
+    /**
+     * Constructeur de la class Succursales
+     * @param nomSucc
+     * @param dateCreation
+     * @param lieu
+     * @param siteInternet
+     * @param entreprise
+     */
     public Succursales(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) {
         this.nomSucc = nomSucc;
         this.dateCreation = dateCreation;
@@ -77,17 +88,43 @@ public class Succursales {
     }
 
     // Fonction permettant l'ajout d'une Succursale à la BDD
-    public void SuccursalesAddBDD(){
+
+    /**
+     * Fonction permettant l'ajout d'une Succursale à la BDD
+     * @param nomSucc
+     * @param dateCreation
+     * @param lieu
+     * @param siteInternet
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void SuccursalesAddBDD(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) throws SQLException {
 
     }
 
     // Fonction permettant de supprimer une Succursale de la BDD
-    public void SuccursalesRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer une Succursale de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void SuccursalesRemoveBDD(int ligne) throws SQLException {
 
     }
 
     // Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
-    public void SuccursalesModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
+     * @param nomSucc
+     * @param dateCreation
+     * @param lieu
+     * @param siteInternet
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void SuccursalesModifBDD(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) throws SQLException {
 
     }
 

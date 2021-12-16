@@ -1,5 +1,7 @@
 package Entreprise;
 
+import java.sql.SQLException;
+
 public class Event {
 
 
@@ -10,7 +12,14 @@ public class Event {
     private Entreprise entreprise;
 
 
-    //Constructeur de la class Event
+
+    /**
+     * Constructeur de la class Event
+     * @param type
+     * @param lieu
+     * @param presence
+     * @param entreprise
+     */
     public Event(String type, String lieu, boolean presence, Entreprise entreprise) {
         this.type = type;
         this.lieu = lieu;
@@ -65,15 +74,39 @@ public class Event {
     }
 
     // Fonction permettant l'ajout d'un Event à la BDD
-    public void EventAddBDD(){
+
+    /**
+     * Fonction permettant l'ajout d'un Event à la BDD
+     * @param type
+     * @param lieu
+     * @param presence
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void EventAddBDD(String type, String lieu, boolean presence, Entreprise entreprise) throws SQLException {
 
     }
     // Fonction permettant de supprimer un Event de la BDD
-    public void EventRemoveBDD(){
+
+    /**
+     * Fonction permettant de supprimer un Event de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void EventRemoveBDD(int ligne) throws SQLException {
 
     }
     // Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
-    public void EventModifBDD(){
+
+    /**
+     * Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
+     * @param type
+     * @param lieu
+     * @param presence
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void EventModifBDD(String type, String lieu, boolean presence, Entreprise entreprise) throws SQLException {
 
     }
 }
