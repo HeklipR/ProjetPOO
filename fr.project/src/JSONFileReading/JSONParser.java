@@ -34,6 +34,9 @@ public class JSONParser {
         return login;
     }
 
+    /**
+     * Permet de Parse un fichier JSON et l'ajouter dans des variables défini pour faire un fichier config bdd
+     */
     public void ParseValue(){
 
         try{
