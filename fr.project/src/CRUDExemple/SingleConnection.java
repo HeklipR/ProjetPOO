@@ -1,4 +1,4 @@
-package CRUD;
+package CRUDExemple;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

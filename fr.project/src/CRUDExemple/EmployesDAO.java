@@ -1,4 +1,4 @@
-package CRUD;
+package CRUDExemple;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,30 +15,30 @@ public class EmployesDAO {
     private Statement test;
 
     public EmployesDAO() throws SQLException, ClassNotFoundException {
-        this.con = CRUD.SingleConnection.getInstance(url,password,login);
+        this.con = CRUDExemple.SingleConnection.getInstance(url,password,login);
     }
 
 
-    public CRUD.Employes findById(String id) throws SQLException {
+    public CRUDExemple.Employes findById(String id) throws SQLException {
 
         String rqt1 = "SELECT * FROM employes WHERE id = ?" ;
         PreparedStatement test = this.con.prepareStatement(rqt1);
         test.setString(1, id);
         ResultSet res = test.executeQuery();
         res.next();
-       CRUD.Employes Wow = new CRUD.Employes(res.getInt("id"), res.getString("lastname"), res.getString("firstname"), res.getString("city"), res.getInt("salary"));
+       CRUDExemple.Employes Wow = new CRUDExemple.Employes(res.getInt("id"), res.getString("lastname"), res.getString("firstname"), res.getString("city"), res.getInt("salary"));
 
         return Wow;
     }
 
 
-    public List<CRUD.Employes> findAll(){
-        List<CRUD.Employes> l = new ArrayList<CRUD.Employes>();
+    public List<CRUDExemple.Employes> findAll(){
+        List<CRUDExemple.Employes> l = new ArrayList<CRUDExemple.Employes>();
         try{
             test = con.createStatement();
             ResultSet res = test.executeQuery("SELECT * FROM employes");
             while (res.next()){
-                CRUD.Employes e = new CRUD.Employes();
+                CRUDExemple.Employes e = new CRUDExemple.Employes();
                 e.setId(res.getInt("id"));
                 e.setLastname(res.getString("lastname"));
                 e.setFirstname(res.getString("firstname"));
