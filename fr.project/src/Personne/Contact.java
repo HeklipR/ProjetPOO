@@ -29,10 +29,6 @@ public class Contact {
     }
 
 
-    /**
-     * Getter and Setter de la class Contact
-     * @return
-     */
     public String getFonction() {
         return fonction;
     }
@@ -74,10 +70,6 @@ public class Contact {
     }
 
 
-    /**
-     * ToString de la class Contact
-     * @return
-     */
     @Override
     public String toString() {
         return "Contact{" +

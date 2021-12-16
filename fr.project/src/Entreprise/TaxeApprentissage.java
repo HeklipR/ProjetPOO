@@ -85,7 +85,7 @@ public class TaxeApprentissage {
      * @param entreprise
      * @throws SQLException
      */
-    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise){
+    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException{
 
     }
 
@@ -96,7 +96,7 @@ public class TaxeApprentissage {
      * @param ligne
      * @throws SQLException
      */
-    public void TaxeApprentissageRemoveBDD(int ligne){
+    public void TaxeApprentissageRemoveBDD(int ligne) throws SQLException{
 
     }
     // Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD

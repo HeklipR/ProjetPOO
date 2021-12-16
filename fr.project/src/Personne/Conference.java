@@ -5,7 +5,7 @@ import jdk.jfr.Timestamp;
 
 import java.sql.SQLException;
 
-public class Conférence {
+public class Conference {
 
     // Variable de la class Conférence
     private Timestamp date;
@@ -23,7 +23,7 @@ public class Conférence {
      * @param duree
      * @param personne
      */
-    public Conférence(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) {
+    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) {
         this.date = date;
         this.theme = theme;
         this.nombrePublique = nombrePublique;
@@ -32,10 +32,6 @@ public class Conférence {
     }
 
 
-    /**
-     * Getter and Setter de la class Conférence
-     * @return
-     */
     public Timestamp getDate() {
         return date;
     }
@@ -77,10 +73,7 @@ public class Conférence {
     }
 
 
-    /**
-     * ToString de la classe Conférence
-     * @return
-     */
+
     @Override
     public String toString() {
         return "Conférence{" +

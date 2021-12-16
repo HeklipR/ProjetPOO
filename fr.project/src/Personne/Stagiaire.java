@@ -84,7 +84,7 @@ public class Stagiaire {
      * @param personne
      * @throws SQLException
      */
-    public void StagiaireAddBDD(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne){
+    public void StagiaireAddBDD(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne) throws SQLException{
 
     }
     // Fonction permettant de supprimer un Stagiaire de la BDD
@@ -94,7 +94,7 @@ public class Stagiaire {
      * @param ligne
      * @throws SQLException
      */
-    public void StagiaireRemoveBDD(int ligne){
+    public void StagiaireRemoveBDD(int ligne) throws SQLException{
 
     }
 

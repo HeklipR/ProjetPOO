@@ -11,13 +11,7 @@ public class Cours {
     private Personne personne;
 
 
-    /**
-     * Constructeur de la class Cours
-     * @param matiere
-     * @param filliere
-     * @param annee
-     * @param personne
-     */
+
     public Cours(String matiere, String filliere, int annee, Personne personne) {
         this.matiere = matiere;
         this.filliere = filliere;
@@ -60,10 +54,7 @@ public class Cours {
 
 
 
-    /**
-     * ToString de la class Cours
-     * @return
-     */
+
     @Override
     public String toString() {
         return "Cours{" +

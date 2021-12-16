@@ -34,10 +34,6 @@ public class AncienEtudiants {
 
 
 
-    /**
-     * /Getter and setter de la class AncienEtudiants
-     * @return
-     */
     public String getNiveauEtude() {
         return niveauEtude;
     }
@@ -79,10 +75,6 @@ public class AncienEtudiants {
     }
 
 
-    /**
-     * ToString de la class AncienEtudiants
-     * @return
-     */
     @Override
     public String toString() {
         return "AncienEtudiants{" +

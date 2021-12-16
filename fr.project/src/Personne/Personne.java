@@ -51,10 +51,7 @@ public class Personne {
         this.age = age;
     }
 
-    /**
-     * ToString de la class Personne
-     * @return
-     */
+
     @Override
     public String toString() {
         return "Personne{" +
@@ -73,7 +70,7 @@ public class Personne {
      * @param entreprise
      * @throws SQLException
      */
-    public void PersonneAddBDD(String nom, String prenom, int age, Entreprise entreprise){
+    public void PersonneAddBDD(String nom, String prenom, int age, Entreprise entreprise) throws SQLException{
 
     }
 
@@ -82,7 +79,7 @@ public class Personne {
      * @param ligne
      * @throws SQLException
      */
-    public void PersonneRemoveBDD(int ligne){
+    public void PersonneRemoveBDD(int ligne) throws SQLException{
 
     }
 
