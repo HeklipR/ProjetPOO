@@ -2,27 +2,27 @@ package FXML;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
 public class MainConnexion extends Application {
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("recherche Entreprise fxml.fxml"));
 
-    public static void main (String[] args ) {
+        Scene scene = new Scene(root);
 
-        Application.launch() ;
-
+        stage.setScene(scene);
+        stage.setTitle("coucou");
+        stage.show();
     }
 
-
-
-    public void start (Stage stage) throws Exception {
-
-      TilePane root =
-                FXMLLoader.load(getClass().getResource("Interface Connexion.fxml")) ;
-    Scene sc = new Scene ( root, 500 , 400 );
-    stage.setScene(sc);
-    stage.show();
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
     }
 
 
