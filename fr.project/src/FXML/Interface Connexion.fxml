@@ -40,13 +40,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Connexion" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="Connexion" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerConnexion">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <Button layoutX="221.0" layoutY="306.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="157.0" text="Connexion" />
-            <PasswordField layoutX="205.0" layoutY="201.0" prefHeight="0.0" prefWidth="195.0" />
-            <TextField layoutX="205.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" />
+            <Button fx:id="Connexion" layoutX="221.0" layoutY="306.0" mnemonicParsing="false" onAction="#ActionConnexion" prefHeight="38.0" prefWidth="157.0" text="Connexion" />
+            <PasswordField fx:id="Mdp" layoutX="205.0" layoutY="201.0" prefHeight="0.0" prefWidth="195.0" />
+            <TextField fx:id="Identifiant" layoutX="205.0" layoutY="107.0" prefHeight="25.0" prefWidth="195.0" />
             <Label alignment="CENTER" layoutX="233.0" layoutY="55.0" prefHeight="17.0" prefWidth="138.0" text="Identifiant" textAlignment="CENTER">
                <font>
                   <Font size="22.0" />

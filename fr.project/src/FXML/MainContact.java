@@ -4,14 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx.fxml.*;
 
-public class MainConnexion extends Application {
+public class MainContact extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Interface Connexion.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("recherche Contact.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -26,8 +24,5 @@ public class MainConnexion extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
-
 
 }
