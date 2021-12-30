@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class Personne {
 
     //Variable de la class Personne
+    private int idPersonne ;
     private String nom;
     private String prenom;
     private int age;
@@ -19,7 +20,8 @@ public class Personne {
      * @param age
      * @param entreprise
      */
-    public Personne(String nom, String prenom, int age, Entreprise entreprise) {
+    public Personne(int idPersonne , String nom, String prenom, int age, Entreprise entreprise) {
+        this.idPersonne = idPersonne ;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
@@ -27,6 +29,15 @@ public class Personne {
     }
 
     //Getter and Setter de la calss Personne
+
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
+    }
+
     public String getNom() {
         return nom;
     }

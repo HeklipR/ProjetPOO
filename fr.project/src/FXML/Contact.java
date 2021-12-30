@@ -1,15 +1,18 @@
-package Personne;
+package FXML;
+
+import Personne.Personne;
 
 import java.sql.SQLException;
 
 public class Contact {
 
     //Variable de la class Contact
+    private int idContact;
     private String fonction;
     private String mail;
     private String telephone;
     private String LinkeedIn;
-    private Personne personne;
+    private int idPersonne ;
 
 
     /**
@@ -17,17 +20,26 @@ public class Contact {
      * @param fonction
      * @param mail
      * @param telephone
-     * @param linkeedIn
-     * @param personne
+     * @param LinkeedIn
+     * @param idPersonne
      */
-    public Contact(String fonction, String mail, String telephone, String linkeedIn, Personne personne) {
+    public Contact(int idContact , String fonction, String mail, String telephone, String LinkeedIn , int idPersonne) {
+        this.idContact = idContact ;
         this.fonction = fonction;
         this.mail = mail;
         this.telephone = telephone;
-        LinkeedIn = linkeedIn;
-        this.personne = personne;
+        this.LinkeedIn = LinkeedIn;
+        this.idPersonne = idPersonne ;
+
     }
 
+    public int getIdContact() {
+        return idContact;
+    }
+
+    public void setIdContact(int idContact) {
+        this.idContact = idContact;
+    }
 
     public String getFonction() {
         return fonction;
@@ -49,6 +61,14 @@ public class Contact {
         return telephone;
     }
 
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
+    }
+
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
@@ -58,16 +78,10 @@ public class Contact {
     }
 
     public void setLinkeedIn(String linkeedIn) {
-        LinkeedIn = linkeedIn;
+        linkeedIn = linkeedIn;
     }
 
-    public Personne getPersonne() {
-        return personne;
-    }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
 
 
     @Override
@@ -77,7 +91,7 @@ public class Contact {
                 ", mail='" + mail + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", LinkeedIn='" + LinkeedIn + '\'' +
-                ", personne=" + personne +
+                ", personne=" + idPersonne +
                 '}';
     }
 

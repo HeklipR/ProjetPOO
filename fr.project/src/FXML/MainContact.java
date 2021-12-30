@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class MainContact extends Application {
     @Override
     public void start(Stage stage) throws Exception {
+
         Parent root = FXMLLoader.load(getClass().getResource("recherche Contact.fxml"));
 
         Scene scene = new Scene(root);

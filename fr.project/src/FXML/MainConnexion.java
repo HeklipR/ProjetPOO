@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.fxml.*;
 
 public class MainConnexion extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("Interface Connexion.fxml"));
