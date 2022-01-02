@@ -12,15 +12,19 @@ public class Personne {
     private String prenom;
     private int age;
     private Entreprise entreprise;
+    private int idEntreprise;
 
     /**
      * Constructeur de la class Personne
+     * @param idEntreprise
+     * @param idPersonne
      * @param nom
      * @param prenom
      * @param age
      * @param entreprise
      */
-    public Personne(int idPersonne , String nom, String prenom, int age, Entreprise entreprise) {
+    public Personne(int idPersonne , String nom, String prenom, int age, Entreprise entreprise, int idEntreprise) {
+        this.idEntreprise = idEntreprise;
         this.idPersonne = idPersonne ;
         this.nom = nom;
         this.prenom = prenom;
@@ -62,6 +66,13 @@ public class Personne {
         this.age = age;
     }
 
+    public int getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
 
     @Override
     public String toString() {

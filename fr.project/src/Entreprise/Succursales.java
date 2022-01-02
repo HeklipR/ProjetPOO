@@ -8,6 +8,8 @@ public class Succursales {
 
 
     // Variable de la class Succursales
+    private int idSuccursale;
+    private int idEntreprise;
     private String nomSucc;
     private Timestamp dateCreation;
     private String lieu;
@@ -19,13 +21,17 @@ public class Succursales {
 
     /**
      * Constructeur de la class Succursales
+     * @param idSuccursale
+     * @param idEntreprise
      * @param nomSucc
      * @param dateCreation
      * @param lieu
      * @param siteInternet
      * @param entreprise
      */
-    public Succursales(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) {
+    public Succursales(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise, int idSuccursale, int idEntreprise) {
+        this.idSuccursale = idSuccursale;
+        this.idEntreprise = idEntreprise;
         this.nomSucc = nomSucc;
         this.dateCreation = dateCreation;
         this.lieu = lieu;
@@ -74,6 +80,21 @@ public class Succursales {
         this.entreprise = entreprise;
     }
 
+    public int getIdSuccursale() {
+        return idSuccursale;
+    }
+
+    public void setIdSuccursale(int idSuccursale) {
+        this.idSuccursale = idSuccursale;
+    }
+
+    public int getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
 
     // ToString de la class Succursales
     @Override

@@ -8,6 +8,8 @@ public class TaxeApprentissage {
 
 
     //Variable de la class TaxeApprentissage
+    private int idTaxe;
+    private int idEntreprise;
     private Timestamp date;
     private double somme;
     private String commentaire;
@@ -18,12 +20,16 @@ public class TaxeApprentissage {
 
     /**
      * Constructeur de la class TaxeApprentissage
+     * @param idTaxe
+     * @param idEntreprise
      * @param date
      * @param somme
      * @param commentaire
      * @param entreprise
      */
-    public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise) {
+    public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise, int idEntreprise, int idTaxe) {
+        this.idTaxe = idTaxe;
+        this.idEntreprise = idEntreprise;
         this.date = date;
         this.somme = somme;
         this.commentaire = commentaire;

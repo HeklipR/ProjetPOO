@@ -9,22 +9,27 @@ public class AncienEtudiants {
 
     // Variable de la classe AncienEtudiants
 
+    private int idAncienEtudiant;
     private String niveauEtude;
     private Timestamp annee;
     private String typeDeContrat;
     private Timestamp duree;
     private Personne personne;
-
+    private int idPersonne;
 
     /**
-     * Constructeur de la class AncienEtudiants
+     * @param idPersonne
+     * @param idAncienEtudiant
      * @param niveauEtude
      * @param annee
      * @param typeDeContrat
      * @param duree
      * @param personne
      */
-    public AncienEtudiants(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) {
+
+    public AncienEtudiants(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne, int idAncienEtudiant, int idPersonne) {
+        this.idPersonne = idPersonne;
+        this.idAncienEtudiant = idAncienEtudiant;
         this.niveauEtude = niveauEtude;
         this.annee = annee;
         this.typeDeContrat = typeDeContrat;
@@ -74,6 +79,21 @@ public class AncienEtudiants {
         this.personne = personne;
     }
 
+    public int getIdAncienEtudiant() {
+        return idAncienEtudiant;
+    }
+
+    public void setIdAncienEtudiant(int idAncienEtudiant) {
+        this.idAncienEtudiant = idAncienEtudiant;
+    }
+
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
+    }
 
     @Override
     public String toString() {

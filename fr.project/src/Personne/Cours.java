@@ -5,6 +5,7 @@ import java.sql.SQLException;
 public class Cours {
 
     //Variable de la class Cours
+    private int idCours;
     private String matiere;
     private String filliere;
     private int annee;
@@ -12,7 +13,8 @@ public class Cours {
 
 
 
-    public Cours(String matiere, String filliere, int annee, Personne personne) {
+    public Cours(String matiere, String filliere, int annee, Personne personne, int idCours) {
+        this.idCours = idCours;
         this.matiere = matiere;
         this.filliere = filliere;
         this.annee = annee;
@@ -52,8 +54,13 @@ public class Cours {
         this.personne = personne;
     }
 
+    public int getIdCours() {
+        return idCours;
+    }
 
-
+    public void setIdCours(int idCours) {
+        this.idCours = idCours;
+    }
 
     @Override
     public String toString() {

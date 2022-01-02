@@ -5,16 +5,19 @@ import java.sql.SQLException;
 public class Specialite {
 
     //Variable de la class Specialite
+    private int idSpecialite;
     private String Technologie;
     private Personne personne;
 
 
     /**
      * Constructeur de la class Specialite
+     * @param idSpecialite
      * @param technologie
      * @param personne
      */
-    public Specialite(String technologie, Personne personne) {
+    public Specialite(String technologie, Personne personne, int idSpecialite) {
+        this.idSpecialite = idSpecialite;
         Technologie = technologie;
         this.personne = personne;
     }
@@ -34,6 +37,14 @@ public class Specialite {
 
     public void setPersonne(Personne personne) {
         this.personne = personne;
+    }
+
+    public int getIdSpecialite() {
+        return idSpecialite;
+    }
+
+    public void setIdSpecialite(int idSpecialite) {
+        this.idSpecialite = idSpecialite;
     }
 
     //ToString de la class
