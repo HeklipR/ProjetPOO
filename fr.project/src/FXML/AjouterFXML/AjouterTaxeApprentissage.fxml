@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="AjouterTaxe" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="ValiderTax" layoutX="135.0" layoutY="536.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="70.0" text="Valider" />
+      <TextField fx:id="DateTaxe" layoutX="147.0" layoutY="47.0" />
+      <TextField fx:id="SommeTaxe" layoutX="147.0" layoutY="96.0" />
+      <TextField fx:id="CommTaxe" layoutX="147.0" layoutY="149.0" />
+      <Label layoutX="19.0" layoutY="51.0" prefHeight="17.0" prefWidth="85.0" text="Date" />
+      <Label layoutX="19.0" layoutY="100.0" prefHeight="17.0" prefWidth="124.0" text="Somme" />
+      <Label layoutX="19.0" layoutY="153.0" prefHeight="17.0" prefWidth="85.0" text="Commentaire" />
+   </children>
+</AnchorPane>

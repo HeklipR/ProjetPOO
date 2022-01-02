@@ -1,7 +1,7 @@
 {
-  "url" : "jdbc:mysql://localhost:8889/projetbdd?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC",
+  "url" : "localhost",
   "dbName" : "projetbdd",
   "login" : "root",
-  "password" : "root"
-
+  "password" : "root",
+  "port" : "3306"
 }

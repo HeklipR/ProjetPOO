@@ -2,14 +2,27 @@ package Entreprise;
 
 import jdk.jfr.Timestamp;
 
+import java.sql.SQLException;
+
 public class TaxeApprentissage {
 
+
+    //Variable de la class TaxeApprentissage
     private Timestamp date;
     private double somme;
     private String commentaire;
     private Entreprise entreprise;
 
 
+    //Constructeur de la class TaxeApprentissage
+
+    /**
+     * Constructeur de la class TaxeApprentissage
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     */
     public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise) {
         this.date = date;
         this.somme = somme;
@@ -17,6 +30,7 @@ public class TaxeApprentissage {
         this.entreprise = entreprise;
     }
 
+    //Getter and Setter de la class TaxeApprentissage
     public Timestamp getDate() {
         return date;
     }
@@ -49,6 +63,8 @@ public class TaxeApprentissage {
         this.entreprise = entreprise;
     }
 
+
+    //ToString de la class TaxeApprentissage
     @Override
     public String toString() {
         return "TaxeApprentissage{" +
@@ -59,16 +75,41 @@ public class TaxeApprentissage {
                 '}';
     }
 
+    // Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
 
-    public void TaxeApprentissageAddBDD(){
+    /**
+     * Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException{
 
     }
 
-    public void TaxeApprentissageRemoveBDD(){
+    // Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
+
+    /**
+     * Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
+     * @param ligne
+     * @throws SQLException
+     */
+    public void TaxeApprentissageRemoveBDD(int ligne) throws SQLException{
 
     }
+    // Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
 
-    public void TaxeApprentissageModifBDD(){
+    /**
+     * Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
+     * @param date
+     * @param somme
+     * @param commentaire
+     * @param entreprise
+     * @throws SQLException
+     */
+    public void TaxeApprentissageModifBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException {
 
     }
 }
