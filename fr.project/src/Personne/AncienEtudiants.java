@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class AncienEtudiants {
 
 
-    // Variable de la classe AncienEtudiantss
+    // Variable de la classe AncienEtudiantsss
 
     private String niveauEtude;
     private Timestamp annee;
