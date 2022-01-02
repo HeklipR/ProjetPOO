@@ -18,6 +18,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 
 public class ControllerContact implements Initializable {
@@ -36,6 +37,7 @@ public class ControllerContact implements Initializable {
     @FXML private TableColumn <Contact, Integer> idPersonne ;
     @FXML private ComboBox <String> FiltreTable;
     @FXML private Button Changer;
+
     private ObservableList <Contact> data = FXCollections.observableArrayList() ;
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -43,6 +45,48 @@ public class ControllerContact implements Initializable {
     private final String password="root";
     private Connection con;
 
+
+
+
+    public void AffichageDonnés () {
+
+        try {
+            this.con = SingleConnection.getInstance(urlb,password,login);
+            String SQL = "SELECT * FROM contact";
+            PreparedStatement st =  con.prepareStatement(SQL);
+            ResultSet rs = st.executeQuery();
+
+
+            while (rs.next()){
+                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
+                        rs.getString("Mail"),rs.getString("Telephone"),
+                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        // AJout données dans la BDD
+        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
+        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
+        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
+        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
+        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
+        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+
+        Contact.setItems(data);
+    }
+
+        public void FiltreComboBox() {
+        ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
+                "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
+                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+
+        FiltreTable.setItems(FiltreTableList);
+
+    }
 
     public String getURL () {
 String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
@@ -52,41 +96,9 @@ return URL ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Filtre Table
-        ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
-                "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
-
-            try {
-                this.con = SingleConnection.getInstance(urlb,password,login);
-                String SQL = "SELECT * FROM contact";
-                PreparedStatement st =  con.prepareStatement(SQL);
-                ResultSet rs = st.executeQuery();
-
-
-                while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
-
-                }
-                con.close();
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-            // AJout données dans la BDD
-            idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-            Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-            Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-            Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-            LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-            idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
-
-            Contact.setItems(data);
-
+       this.FiltreComboBox();
+       this.AffichageDonnés();
 
         }
 
@@ -125,11 +137,24 @@ return URL ;
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void ActionSupprimer(ActionEvent actionEvent) {
+
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setTitle("Ajouter un Contact");
+            stage.show();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
+
+
 
 
     public void ActionRecharger(ActionEvent actionEvent) {
@@ -142,6 +167,7 @@ return URL ;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
         Parent root1 = null;
         try {
+            this.AffichageDonnés();
             root1 = (Parent) fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
