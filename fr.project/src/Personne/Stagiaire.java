@@ -8,10 +8,12 @@ public class Stagiaire {
 
 
     //Variable de la class Stagiaire
+    private int idStagiaire;
     private String niveauEtude;
     private Timestamp annee;
     private Timestamp duree;
     private Personne personne;
+    private int idPersonne;
 
 
     //Getter and Setter de la class Stagiaire
@@ -47,6 +49,22 @@ public class Stagiaire {
         this.personne = personne;
     }
 
+    public int getIdStagiaire() {
+        return idStagiaire;
+    }
+
+    public void setIdStagiaire(int idStagiaire) {
+        this.idStagiaire = idStagiaire;
+    }
+
+    public int getIdPersonne() {
+        return idPersonne;
+    }
+
+    public void setIdPersonne(int idPersonne) {
+        this.idPersonne = idPersonne;
+    }
+
     //ToString de la class Stagiaire
     @Override
     public String
@@ -62,12 +80,16 @@ public class Stagiaire {
 
     /**
      * Constructeur de la class Stagiaire
+     * @param idPersonne
+     * @param idStagiaire
      * @param niveauEtude
      * @param annee
      * @param duree
      * @param personne
      */
-    public Stagiaire(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne) {
+    public Stagiaire(String niveauEtude, Timestamp annee, Timestamp duree, Personne personne, int idStagiaire, int idPersonne) {
+        this.idPersonne = idPersonne;
+        this.idStagiaire = idStagiaire;
         this.niveauEtude = niveauEtude;
         this.annee = annee;
         this.duree = duree;
