@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerModifConfer">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerModifConf">
    <children>
       <Button fx:id="ValiderConfModif" layoutX="54.0" layoutY="438.0" mnemonicParsing="false" onAction="#ActionValidaxModif" prefHeight="34.0" prefWidth="70.0" text="Valider" />
       <TextField fx:id="DateConfModif" layoutX="118.0" layoutY="200.0" />
