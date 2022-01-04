@@ -9,32 +9,34 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Recherche Succursales" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Recherche Succursales" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerSuccursale">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="981.0">
          <children>
-            <Button layoutX="311.0" layoutY="31.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
-            <TableView layoutY="74.0" prefHeight="674.0" prefWidth="823.0">
+            <Button fx:id="BoutonRechercheSucc" layoutX="311.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRechercheSucc" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
+            <TableView fx:id="Succursale" layoutY="74.0" prefHeight="674.0" prefWidth="829.0">
               <columns>
-                <TableColumn prefWidth="55.0" text="Id" />
-                  <TableColumn prefWidth="164.0" text="Nom" />
-                  <TableColumn prefWidth="172.0" text="Date de création" />
-                  <TableColumn prefWidth="173.0" text="Lieu" />
-                  <TableColumn prefWidth="274.0" text="Sites Internet" />
+                <TableColumn fx:id="idSuccursales" prefWidth="88.0" text="idSuccursales" />
+                  <TableColumn fx:id="NomSucc" prefWidth="131.0" text="Nom" />
+                  <TableColumn fx:id="Date_de_creation" prefWidth="172.0" text="Date de création" />
+                  <TableColumn fx:id="Lieu" prefWidth="214.0" text="Lieu" />
+                  <TableColumn fx:id="Site_internet" prefWidth="131.0" text="Site Internet" />
+                  <TableColumn fx:id="Site_internet1" prefWidth="92.0" text="idEntreprise" />
               </columns>
             </TableView>
-            <Button layoutX="868.0" layoutY="105.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
-            <TextField layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
-            <Button layoutX="857.0" layoutY="556.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
-            <Button layoutX="869.0" layoutY="182.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
-            <Button layoutX="870.0" layoutY="263.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
-            <Button layoutX="871.0" layoutY="347.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox editable="true" layoutX="442.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
-            <ComboBox editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <Button fx:id="BoutonAjoutSucc" layoutX="868.0" layoutY="105.0" mnemonicParsing="false" onAction="#ActionAjoutSucc" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <TextField fx:id="RechercheSucc" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
+            <Button fx:id="BoutonChangeSucc" layoutX="857.0" layoutY="562.0" mnemonicParsing="false" onAction="#ActionChangeSucc" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
+            <Button fx:id="BoutonSuppSucc" layoutX="869.0" layoutY="182.0" mnemonicParsing="false" onAction="#ActionSuppSucc" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
+            <Button fx:id="BoutonModifSucc" layoutX="870.0" layoutY="263.0" mnemonicParsing="false" onAction="#ActionModifSucc" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
+            <Button fx:id="BoutonRechargeSucc" layoutX="871.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionRechargeSucc" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
+            <ComboBox fx:id="FiltreAttributSucc" editable="true" layoutX="589.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltreTableSucc" editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>
             </ComboBox>
+            <Button fx:id="BoutonReinitialiseSucc" layoutX="443.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionReinitialiseSucc" prefHeight="33.0" prefWidth="100.0" text="Réinitialiser" />
          </children></AnchorPane>
   </content>
 </TitledPane>

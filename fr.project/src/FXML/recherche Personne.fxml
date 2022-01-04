@@ -9,31 +9,33 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="643.0" text="Recherche  Personne" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="652.0" prefWidth="1003.0" text="Recherche  Personne" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerPersonne">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="742.0" prefWidth="699.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="626.0" prefWidth="1001.0">
          <children>
-            <Button layoutX="311.0" layoutY="31.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
-            <TableView layoutY="74.0" prefHeight="674.0" prefWidth="352.0">
+            <TableView fx:id="Personne" layoutY="74.0" prefHeight="547.0" prefWidth="730.0">
               <columns>
-                <TableColumn editable="false" text="id" />
-                  <TableColumn editable="false" text="Nom" />
-                  <TableColumn editable="false" prefWidth="92.0" text="Prenom" />
-                  <TableColumn editable="false" prefWidth="98.0" text="age" />
+                <TableColumn fx:id="idPersonne" editable="false" text="idPersonne" />
+                  <TableColumn fx:id="nom" editable="false" prefWidth="180.0" text="Nom" />
+                  <TableColumn fx:id="prenom" editable="false" prefWidth="181.0" text="Prenom" />
+                  <TableColumn fx:id="age" editable="false" prefWidth="157.0" text="âge" />
+                  <TableColumn fx:id="idEntreprise" editable="false" minWidth="4.0" prefWidth="139.0" text="idEntreprise" />
               </columns>
             </TableView>
-            <Button layoutX="411.0" layoutY="94.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
-            <TextField layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
-            <Button layoutX="398.0" layoutY="519.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
-            <Button layoutX="412.0" layoutY="168.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
-            <Button layoutX="412.0" layoutY="244.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
-            <Button layoutX="413.0" layoutY="323.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox editable="true" layoutX="442.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
-            <ComboBox editable="true" layoutX="386.0" layoutY="430.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <Button fx:id="BoutonAjoutPers" layoutX="760.0" layoutY="95.0" mnemonicParsing="false" onAction="#ActionAJoutPers" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <TextField fx:id="RecherchePers" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
+            <Button fx:id="BoutonChangePers" layoutX="747.0" layoutY="483.0" mnemonicParsing="false" onAction="#ActionChangePers" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
+            <Button fx:id="BoutonSuppPers" layoutX="761.0" layoutY="178.0" mnemonicParsing="false" onAction="#ActionSuppPers" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
+            <Button fx:id="BoutonModifPers" layoutX="761.0" layoutY="255.0" mnemonicParsing="false" onAction="#ActionModifPers" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
+            <Button fx:id="BoutonRechargePers" layoutX="762.0" layoutY="324.0" mnemonicParsing="false" onAction="#ActionRechargePers" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
+            <ComboBox fx:id="FiltreAttributPers" editable="true" layoutX="587.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltreTablePers" editable="true" layoutX="747.0" layoutY="407.0" prefHeight="39.0" prefWidth="153.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>
             </ComboBox>
+            <Button fx:id="BoutonRecherchePers" layoutX="316.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRecherchePers" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
+            <Button fx:id="BoutonReinitialisePers" layoutX="443.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionReinitialisePers" prefHeight="33.0" prefWidth="100.0" text="Réinitialiser" />
          </children></AnchorPane>
   </content>
 </TitledPane>

@@ -9,31 +9,33 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Taxes d'Apprentissage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Taxes d'Apprentissage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerTaxe">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="981.0">
          <children>
-            <Button layoutX="311.0" layoutY="31.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
-            <TableView layoutY="74.0" prefHeight="674.0" prefWidth="823.0">
+            <Button fx:id="BoutonRechercheTaxe" layoutX="311.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRechercheTaxe" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
+            <TableView fx:id="idEntreprise" layoutY="72.0" prefHeight="676.0" prefWidth="822.0">
               <columns>
-                <TableColumn prefWidth="55.0" text="Id" />
-                  <TableColumn prefWidth="164.0" text="Date" />
-                  <TableColumn prefWidth="172.0" text="Somme" />
-                  <TableColumn prefWidth="431.0" text="Commentaire" />
+                <TableColumn fx:id="idTaxe" prefWidth="82.0" text="idTaxe" />
+                  <TableColumn fx:id="date" prefWidth="137.0" text="Date" />
+                  <TableColumn fx:id="somme" prefWidth="172.0" text="Somme" />
+                  <TableColumn fx:id="commentaire" prefWidth="310.0" text="Commentaire" />
+                  <TableColumn fx:id="idEntreprise" prefWidth="120.0" text="idEntreprise" />
               </columns>
             </TableView>
-            <Button layoutX="868.0" layoutY="105.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
-            <TextField layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
-            <Button layoutX="857.0" layoutY="556.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
-            <Button layoutX="869.0" layoutY="182.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
-            <Button layoutX="870.0" layoutY="263.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
-            <Button layoutX="871.0" layoutY="347.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox editable="true" layoutX="442.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
-            <ComboBox editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <Button fx:id="BoutonAjoutTaxe" layoutX="868.0" layoutY="105.0" mnemonicParsing="false" onAction="#ActionAjoutTaxe" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <TextField fx:id="RechercheTaxe" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
+            <Button fx:id="BoutonChangeTaxe" layoutX="857.0" layoutY="556.0" mnemonicParsing="false" onAction="#ActionChangeTaxe" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
+            <Button fx:id="BoutonSuppTaxe" layoutX="871.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionSuppTaxe" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
+            <Button fx:id="BoutonModifTaxe" layoutX="870.0" layoutY="263.0" mnemonicParsing="false" onAction="#ActionModifTaxe" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
+            <Button fx:id="BoutonRechargeTaxe" layoutX="871.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionRechargeTaxe" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
+            <ComboBox fx:id="FiltreAttributTaxe" editable="true" layoutX="594.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attribut" />
+            <ComboBox fx:id="FiltreTableTaxe" editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>
             </ComboBox>
+            <Button fx:id="BoutonReinitialiseTaxe" layoutX="445.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionReinitialiseTaxe" prefHeight="33.0" prefWidth="100.0" text="Réinitaliser" />
          </children></AnchorPane>
   </content>
 </TitledPane>

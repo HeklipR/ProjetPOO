@@ -23,11 +23,12 @@ import java.util.ResourceBundle;
 
 public class ControllerContact implements Initializable {
 
+    //Tout le FXML
     @FXML public Button ModifierContact;
     @FXML public Button SupprimerContact;
     @FXML public Button AjouterContact;
-    @FXML public Button RechargerContact;
-    @FXML public TableView <Contact> Contact;
+    @FXML private Button RechargerContact;
+    @FXML private TableView <Contact> Contact;
     @FXML private TableColumn <Contact ,Integer> idContact;
     @FXML private TableColumn <Contact,String> LinkeedIn;
     @FXML private TableColumn <Contact,String> Telephone;
@@ -39,8 +40,10 @@ public class ControllerContact implements Initializable {
     @FXML private Button Changer;
     @FXML private TextField rechercheContact;
 
+    // Liste permettant l'affichage dans le Table View
     private ObservableList <Contact> data = FXCollections.observableArrayList() ;
 
+    // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final String login="root";
     private final String password="root";
@@ -69,7 +72,7 @@ public class ControllerContact implements Initializable {
         catch (Exception e){
             e.printStackTrace();
         }
-        // AJout données dans la BDD
+
         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));

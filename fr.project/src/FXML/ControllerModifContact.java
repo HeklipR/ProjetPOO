@@ -57,7 +57,7 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' ";
+            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

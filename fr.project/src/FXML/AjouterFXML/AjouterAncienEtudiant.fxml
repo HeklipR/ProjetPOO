@@ -5,8 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="AjouterAncienEtudiant" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AjouterAncienEtudiant" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerAjoutAE">
    <children>
       <Button fx:id="ValiderAncienEtudiant" layoutX="135.0" layoutY="536.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="70.0" text="Valider" />
       <TextField fx:id="NomAncienEtudiant" layoutX="147.0" layoutY="47.0" />
@@ -19,5 +18,7 @@
       <Label layoutX="19.0" layoutY="153.0" prefHeight="17.0" prefWidth="85.0" text="Année" />
       <Label layoutX="19.0" layoutY="217.0" prefHeight="17.0" prefWidth="116.0" text="Durée" />
       <Label layoutX="15.0" layoutY="280.0" prefHeight="17.0" prefWidth="124.0" text="Type de Contrat" />
+      <Label layoutX="15.0" layoutY="344.0" prefHeight="17.0" prefWidth="124.0" text="idPersonne" />
+      <TextField fx:id="idPersonne" layoutX="147.0" layoutY="340.0" />
    </children>
 </AnchorPane>

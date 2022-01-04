@@ -9,29 +9,30 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="853.0" prefWidth="723.0" text="Recherche  Specialité" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="853.0" prefWidth="723.0" text="Recherche  Specialité" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerSpecialite">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="626.0" prefWidth="717.0">
          <children>
-            <Button layoutX="311.0" layoutY="31.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
-            <TableView layoutY="74.0" prefHeight="752.0" prefWidth="504.0">
+            <Button fx:id="BoutonRechercheSpe" layoutX="311.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRechercheSpe" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
+            <TableView fx:id="Specialite" layoutY="74.0" prefHeight="752.0" prefWidth="504.0">
               <columns>
-                <TableColumn editable="false" text="id" />
-                  <TableColumn editable="false" prefWidth="423.0" text="Technologie" />
+                <TableColumn fx:id="idSpecialite" editable="false" text="idSpecialite" />
+                  <TableColumn fx:id="Technologie" editable="false" prefWidth="423.0" text="Technologie" />
               </columns>
             </TableView>
-            <Button layoutX="530.0" layoutY="102.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
-            <TextField layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
-            <Button layoutX="532.0" layoutY="496.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
-            <Button layoutX="531.0" layoutY="173.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
-            <Button layoutX="531.0" layoutY="247.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
-            <Button layoutX="531.0" layoutY="313.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox editable="true" layoutX="511.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
-            <ComboBox editable="true" layoutX="519.0" layoutY="409.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <Button fx:id="BoutonAjoutSpe" layoutX="530.0" layoutY="102.0" mnemonicParsing="false" onAction="#ActionAjoutSpe" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <TextField fx:id="RechercheSpe" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
+            <Button fx:id="BoutonChangeSpe" layoutX="518.0" layoutY="488.0" mnemonicParsing="false" onAction="#ActionChangeSpe" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
+            <Button fx:id="BoutonSuppSpe" layoutX="531.0" layoutY="173.0" mnemonicParsing="false" onAction="#ActionSuppSpe" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
+            <Button fx:id="BoutonModifSpe" layoutX="531.0" layoutY="247.0" mnemonicParsing="false" onAction="#ActionModifSpe" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
+            <Button fx:id="BoutonRechargeSpe" layoutX="531.0" layoutY="313.0" mnemonicParsing="false" onAction="#ActionRechargeSpe" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
+            <ComboBox fx:id="FiltreAttributSpe" editable="true" layoutX="527.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
+            <ComboBox fx:id="FiltreTableSpe" editable="true" layoutX="525.0" layoutY="411.0" prefHeight="39.0" prefWidth="136.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>
             </ComboBox>
+            <Button fx:id="BoutonReinitialiseSpe" layoutX="419.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionReinitialiseSpe" prefHeight="33.0" prefWidth="100.0" text="Réinitialiser" />
          </children></AnchorPane>
   </content>
 </TitledPane>

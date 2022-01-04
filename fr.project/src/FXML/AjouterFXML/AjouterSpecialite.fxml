@@ -5,8 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="AjouterSpecialite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AjouterSpecialite" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerAjoutSpe">
    <children>
       <Button fx:id="ValiderSpe" layoutX="135.0" layoutY="536.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="70.0" text="Valider" />
       <TextField fx:id="Techno" layoutX="147.0" layoutY="47.0" />
