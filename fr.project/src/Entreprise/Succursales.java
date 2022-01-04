@@ -1,6 +1,6 @@
 package Entreprise;
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -11,7 +11,7 @@ public class Succursales {
     private int idSuccursale;
     private int idEntreprise;
     private String NomSucc;
-    private Timestamp Date_de_creation;
+    private String Date_de_creation;
     private String Lieu;
     private String Site_internet;
 
@@ -28,7 +28,7 @@ public class Succursales {
      * @param Lieu
      * @param Site_internet
      */
-    public Succursales(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, int idSuccursale, int idEntreprise) {
+    public Succursales(String NomSucc, String Date_de_creation, String Lieu, String Site_internet, int idSuccursale, int idEntreprise) {
         this.idSuccursale = idSuccursale;
         this.idEntreprise = idEntreprise;
         this.NomSucc = NomSucc;
@@ -47,11 +47,11 @@ public class Succursales {
         this.NomSucc = NomSucc;
     }
 
-    public Timestamp getDate_de_creation() {
+    public String getDate_de_creation() {
         return Date_de_creation;
     }
 
-    public void setDate_de_creation(Timestamp Date_de_creation) {
+    public void setDate_de_creation(String Date_de_creation) {
         this.Date_de_creation = Date_de_creation;
     }
 
@@ -111,7 +111,7 @@ public class Succursales {
      * @param Site_internet
      * @throws SQLException
      */
-    public void SuccursalesAddBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
+    public void SuccursalesAddBDD(String NomSucc, String Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
 
     }
 
@@ -136,7 +136,7 @@ public class Succursales {
      * @param Site_internet
      * @throws SQLException
      */
-    public void SuccursalesModifBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
+    public void SuccursalesModifBDD(String NomSucc, String Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
 
     }
 

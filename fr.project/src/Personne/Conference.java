@@ -1,7 +1,7 @@
 package Personne;
 
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -9,10 +9,10 @@ public class Conference {
 
     // Variable de la class Conférence
     private int idConference;
-    private Timestamp date;
+    private String date;
     private String theme;
     private int nombrePublique;
-    private Timestamp duree;
+    private String duree;
 
 
 
@@ -24,7 +24,7 @@ public class Conference {
      * @param nombrePublique
      * @param duree
      */
-    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, int idConference) {
+    public Conference(String date, String theme, int nombrePublique, String duree, int idConference) {
         this.idConference = idConference;
         this.date = date;
         this.theme = theme;
@@ -33,11 +33,11 @@ public class Conference {
     }
 
 
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -57,11 +57,11 @@ public class Conference {
         this.nombrePublique = nombrePublique;
     }
 
-    public Timestamp getDuree() {
+    public String getDuree() {
         return duree;
     }
 
-    public void setDuree(Timestamp duree) {
+    public void setDuree(String duree) {
         this.duree = duree;
     }
 
@@ -94,7 +94,7 @@ public class Conference {
      * @param personne
      * @throws SQLException
      */
-    public void ConferenceAddBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) throws SQLException {
+    public void ConferenceAddBDD(String date, String theme, int nombrePublique, String duree, Personne personne) throws SQLException {
 
     }
 
@@ -116,7 +116,7 @@ public class Conference {
      * @param personne
      * @throws SQLException
      */
-    public void ConferenceModifBDD(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) throws SQLException{
+    public void ConferenceModifBDD(String date, String theme, int nombrePublique, String duree, Personne personne) throws SQLException{
 
     }
 

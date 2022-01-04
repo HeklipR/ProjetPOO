@@ -1,6 +1,6 @@
 package Personne;
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -11,9 +11,9 @@ public class AncienEtudiants {
 
     private int idAncienEtudiant;
     private String niveauEtude;
-    private Timestamp annee;
+    private String annee;
     private String typeDeContrat;
-    private Timestamp duree;
+    private String duree;
     private Personne personne;
     private int idPersonne;
 
@@ -27,7 +27,7 @@ public class AncienEtudiants {
      * @param personne
      */
 
-    public AncienEtudiants(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne, int idAncienEtudiant, int idPersonne) {
+    public AncienEtudiants(String niveauEtude, String annee, String typeDeContrat, String duree, Personne personne, int idAncienEtudiant, int idPersonne) {
         this.idPersonne = idPersonne;
         this.idAncienEtudiant = idAncienEtudiant;
         this.niveauEtude = niveauEtude;
@@ -47,11 +47,11 @@ public class AncienEtudiants {
         this.niveauEtude = niveauEtude;
     }
 
-    public Timestamp getAnnee() {
+    public String getAnnee() {
         return annee;
     }
 
-    public void setAnnee(Timestamp annee) {
+    public void setAnnee(String annee) {
         this.annee = annee;
     }
 
@@ -63,11 +63,11 @@ public class AncienEtudiants {
         this.typeDeContrat = typeDeContrat;
     }
 
-    public Timestamp getDuree() {
+    public String getDuree() {
         return duree;
     }
 
-    public void setDuree(Timestamp duree) {
+    public void setDuree(String duree) {
         this.duree = duree;
     }
 
@@ -116,7 +116,7 @@ public class AncienEtudiants {
      * @param personne
      * @throws SQLException
      */
-    public void AncienEtudiantsAddBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) throws SQLException {
+    public void AncienEtudiantsAddBDD(String niveauEtude, String annee, String typeDeContrat, String duree, Personne personne) throws SQLException {
 
     }
 
@@ -138,7 +138,7 @@ public class AncienEtudiants {
      * @param personne
      * @throws SQLException
      */
-    public void AncienEtudiantsModifBDD(String niveauEtude, Timestamp annee, String typeDeContrat, Timestamp duree, Personne personne) throws SQLException{
+    public void AncienEtudiantsModifBDD(String niveauEtude, String annee, String typeDeContrat, String duree, Personne personne) throws SQLException{
 
     }
 

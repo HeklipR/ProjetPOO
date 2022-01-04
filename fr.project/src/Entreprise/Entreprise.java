@@ -1,6 +1,6 @@
 package Entreprise;
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -13,7 +13,7 @@ public class Entreprise {
     private String Denomination;
     private String Adresse_du_siege;
     private String Secteurs_d_activite;
-    private Timestamp Date_de_creation;
+    private String Date_de_creation;
     private String Site_internet;
     private int idEntreprise;
 
@@ -28,7 +28,7 @@ public class Entreprise {
      * @param Site_internet
      */
 
-    public Entreprise(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) {
+    public Entreprise(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) {
         this.NomEntrep = NomEntrep;
         this.Raison_sociale = Raison_sociale;
         this.Denomination = Denomination;
@@ -80,11 +80,11 @@ public class Entreprise {
         this.Secteurs_d_activite = Secteurs_d_activite;
     }
 
-    public Timestamp getDate_de_creation() {
+    public String getDate_de_creation() {
         return Date_de_creation;
     }
 
-    public void setDate_de_creation(Timestamp Date_de_creation) {
+    public void setDate_de_creation(String Date_de_creation) {
         this.Date_de_creation = Date_de_creation;
     }
 
@@ -132,7 +132,7 @@ public class Entreprise {
      * @param Site_internet
      * @throws SQLException
      */
-    public void EntrepriseAddBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) throws SQLException {
+    public void EntrepriseAddBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) throws SQLException {
 
     }
 
@@ -158,7 +158,7 @@ public class Entreprise {
      * @param Site_internet
      * @throws SQLException
      */
-    public void EntrepriseModifBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) throws SQLException {
+    public void EntrepriseModifBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) throws SQLException {
 
     }
 

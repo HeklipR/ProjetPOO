@@ -1,6 +1,6 @@
 package Personne;
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -10,8 +10,8 @@ public class Stagiaire {
     //Variable de la class Stagiaire
     private int idStagiaire;
     private String Niveau_etudes;
-    private Timestamp annee;
-    private Timestamp duree;
+    private String annee;
+    private String duree;
     private String nom;
     private int idPersonne;
 
@@ -35,19 +35,19 @@ public class Stagiaire {
         this.Niveau_etudes = niveauEtude;
     }
 
-    public Timestamp getAnnee() {
+    public String getAnnee() {
         return annee;
     }
 
-    public void setAnnee(Timestamp annee) {
+    public void setAnnee(String annee) {
         this.annee = annee;
     }
 
-    public Timestamp getDuree() {
+    public String getDuree() {
         return duree;
     }
 
-    public void setDuree(Timestamp duree) {
+    public void setDuree(String duree) {
         this.duree = duree;
     }
 
@@ -90,7 +90,7 @@ public class Stagiaire {
      * @param annee
      * @param duree
      */
-    public Stagiaire(String niveauEtude, Timestamp annee, Timestamp duree, int idStagiaire, int idPersonne) {
+    public Stagiaire(String niveauEtude, String annee, String duree, int idStagiaire, int idPersonne) {
         this.idPersonne = idPersonne;
         this.idStagiaire = idStagiaire;
         this.Niveau_etudes = niveauEtude;
@@ -107,7 +107,7 @@ public class Stagiaire {
      * @param duree
      * @throws SQLException
      */
-    public void StagiaireAddBDD(String niveauEtude, Timestamp annee, Timestamp duree) throws SQLException{
+    public void StagiaireAddBDD(String niveauEtude, String annee, String duree) throws SQLException{
 
     }
     // Fonction permettant de supprimer un Stagiaire de la BDD
@@ -130,7 +130,7 @@ public class Stagiaire {
      * @param duree
      * @throws SQLException
      */
-    public void StagiaireModifBDD(String niveauEtude, Timestamp annee, Timestamp duree) throws SQLException {
+    public void StagiaireModifBDD(String niveauEtude, String annee, String duree) throws SQLException {
 
     }
 

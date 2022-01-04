@@ -1,6 +1,6 @@
 package Entreprise;
 
-import jdk.jfr.Timestamp;
+
 
 import java.sql.SQLException;
 
@@ -10,7 +10,7 @@ public class TaxeApprentissage {
     //Variable de la class TaxeApprentissage
     private int idTaxe;
     private int idEntreprise;
-    private Timestamp date;
+    private String date;
     private double somme;
     private String commentaire;
     
@@ -26,7 +26,7 @@ public class TaxeApprentissage {
      * @param somme
      * @param commentaire
      */
-    public TaxeApprentissage(Timestamp date, double somme, String commentaire, int idEntreprise, int idTaxe) {
+    public TaxeApprentissage(String date, double somme, String commentaire, int idEntreprise, int idTaxe) {
         this.idTaxe = idTaxe;
         this.idEntreprise = idEntreprise;
         this.date = date;
@@ -35,11 +35,11 @@ public class TaxeApprentissage {
     }
 
     //Getter and Setter de la class TaxeApprentissage
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -97,7 +97,7 @@ public class TaxeApprentissage {
      * @param commentaire
      * @throws SQLException
      */
-    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire ) throws SQLException{
+    public void TaxeApprentissageAddBDD(String date, double somme, String commentaire ) throws SQLException{
 
     }
 
@@ -120,7 +120,7 @@ public class TaxeApprentissage {
      * @param commentaire
      * @throws SQLException
      */
-    public void TaxeApprentissageModifBDD(Timestamp date, double somme, String commentaire ) throws SQLException {
+    public void TaxeApprentissageModifBDD(String date, double somme, String commentaire ) throws SQLException {
 
     }
 }
