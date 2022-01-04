@@ -18,29 +18,34 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ControllerAncienEtu implements Initializable {
 
     //Tout le FXML
-    @FXML public Button ModifierContact;
-    @FXML public Button SupprimerContact;
-    @FXML public Button AjouterContact;
-    @FXML private Button RechargerContact;
-    @FXML private TableView <Contact> Contact;
-    @FXML private TableColumn <Contact ,Integer> idContact;
-    @FXML private TableColumn <Contact,String> LinkeedIn;
-    @FXML private TableColumn <Contact,String> Telephone;
-    @FXML private TableColumn <Contact,String> Mail;
-    @FXML private TableColumn <Contact,String> Fonction;
-    @FXML private TableColumn <Contact, Integer> idPersonne ;
-    @FXML private ComboBox <String> FiltreTable;
-    @FXML private ComboBox <String> FiltresAttribut;
-    @FXML private Button Changer;
-    @FXML private TextField rechercheContact;
+    @FXML public Button BoutonRechercheAE;
+    @FXML public Button BoutonAjoutAE;
+    @FXML public Button ChangerTableAE;
+    @FXML private Button BoutonSuppAE;
+    @FXML private Button BoutonModifAE;
+    @FXML private Button BoutonRechargeAE;
+    @FXML private Button BoutonReinitialiserAE;
+    @FXML private TableView <AncienEtudiants> Ancien_Etudiant;
+    @FXML private TableColumn <AncienEtudiants ,Integer> idAncienEtudiant;
+    @FXML private TableColumn <AncienEtudiants,String> Niveau_etudes;
+    @FXML private TableColumn <AncienEtudiants,Date> AnneeEtudiant;
+    @FXML private TableColumn <AncienEtudiants,String> Type_de_contrat_de_travail;
+    @FXML private TableColumn <AncienEtudiants,Timestamp> Duree;
+    @FXML private TableColumn <AncienEtudiants,String> Nom ;
+    @FXML private TableColumn <AncienEtudiants,Integer> idPersAE ;
+    @FXML private ComboBox <String> FiltreAttributAE;
+    @FXML private ComboBox <String> FiltreTableAE;
+    @FXML private TextField RechercheAE;
 
     // Liste permettant l'affichage dans le Table View
-    private ObservableList <Contact> data = FXCollections.observableArrayList() ;
+    private ObservableList <AncienEtudiants> data = FXCollections.observableArrayList() ;
 
     // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -51,19 +56,19 @@ public class ControllerAncienEtu implements Initializable {
 
 
 
-    public void AffichageDonnés () {
+    public void AffichageDonnésAE () {
 
         try {
             this.con = SingleConnection.getInstance(urlb,password,login);
-            String SQL = "SELECT * FROM contact";
+            String SQL = "SELECT * FROM ancien_etudiants";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
 
             while (rs.next()){
-                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                        rs.getString("Mail"),rs.getString("Telephone"),
-                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau_etudes"),
+                        rs.getString("Annee"),rs.getString("Type_de_contrat_de_travail"),
+                        rs.getString("Duree"),rs.getString("Nom"),rs.getInt("idPersonne")));
 
             }
 
@@ -72,52 +77,53 @@ public class ControllerAncienEtu implements Initializable {
             e.printStackTrace();
         }
 
-        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+        idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
+        Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau_etudes"));
+        AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Annee"));
+        Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type_de_contrat_de_travail"));
+        Duree.setCellValueFactory(new PropertyValueFactory<>("Duree"));
+        Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+        idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-        Contact.setItems(data);
+        Ancien_Etudiant.setItems(data);
     }
 
-        public void FiltreTableComboBox() {
+        public void FiltreTableComboBoxAE() {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
-                "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
+                "recherche Contact" , "recherche Conferences" , "recherche Cours"
                 ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
+            FiltreTableAE.setItems(FiltreTableList);
 
     }
 
-    public void FiltresAttributComboBox() {
+    public void FiltresAttributComboBoxAE() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idAncienEtudiant" ,
+                "Niveau_etudes" , "Annee" , "Type_de_contrat_de_travail" ,"Duree" ,"Nom", "idPersonne" ) ;
 
-        FiltresAttribut.setItems(FiltreAttributsList);
+        FiltreAttributAE.setItems(FiltreAttributsList);
 
     }
 
     public String getURL () {
-String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
+String url = FiltreTableAE.getSelectionModel().getSelectedItem().toString();
 String URL = url +".fxml" ;
 return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltresAttribut.getSelectionModel().getSelectedItem().toString();
+        String attr =FiltreAttributAE.getSelectionModel().getSelectedItem().toString();
         return attr;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-       this.FiltreTableComboBox();
-       this.AffichageDonnés();
-       this.FiltresAttributComboBox();
+       this.FiltreTableComboBoxAE();
+       this.AffichageDonnésAE();
+       this.FiltresAttributComboBoxAE();
 
         }
 
@@ -125,9 +131,9 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangerAE(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) Changer.getScene().getWindow();
+        Stage stage = (Stage) ChangerTableAE.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(getURL()));
         Parent root1 = null;
@@ -144,29 +150,29 @@ return URL ;
 
     }
 
-    public void ActionAjouter(ActionEvent actionEvent) throws IOException {
+    public void ActionAjoutAE(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterContact.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterAncienEtudiant.fxml"));
+            Parent root1 = fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Ajouter un Contact");
+            stage.setTitle("Ajouter un Ancien Etudiant");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void ActionSupprimer(ActionEvent actionEvent) {
+    public void ActionSuppAE(ActionEvent actionEvent) {
 
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez AE.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Supprimer un Contact");
+            stage.setTitle("Supprimer un Ancien Etudiant");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -176,17 +182,17 @@ return URL ;
 
 
 
-    public void ActionRecharger(ActionEvent actionEvent) {
+    public void ActionRechargeAE(ActionEvent actionEvent) {
 
 
-        Stage stage = (Stage) RechargerContact.getScene().getWindow();
+        Stage stage = (Stage) BoutonRechargeAE.getScene().getWindow();
 
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Ancien Etudiant.fxml"));
         Parent root1 = null;
         try {
-            this.AffichageDonnés();
+            this.AffichageDonnésAE();
             root1 = (Parent) fxmlLoader.load();
         } catch (IOException e) {
             e.printStackTrace();
@@ -200,13 +206,13 @@ return URL ;
     }
 
 
-    public void ActionModifier(ActionEvent actionEvent) {
+    public void ActionModifAE(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier AncienEtudiant.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier un Ancien Etudiant");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -215,22 +221,22 @@ return URL ;
     }
 
 
-    public void ActionRechercher(ActionEvent actionEvent) {
+    public void ActionRechercheAE(ActionEvent actionEvent) {
 
     data.removeAll(data);
 
-     if ( FiltresAttribut.getSelectionModel().getSelectedItem() == "idContact" || FiltresAttribut.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+     if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "idAncienEtudiant" || FiltreAttributAE.getSelectionModel().getSelectedItem() == "idPersonne" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(rechercheContact.getText())+"'";
+             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheAE.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                         rs.getString("Mail"),rs.getString("Telephone"),
-                         rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                 data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
+                         rs.getString("Année"),rs.getString("Type de Contrat"),
+                         rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
 
              }
 
@@ -240,26 +246,98 @@ return URL ;
          }
 
          // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
+         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
+         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
+         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
+         Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+         Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+         idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         Ancien_Etudiant.setItems(data);
+
+
 
 }
+       else if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "Duree") {
+            try {
+                this.con = SingleConnection.getInstance(urlb, password, login);
+                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Timestamp.valueOf(RechercheAE.getText())+"'";
+                PreparedStatement st = con.prepareStatement(SQL);
+                ResultSet rs = st.executeQuery();
+
+
+                while (rs.next()){
+                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
+                            rs.getString("Année"),rs.getString("Type de Contrat"),
+                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
+
+                }
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+            // AJout données dans la BDD
+            idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
+            Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
+            AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
+            Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
+            Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+            Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+            idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+
+            Ancien_Etudiant.setItems(data);
+
+
+
+        }
+        else if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "Annee" || FiltreAttributAE.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+            try {
+                this.con = SingleConnection.getInstance(urlb, password, login);
+                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Date.parse(RechercheAE.getText())+"'";
+                PreparedStatement st = con.prepareStatement(SQL);
+                ResultSet rs = st.executeQuery();
+
+
+                while (rs.next()){
+                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
+                            rs.getString("Année"),rs.getString("Type de Contrat"),
+                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
+
+                }
+
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+            // AJout données dans la BDD
+            idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
+            Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
+            AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
+            Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
+            Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+            Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+            idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+
+            Ancien_Etudiant.setItems(data);
+
+
+
+        }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+rechercheContact.getText()+"'";
+                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+RechercheAE.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
+
                 while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
+                            rs.getString("Année"),rs.getString("Type de Contrat"),
+                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
 
                 }
 
@@ -268,24 +346,25 @@ return URL ;
                 e.printStackTrace();
             }
          // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
+         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
+         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
+         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
+         Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+         Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
+         idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         Ancien_Etudiant.setItems(data);
 
         }
     }
 
 
-    public void ActionReinitialiser(ActionEvent actionEvent) {
+    public void ActionReinitialiserAE(ActionEvent actionEvent) {
 
         data.removeAll(data);
 
-        this.AffichageDonnés();
+        this.AffichageDonnésAE();
     }
 }
 

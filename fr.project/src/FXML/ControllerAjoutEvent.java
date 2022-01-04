@@ -1,7 +1,6 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
-import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,12 +10,10 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class ControlllerAddContact implements Initializable {
+public class ControllerAjoutEvent implements Initializable {
 
 @FXML private Button ValiderContact ;
 @FXML private TextField FonctionContact;

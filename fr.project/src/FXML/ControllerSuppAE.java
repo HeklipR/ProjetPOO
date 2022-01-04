@@ -17,8 +17,8 @@ import java.util.ResourceBundle;
 public class ControllerSuppAE implements Initializable {
     @FXML
     public TableView<Contact> Contact;
-    public TextField idSupp ;
-    public Button OkSupp ;
+    public TextField idAESupp ;
+    public Button OkAESupp ;
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final String login="root";
     private final String password="root";
@@ -32,11 +32,11 @@ public class ControllerSuppAE implements Initializable {
 
     public void OkSuppAction(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) OkSupp.getScene().getWindow();
+        Stage stage = (Stage) OkAESupp.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "DELETE FROM contact WHERE idContact =" + Integer.parseInt(idSupp.getText());
+            String SQL = "DELETE FROM ancien_etudiants WHERE idAncienEtudiant =" + Integer.parseInt(idAESupp.getText());
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

@@ -5,30 +5,40 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 
 public class ControllerModifAE implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
+    @FXML private Button ValiderAEModif ;
+    @FXML private Button ViderAEModif ;
+    @FXML private TextField niveauetuAEModif ;
+    @FXML private TextField DureeAEModif ;
+    @FXML private TextField idPersAEModif ;
+    @FXML private TextField anneeAEModif ;
+    @FXML private TextField ContratAEModif ;
+    @FXML private TextField NomAEModif ;
+    @FXML private TextField idAEModif ;
+    @FXML private Button OkAEModif ;
     @FXML private TextField idModif;
+    @FXML private TableView <AncienEtudiants> Ancien_Etudiant;
+    @FXML private TableColumn<AncienEtudiants ,Integer> idAncienEtudiant;
+    @FXML private TableColumn <AncienEtudiants,String> Niveau_etudes;
+    @FXML private TableColumn <AncienEtudiants, Date> AnneeEtudiant;
+    @FXML private TableColumn <AncienEtudiants,String> Type_de_contrat_de_travail;
+    @FXML private TableColumn <AncienEtudiants, Timestamp> Duree;
+    @FXML private TableColumn <AncienEtudiants,String> Nom ;
+    @FXML private TableColumn <AncienEtudiants,Integer> idPersAE ;
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -53,11 +63,11 @@ private Connection con;
 
     public void ActionValidaxModif(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderAEModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE ancien_etudiants SET Niveau_etudes='"+niveauetuAEModif.getText()+"', Annee='"+anneeAEModif.getText()+" ',Type_de_contrat_de_travail='"+ContratAEModif.getText()+" ',Nom='"+NomAEModif.getText()+" ',Duree='"+DureeAEModif.getText()+" ',idPersonne='"+idPersAEModif.getText()+" 'WHERE idAncienEtudiant='"+idAEModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -75,17 +85,20 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM ancien_etudiants WHERE idAncienEtudiant="+ Integer.parseInt(idAEModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+
+                idAEModif.setText(rs.getString("idAncienEtudiant"));
+                niveauetuAEModif.setText(rs.getString("Niveau_etudes"));
+                anneeAEModif.setText(rs.getString("Annee"));
+                ContratAEModif.setText(rs.getString("Type_de_contrat_de_travail"));
+                DureeAEModif.setText(rs.getString("Duree"));
+                NomAEModif.setText(rs.getString("Nom"));
+                idPersAEModif.setText(rs.getString("idPersonne"));
 
             }
 
@@ -96,12 +109,13 @@ private Connection con;
     }
 
     public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+        idAEModif.setText("");
+        niveauetuAEModif.setText("");
+        anneeAEModif.setText("");
+        ContratAEModif.setText("");
+        DureeAEModif.setText("");
+        NomAEModif.setText("");
+        idPersAEModif.setText("");
 
     }
 }

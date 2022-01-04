@@ -13,7 +13,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class ControlllerAjoutEvent implements Initializable {
+public class ControllerAjoutStag implements Initializable {
 
 @FXML private Button ValiderContact ;
 @FXML private TextField FonctionContact;

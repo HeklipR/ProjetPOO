@@ -13,15 +13,15 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class ControlllerAjoutConf implements Initializable {
+public class ControllerAjoutAE implements Initializable {
 
-@FXML private Button ValiderContact ;
-@FXML private TextField FonctionContact;
-@FXML private TextField MailContact;
-@FXML private TextField TelephoneContact;
-@FXML private TextField LinkContact;
-@FXML private TextField idPersContact;
-
+@FXML private Button ValiderAncienEtudiant ;
+@FXML private TextField NomAncienEtudiant;
+@FXML private TextField NiveauEtude;
+@FXML private TextField Annee;
+@FXML private TextField Duree;
+@FXML private TextField TypeContrat;
+@FXML private TextField idPersonne;
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
     private final String login="root";
@@ -30,13 +30,13 @@ public class ControlllerAjoutConf implements Initializable {
 
 
 
-    public void ActionValidax(ActionEvent actionEvent) {
+    public void ActionValidaxAE(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContact.getScene().getWindow();
+        Stage stage = (Stage) ValiderAncienEtudiant.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (Fonction ,Mail , Telephone, LinkeedIn , idPersonne )" +
-                    "VALUES ('"+FonctionContact.getText()+" ','"+MailContact.getText()+" ','"+TelephoneContact.getText()+" ','"+LinkContact.getText()+" ','"+idPersContact.getText()+"')";
+            String SQL = "INSERT INTO ancien_etudiants (Niveau_etudes ,Annee , Type_de_contrat_de_travail ,Duree, Nom, idPersonne )" +
+                    "VALUES ('"+NiveauEtude.getText()+" ','"+Annee.getText()+" ','"+TypeContrat.getText()+" ','"+Duree.getText()+" ','"+NomAncienEtudiant.getText()+" ','"+idPersonne.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);
