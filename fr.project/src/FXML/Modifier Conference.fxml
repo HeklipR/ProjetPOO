@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerModifConf">
+   <children>
+      <Button fx:id="ValiderConfModif" layoutX="54.0" layoutY="438.0" mnemonicParsing="false" onAction="#ActionValidaxModif" prefHeight="34.0" prefWidth="70.0" text="Valider" />
+      <TextField fx:id="DateConfModif" layoutX="118.0" layoutY="200.0" />
+      <TextField fx:id="ThemeConfModif" layoutX="118.0" layoutY="249.0" />
+      <TextField fx:id="PublicConfModif" layoutX="118.0" layoutY="294.0" />
+      <Label layoutX="12.0" layoutY="204.0" prefHeight="17.0" prefWidth="85.0" text="Date" />
+      <Label layoutX="12.0" layoutY="253.0" prefHeight="17.0" prefWidth="85.0" text="Thème" />
+      <Label layoutX="8.0" layoutY="298.0" prefHeight="17.0" prefWidth="98.0" text="Publique" />
+      <TextField fx:id="idConfModif" layoutX="89.0" layoutY="58.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label alignment="CENTER" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="227.0" text="Sectionnez id que vous voulez Modifiez" />
+      <Button fx:id="OkConfModif" layoutX="198.0" layoutY="58.0" mnemonicParsing="false" onAction="#OkModifAction" prefHeight="25.0" prefWidth="54.0" text="Ok" />
+      <Separator layoutX="1.0" layoutY="126.0" prefHeight="0.0" prefWidth="340.0" />
+      <Button fx:id="ViderConfModif" layoutX="190.0" layoutY="438.0" mnemonicParsing="false" onAction="#ActionViderModif" prefHeight="34.0" prefWidth="70.0" text="Vider" />
+      <Label layoutX="10.0" layoutY="350.0" prefHeight="17.0" prefWidth="104.0" text="Durée" />
+      <TextField fx:id="DureeConfModif" layoutX="118.0" layoutY="346.0" />
+
+   </children>
+</AnchorPane>

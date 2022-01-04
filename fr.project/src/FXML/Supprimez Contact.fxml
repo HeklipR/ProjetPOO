@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="471.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerSuppContact">
+   <children>
+      <Button fx:id="OkSupp" layoutX="198.0" layoutY="131.0" mnemonicParsing="false" onAction="#OkSuppAction" prefHeight="30.0" prefWidth="77.0" text="Ok" />
+      <TextField fx:id="idSupp" layoutX="161.0" layoutY="63.0" />
+      <Label alignment="CENTER" layoutX="137.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" text="Quel id voulez vous supprimez ?" />
+   </children>
+</AnchorPane>

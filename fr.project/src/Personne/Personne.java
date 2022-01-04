@@ -11,24 +11,26 @@ public class Personne {
     private String nom;
     private String prenom;
     private int age;
-    private Entreprise entreprise;
+    private int idEntreprise;
 
     /**
      * Constructeur de la class Personne
+     * @param idEntreprise
+     * @param idPersonne
      * @param nom
      * @param prenom
      * @param age
-     * @param entreprise
      */
-    public Personne(int idPersonne , String nom, String prenom, int age, Entreprise entreprise) {
+    public Personne(int idPersonne , String nom, String prenom, int age, int idEntreprise) {
+        this.idEntreprise = idEntreprise;
         this.idPersonne = idPersonne ;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
-        this.entreprise = entreprise;
     }
 
     //Getter and Setter de la calss Personne
+
 
     public int getIdPersonne() {
         return idPersonne;
@@ -62,26 +64,33 @@ public class Personne {
         this.age = age;
     }
 
+    public int getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
 
     @Override
     public String toString() {
         return "Personne{" +
-                "nom='" + nom + '\'' +
+                "idPersonne=" + idPersonne +
+                ", nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", age=" + age +
+                ", idEntreprise=" + idEntreprise +
                 '}';
     }
-
 
     /**
      * Fonction permettant l'ajout d'une Personne à la BDD
      * @param nom
      * @param prenom
      * @param age
-     * @param entreprise
      * @throws SQLException
      */
-    public void PersonneAddBDD(String nom, String prenom, int age, Entreprise entreprise) throws SQLException{
+    public void PersonneAddBDD(String nom, String prenom, int age) throws SQLException{
 
     }
 
@@ -101,10 +110,9 @@ public class Personne {
      * @param nom
      * @param prenom
      * @param age
-     * @param entreprise
      * @throws SQLException
      */
-    public void PersonneModifBDD(String nom, String prenom, int age, Entreprise entreprise) throws SQLException {
+    public void PersonneModifBDD(String nom, String prenom, int age) throws SQLException {
         String rqt1 = "UPDATE PERSONNE SET nom = ?, prenom = ?, age = ? WHERE idPersonne = ?";
 
 

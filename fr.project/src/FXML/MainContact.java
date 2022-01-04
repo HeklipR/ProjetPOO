@@ -15,7 +15,7 @@ public class MainContact extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
-        stage.setTitle("");
+        stage.setTitle("Recherche Contact");
         stage.show();
     }
 

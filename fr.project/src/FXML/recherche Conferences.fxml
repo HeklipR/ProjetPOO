@@ -9,32 +9,33 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Recherche Conferences" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1049.0" text="Recherche Conferences" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerConferences">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="374.0" prefWidth="981.0">
          <children>
-            <Button layoutX="311.0" layoutY="31.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
-            <TableView layoutY="74.0" prefHeight="674.0" prefWidth="764.0">
+            <Button fx:id="BoutonRechercheConf" layoutX="311.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRechercheConf" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
+            <TableView fx:id="Conferences" layoutY="74.0" prefHeight="674.0" prefWidth="764.0">
               <columns>
-                <TableColumn text="Id" />
-                  <TableColumn prefWidth="112.0" text="Date" />
-                  <TableColumn prefWidth="215.0" text="Theme" />
-                  <TableColumn prefWidth="226.0" text="Publique" />
-                  <TableColumn prefWidth="132.0" text="Durée" />
+                <TableColumn fx:id="idConference" text="idConference" />
+                  <TableColumn fx:id="date" prefWidth="112.0" text="Date" />
+                  <TableColumn fx:id="theme" prefWidth="215.0" text="Theme" />
+                  <TableColumn fx:id="publique" prefWidth="226.0" text="Publique" />
+                  <TableColumn fx:id="duree" prefWidth="132.0" text="Durée" />
               </columns>
             </TableView>
-            <Button layoutX="868.0" layoutY="105.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
-            <TextField layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
-            <Button layoutX="857.0" layoutY="556.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
-            <Button layoutX="869.0" layoutY="182.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
-            <Button layoutX="870.0" layoutY="263.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
-            <Button layoutX="871.0" layoutY="347.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox editable="true" layoutX="442.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Filtres" />
-            <ComboBox editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <Button fx:id="BoutonAjoutConf" layoutX="806.0" layoutY="106.0" mnemonicParsing="false" onAction="#ActionAjoutConf" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <TextField fx:id="RechercheConf" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
+            <Button fx:id="BoutonChangerConf" layoutX="796.0" layoutY="501.0" mnemonicParsing="false" onAction="#ActionChangerConf" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
+            <Button fx:id="BoutonSuppConf" layoutX="807.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionSuppConf" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
+            <Button fx:id="BoutonModifConf" layoutX="809.0" layoutY="258.0" mnemonicParsing="false" onAction="#ActionModifConf" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
+            <Button fx:id="BoutonRechargeConf" layoutX="810.0" layoutY="330.0" mnemonicParsing="false" onAction="#ActionRechargeConf" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
+            <ComboBox fx:id="FiltreAttributConf" editable="true" layoutX="583.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltresTableConf" editable="true" layoutX="783.0" layoutY="422.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>
             </ComboBox>
+            <Button fx:id="BoutonReinitialiserConf" layoutX="424.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionReinitialiserConf" prefHeight="33.0" prefWidth="100.0" text="Réinitialiser" />
          </children></AnchorPane>
   </content>
 </TitledPane>

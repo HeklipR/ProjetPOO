@@ -5,17 +5,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="AjouterContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="AjouterContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControlllerAddContact">
    <children>
-      <Button fx:id="ValiderContact" layoutX="135.0" layoutY="536.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="70.0" text="Valider" />
-      <TextField fx:id="FonctionContact" layoutX="147.0" layoutY="47.0" />
-      <TextField fx:id="MailContact" layoutX="147.0" layoutY="96.0" />
-      <TextField fx:id="TelephoneContact" layoutX="147.0" layoutY="149.0" />
-      <TextField fx:id="LinkContact" layoutX="147.0" layoutY="213.0" />
-      <Label layoutX="19.0" layoutY="51.0" prefHeight="17.0" prefWidth="85.0" text="Fonction" />
-      <Label layoutX="19.0" layoutY="100.0" prefHeight="17.0" prefWidth="85.0" text="Mail" />
-      <Label layoutX="19.0" layoutY="153.0" prefHeight="17.0" prefWidth="85.0" text="Téléphone" />
-      <Label layoutX="19.0" layoutY="217.0" prefHeight="17.0" prefWidth="116.0" text="Linkeedln" />
+      <Button fx:id="ValiderContact" layoutX="135.0" layoutY="536.0" mnemonicParsing="false" onAction="#ActionValidax" prefHeight="34.0" prefWidth="70.0" text="Valider" />
+      <TextField fx:id="FonctionContact" layoutX="131.0" layoutY="102.0" />
+      <TextField fx:id="MailContact" layoutX="131.0" layoutY="160.0" />
+      <TextField fx:id="TelephoneContact" layoutX="131.0" layoutY="215.0" />
+      <TextField fx:id="LinkContact" layoutX="131.0" layoutY="267.0" />
+      <TextField fx:id="idPersContact" layoutX="131.0" layoutY="327.0" />
+      <Label layoutX="19.0" layoutY="106.0" prefHeight="17.0" prefWidth="85.0" text="Fonction" />
+      <Label layoutX="19.0" layoutY="164.0" prefHeight="17.0" prefWidth="85.0" text="Mail" />
+      <Label layoutX="19.0" layoutY="219.0" prefHeight="17.0" prefWidth="85.0" text="Téléphone" />
+      <Label layoutX="19.0" layoutY="271.0" prefHeight="17.0" prefWidth="116.0" text="Linkeedln" />
+      <Label layoutX="19.0" layoutY="339.0" prefHeight="17.0" prefWidth="116.0" text="idPersonne " />
+
    </children>
 </AnchorPane>

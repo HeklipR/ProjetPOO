@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ControllerModifEvent">
+   <children>
+      <Button fx:id="ValiderEntrModif" layoutX="54.0" layoutY="319.0" mnemonicParsing="false" onAction="#ActionValidaxModif" prefHeight="34.0" prefWidth="70.0" text="Valider" />
+      <TextField fx:id="LieuEventModif" layoutX="118.0" layoutY="200.0" />
+      <TextField fx:id="PresenceEventModif" layoutX="118.0" layoutY="250.0" />
+      <Label layoutX="15.0" layoutY="156.0" prefHeight="17.0" prefWidth="85.0" text="Type" />
+      <Label layoutX="15.0" layoutY="204.0" prefHeight="17.0" prefWidth="85.0" text="Lieu" />
+      <Label layoutX="17.0" layoutY="254.0" prefHeight="17.0" prefWidth="85.0" text="Présence" />
+      <TextField fx:id="idEventModif" layoutX="89.0" layoutY="58.0" prefHeight="25.0" prefWidth="46.0" />
+      <Label alignment="CENTER" layoutX="57.0" layoutY="23.0" prefHeight="25.0" prefWidth="227.0" text="Sectionnez id que vous voulez Modifiez" />
+      <Button fx:id="OkEventModif" layoutX="198.0" layoutY="58.0" mnemonicParsing="false" onAction="#OkModifAction" prefHeight="25.0" prefWidth="54.0" text="Ok" />
+      <Separator layoutX="1.0" layoutY="126.0" prefHeight="0.0" prefWidth="340.0" />
+      <Button fx:id="ViderEntrModif" layoutX="190.0" layoutY="319.0" mnemonicParsing="false" onAction="#ActionViderModif" prefHeight="34.0" prefWidth="70.0" text="Vider" />
+      <TextField fx:id="TypeEventModif" layoutX="118.0" layoutY="152.0" />
+
+   </children>
+</AnchorPane>

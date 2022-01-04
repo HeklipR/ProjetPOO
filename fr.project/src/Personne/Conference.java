@@ -8,27 +8,28 @@ import java.sql.SQLException;
 public class Conference {
 
     // Variable de la class Conférence
+    private int idConference;
     private Timestamp date;
     private String theme;
     private int nombrePublique;
     private Timestamp duree;
-    private Personne personne;
+
 
 
     /**
      * Constructeur de la classe Conférence
+     * @param idConference
      * @param date
      * @param theme
      * @param nombrePublique
      * @param duree
-     * @param personne
      */
-    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne) {
+    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, int idConference) {
+        this.idConference = idConference;
         this.date = date;
         this.theme = theme;
         this.nombrePublique = nombrePublique;
         this.duree = duree;
-        this.personne = personne;
     }
 
 
@@ -64,26 +65,25 @@ public class Conference {
         this.duree = duree;
     }
 
-    public Personne getPersonne() {
-        return personne;
+    public int getIdConference() {
+        return idConference;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
+    public void setIdConference(int idConference) {
+        this.idConference = idConference;
     }
-
-
 
     @Override
     public String toString() {
-        return "Conférence{" +
-                "date=" + date +
+        return "Conference{" +
+                "idConference=" + idConference +
+                ", date=" + date +
                 ", theme='" + theme + '\'' +
                 ", nombrePublique=" + nombrePublique +
                 ", duree=" + duree +
-                ", personne=" + personne +
                 '}';
     }
+
 
     /**
      * Fonction permettant l'ajout d'une conférence à la BDD
