@@ -14,7 +14,7 @@ public class Succursales {
     private Timestamp Date_de_creation;
     private String Lieu;
     private String Site_internet;
-    private Entreprise entreprise;
+
 
 
     // Constructeur de la class Succursales
@@ -27,16 +27,15 @@ public class Succursales {
      * @param Date_de_creation
      * @param Lieu
      * @param Site_internet
-     * @param entreprise
      */
-    public Succursales(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise, int idSuccursale, int idEntreprise) {
+    public Succursales(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, int idSuccursale, int idEntreprise) {
         this.idSuccursale = idSuccursale;
         this.idEntreprise = idEntreprise;
         this.NomSucc = NomSucc;
         this.Date_de_creation = Date_de_creation;
         this.Lieu = Lieu;
         this.Site_internet = Site_internet;
-        this.entreprise = entreprise;
+
     }
 
     // Getter and Setter de la class Succursales
@@ -72,13 +71,6 @@ public class Succursales {
         this.Site_internet = Site_internet;
     }
 
-    public Entreprise getEntreprise() {
-        return entreprise;
-    }
-
-    public void setEntreprise(Entreprise entreprise) {
-        this.entreprise = entreprise;
-    }
 
     public int getIdSuccursale() {
         return idSuccursale;
@@ -106,7 +98,6 @@ public class Succursales {
                 ", Date_de_creation=" + Date_de_creation +
                 ", Lieu='" + Lieu + '\'' +
                 ", Site_internet='" + Site_internet + '\'' +
-                ", entreprise=" + entreprise +
                 '}';
     }
 
@@ -118,10 +109,9 @@ public class Succursales {
      * @param Date_de_creation
      * @param Lieu
      * @param Site_internet
-     * @param entreprise
      * @throws SQLException
      */
-    public void SuccursalesAddBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise) throws SQLException {
+    public void SuccursalesAddBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
 
     }
 
@@ -144,10 +134,9 @@ public class Succursales {
      * @param Date_de_creation
      * @param Lieu
      * @param Site_internet
-     * @param entreprise
      * @throws SQLException
      */
-    public void SuccursalesModifBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise) throws SQLException {
+    public void SuccursalesModifBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
 
     }
 

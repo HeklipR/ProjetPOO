@@ -10,7 +10,7 @@ public class Event {
     private String Type;
     private String Lieu;
     private boolean Presence;
-    private Entreprise entreprise;
+    
 
 
 
@@ -19,13 +19,13 @@ public class Event {
      * @param Type
      * @param Lieu
      * @param Presence
-     * @param entreprise
+
      */
-    public Event(String Type, String Lieu, boolean Presence, Entreprise entreprise) {
+    public Event(String Type, String Lieu, boolean Presence ) {
         this.Type = Type;
         this.Lieu = Lieu;
         this.Presence = Presence;
-        this.entreprise = entreprise;
+
     }
 
     //Getter and Setter de la class Event
@@ -61,14 +61,6 @@ public class Event {
         this.idEvent = idEvent;
     }
 
-    public Entreprise getEntreprise() {
-        return entreprise;
-    }
-
-    public void setEntreprise(Entreprise entreprise) {
-        this.entreprise = entreprise;
-    }
-
 
 
     // ToString de la class Event
@@ -78,7 +70,6 @@ public class Event {
                 "Type='" + Type + '\'' +
                 ", Lieu='" + Lieu + '\'' +
                 ", Presence=" + Presence +
-                ", entreprise=" + entreprise +
                 '}';
     }
 
@@ -89,10 +80,9 @@ public class Event {
      * @param Type
      * @param Lieu
      * @param Presence
-     * @param entreprise
      * @throws SQLException
      */
-    public void EventAddBDD(String Type, String Lieu, boolean Presence, Entreprise entreprise) throws SQLException {
+    public void EventAddBDD(String Type, String Lieu, boolean Presence ) throws SQLException {
 
     }
     // Fonction permettant de supprimer un Event de la BDD
@@ -112,10 +102,9 @@ public class Event {
      * @param Type
      * @param Lieu
      * @param Presence
-     * @param entreprise
      * @throws SQLException
      */
-    public void EventModifBDD(String Type, String Lieu, boolean Presence, Entreprise entreprise) throws SQLException {
+    public void EventModifBDD(String Type, String Lieu, boolean Presence ) throws SQLException {
 
     }
 }

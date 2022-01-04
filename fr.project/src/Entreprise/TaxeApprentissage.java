@@ -13,7 +13,7 @@ public class TaxeApprentissage {
     private Timestamp date;
     private double somme;
     private String commentaire;
-    private Entreprise entreprise;
+    
 
 
     //Constructeur de la class TaxeApprentissage
@@ -25,15 +25,13 @@ public class TaxeApprentissage {
      * @param date
      * @param somme
      * @param commentaire
-     * @param entreprise
      */
-    public TaxeApprentissage(Timestamp date, double somme, String commentaire, Entreprise entreprise, int idEntreprise, int idTaxe) {
+    public TaxeApprentissage(Timestamp date, double somme, String commentaire, int idEntreprise, int idTaxe) {
         this.idTaxe = idTaxe;
         this.idEntreprise = idEntreprise;
         this.date = date;
         this.somme = somme;
         this.commentaire = commentaire;
-        this.entreprise = entreprise;
     }
 
     //Getter and Setter de la class TaxeApprentissage
@@ -61,13 +59,6 @@ public class TaxeApprentissage {
         this.commentaire = commentaire;
     }
 
-    public Entreprise getEntreprise() {
-        return entreprise;
-    }
-
-    public void setEntreprise(Entreprise entreprise) {
-        this.entreprise = entreprise;
-    }
 
     public int getIdTaxe() {
         return idTaxe;
@@ -94,7 +85,6 @@ public class TaxeApprentissage {
                 "date=" + date +
                 ", somme=" + somme +
                 ", commentaire='" + commentaire + '\'' +
-                ", entreprise=" + entreprise +
                 '}';
     }
 
@@ -105,10 +95,9 @@ public class TaxeApprentissage {
      * @param date
      * @param somme
      * @param commentaire
-     * @param entreprise
      * @throws SQLException
      */
-    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException{
+    public void TaxeApprentissageAddBDD(Timestamp date, double somme, String commentaire ) throws SQLException{
 
     }
 
@@ -129,10 +118,9 @@ public class TaxeApprentissage {
      * @param date
      * @param somme
      * @param commentaire
-     * @param entreprise
      * @throws SQLException
      */
-    public void TaxeApprentissageModifBDD(Timestamp date, double somme, String commentaire, Entreprise entreprise) throws SQLException {
+    public void TaxeApprentissageModifBDD(Timestamp date, double somme, String commentaire ) throws SQLException {
 
     }
 }
