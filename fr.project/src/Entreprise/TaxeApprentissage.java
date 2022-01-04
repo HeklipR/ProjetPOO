@@ -69,6 +69,23 @@ public class TaxeApprentissage {
         this.entreprise = entreprise;
     }
 
+    public int getIdTaxe() {
+        return idTaxe;
+    }
+
+    public void setIdTaxe(int idTaxe) {
+        this.idTaxe = idTaxe;
+    }
+
+    public int getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
+
+
 
     //ToString de la class TaxeApprentissage
     @Override

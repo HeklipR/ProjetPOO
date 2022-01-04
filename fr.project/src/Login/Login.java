@@ -31,6 +31,16 @@ public class Login {
         return role;
     }
 
+    /**
+     * Getters et Setters
+     */
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
     //ToString de la class Login (Pour les test à supprimer plus tard)
 
     /**
@@ -53,6 +63,7 @@ public class Login {
      * @throws SQLException
      */
     public void AccountcheckBDD() throws SQLException{
+
 
     }
 

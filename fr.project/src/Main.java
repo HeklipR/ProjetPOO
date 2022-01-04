@@ -1,3 +1,5 @@
+import SQLQueries.BDDConexion;
+
 import java.sql.SQLException;
 
 public class Main {

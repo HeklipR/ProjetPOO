@@ -8,105 +8,113 @@ public class Entreprise {
 
     // Variable de la class Entreprise
 
-    private String nomEntreprise;
-    private String raisonSociale;
-    private String denomination;
-    private String adresseDuSiege;
-    private String secteurActivite;
-    private Timestamp dateCreation;
-    private String siteInternet;
+    private String NomEntrep;
+    private String Raison_sociale;
+    private String Denomination;
+    private String Adresse_du_siege;
+    private String Secteurs_d_activite;
+    private Timestamp Date_de_creation;
+    private String Site_internet;
+    private int idEntreprise;
 
     /**
      * Constructeur de la classe Entreprise
-     * @param nomEntreprise
-     * @param raisonSociale
-     * @param denomination
-     * @param adresseDuSiege
-     * @param secteurActivite
-     * @param dateCreation
-     * @param siteInternet
+     * @param NomEntrep
+     * @param Raison_sociale
+     * @param Denomination
+     * @param Adresse_du_siege
+     * @param Secteurs_d_activite
+     * @param Date_de_creation
+     * @param Site_internet
      */
 
-    public Entreprise(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) {
-        this.nomEntreprise = nomEntreprise;
-        this.raisonSociale = raisonSociale;
-        this.denomination = denomination;
-        this.adresseDuSiege = adresseDuSiege;
-        this.secteurActivite = secteurActivite;
-        this.dateCreation = dateCreation;
-        this.siteInternet = siteInternet;
+    public Entreprise(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) {
+        this.NomEntrep = NomEntrep;
+        this.Raison_sociale = Raison_sociale;
+        this.Denomination = Denomination;
+        this.Adresse_du_siege = Adresse_du_siege;
+        this.Secteurs_d_activite = Secteurs_d_activite;
+        this.Date_de_creation = Date_de_creation;
+        this.Site_internet = Site_internet;
     }
 
     //Getter et Setter de la class Entreprise
 
-    public String getNomEntreprise() {
-        return nomEntreprise;
+    public String getNomEntrep() {
+        return NomEntrep;
     }
 
-    public void setNomEntreprise(String nomEntreprise) {
-        this.nomEntreprise = nomEntreprise;
+    public void setNomEntrep(String NomEntrep) {
+        this.NomEntrep = NomEntrep;
     }
 
-    public String getRaisonSociale() {
-        return raisonSociale;
+    public String getRaison_sociale() {
+        return Raison_sociale;
     }
 
-    public void setRaisonSociale(String raisonSociale) {
-        this.raisonSociale = raisonSociale;
+    public void setRaison_sociale(String Raison_sociale) {
+        this.Raison_sociale = Raison_sociale;
     }
 
     public String getDenomination() {
-        return denomination;
+        return Denomination;
     }
 
-    public void setDenomination(String denomination) {
-        this.denomination = denomination;
+    public void setDenomination(String Denomination) {
+        this.Denomination = Denomination;
     }
 
-    public String getAdresseDuSiege() {
-        return adresseDuSiege;
+    public String getAdresse_du_siege() {
+        return Adresse_du_siege;
     }
 
-    public void setAdresseDuSiege(String adresseDuSiege) {
-        this.adresseDuSiege = adresseDuSiege;
+    public void setAdresse_du_siege(String Adresse_du_siege) {
+        this.Adresse_du_siege = Adresse_du_siege;
     }
 
-    public String getSecteurActivite() {
-        return secteurActivite;
+    public String getSecteurs_d_activite() {
+        return Secteurs_d_activite;
     }
 
-    public void setSecteurActivite(String secteurActivite) {
-        this.secteurActivite = secteurActivite;
+    public void setSecteurs_d_activite(String Secteurs_d_activite) {
+        this.Secteurs_d_activite = Secteurs_d_activite;
     }
 
-    public Timestamp getDateCreation() {
-        return dateCreation;
+    public Timestamp getDate_de_creation() {
+        return Date_de_creation;
     }
 
-    public void setDateCreation(Timestamp dateCreation) {
-        this.dateCreation = dateCreation;
+    public void setDate_de_creation(Timestamp Date_de_creation) {
+        this.Date_de_creation = Date_de_creation;
     }
 
-    public String getSiteInternet() {
-        return siteInternet;
+    public String getSite_internet() {
+        return Site_internet;
     }
 
-    public void setSiteInternet(String siteInternet) {
-        this.siteInternet = siteInternet;
+    public void setSite_internet(String Site_internet) {
+        this.Site_internet = Site_internet;
     }
 
+    public int getIdEntreprise() {
+        return idEntreprise;
+    }
+
+    public void setIdEntreprise(int idEntreprise) {
+        this.idEntreprise = idEntreprise;
+    }
 
     // To String de la classe Entreprise
     @Override
     public String toString() {
         return "Entreprise{" +
-                "nomEntreprise='" + nomEntreprise + '\'' +
-                ", raisonSociale='" + raisonSociale + '\'' +
-                ", denomination='" + denomination + '\'' +
-                ", adresseDuSiege='" + adresseDuSiege + '\'' +
-                ", secteurActivite='" + secteurActivite + '\'' +
-                ", dateCreation=" + dateCreation +
-                ", siteInternet='" + siteInternet + '\'' +
+                "NomEntrep='" + NomEntrep + '\'' +
+                ", Raison_sociale='" + Raison_sociale + '\'' +
+                ", Denomination='" + Denomination + '\'' +
+                ", Adresse_du_siege='" + Adresse_du_siege + '\'' +
+                ", Secteurs_d_activite='" + Secteurs_d_activite + '\'' +
+                ", Date_de_creation=" + Date_de_creation +
+                ", Site_internet='" + Site_internet + '\'' +
                 '}';
     }
 
@@ -115,16 +123,16 @@ public class Entreprise {
 
     /**
      * Fonction permettant l'ajout d'une entreprise à la BDD
-     * @param nomEntreprise
-     * @param raisonSociale
-     * @param denomination
-     * @param adresseDuSiege
-     * @param secteurActivite
-     * @param dateCreation
-     * @param siteInternet
+     * @param NomEntrep
+     * @param Raison_sociale
+     * @param Denomination
+     * @param Adresse_du_siege
+     * @param Secteurs_d_activite
+     * @param Date_de_creation
+     * @param Site_internet
      * @throws SQLException
      */
-    public void EntrepriseAddBDD(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) throws SQLException {
+    public void EntrepriseAddBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) throws SQLException {
 
     }
 
@@ -141,16 +149,16 @@ public class Entreprise {
 
     /**
      * Fonction permettant de modifier les valeurs d'une entreprise puis les changer sur la BDD
-     * @param nomEntreprise
-     * @param raisonSociale
-     * @param denomination
-     * @param adresseDuSiege
-     * @param secteurActivite
-     * @param dateCreation
-     * @param siteInternet
+     * @param NomEntrep
+     * @param Raison_sociale
+     * @param Denomination
+     * @param Adresse_du_siege
+     * @param Secteurs_d_activite
+     * @param Date_de_creation
+     * @param Site_internet
      * @throws SQLException
      */
-    public void EntrepriseModifBDD(String nomEntreprise, String raisonSociale, String denomination, String adresseDuSiege, String secteurActivite, Timestamp dateCreation, String siteInternet) throws SQLException {
+    public void EntrepriseModifBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, Timestamp Date_de_creation, String Site_internet) throws SQLException {
 
     }
 

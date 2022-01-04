@@ -10,10 +10,10 @@ public class Succursales {
     // Variable de la class Succursales
     private int idSuccursale;
     private int idEntreprise;
-    private String nomSucc;
-    private Timestamp dateCreation;
-    private String lieu;
-    private String siteInternet;
+    private String NomSucc;
+    private Timestamp Date_de_creation;
+    private String Lieu;
+    private String Site_internet;
     private Entreprise entreprise;
 
 
@@ -23,53 +23,53 @@ public class Succursales {
      * Constructeur de la class Succursales
      * @param idSuccursale
      * @param idEntreprise
-     * @param nomSucc
-     * @param dateCreation
-     * @param lieu
-     * @param siteInternet
+     * @param NomSucc
+     * @param Date_de_creation
+     * @param Lieu
+     * @param Site_internet
      * @param entreprise
      */
-    public Succursales(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise, int idSuccursale, int idEntreprise) {
+    public Succursales(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise, int idSuccursale, int idEntreprise) {
         this.idSuccursale = idSuccursale;
         this.idEntreprise = idEntreprise;
-        this.nomSucc = nomSucc;
-        this.dateCreation = dateCreation;
-        this.lieu = lieu;
-        this.siteInternet = siteInternet;
+        this.NomSucc = NomSucc;
+        this.Date_de_creation = Date_de_creation;
+        this.Lieu = Lieu;
+        this.Site_internet = Site_internet;
         this.entreprise = entreprise;
     }
 
     // Getter and Setter de la class Succursales
     public String getNomSucc() {
-        return nomSucc;
+        return NomSucc;
     }
 
-    public void setNomSucc(String nomSucc) {
-        this.nomSucc = nomSucc;
+    public void setNomSucc(String NomSucc) {
+        this.NomSucc = NomSucc;
     }
 
-    public Timestamp getDateCreation() {
-        return dateCreation;
+    public Timestamp getDate_de_creation() {
+        return Date_de_creation;
     }
 
-    public void setDateCreation(Timestamp dateCreation) {
-        this.dateCreation = dateCreation;
+    public void setDate_de_creation(Timestamp Date_de_creation) {
+        this.Date_de_creation = Date_de_creation;
     }
 
     public String getLieu() {
-        return lieu;
+        return Lieu;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setLieu(String Lieu) {
+        this.Lieu = Lieu;
     }
 
-    public String getSiteInternet() {
-        return siteInternet;
+    public String getSite_internet() {
+        return Site_internet;
     }
 
-    public void setSiteInternet(String siteInternet) {
-        this.siteInternet = siteInternet;
+    public void setSite_internet(String Site_internet) {
+        this.Site_internet = Site_internet;
     }
 
     public Entreprise getEntreprise() {
@@ -96,14 +96,16 @@ public class Succursales {
         this.idEntreprise = idEntreprise;
     }
 
+
+
     // ToString de la class Succursales
     @Override
     public String toString() {
         return "Succursales{" +
-                "nomSucc='" + nomSucc + '\'' +
-                ", dateCreation=" + dateCreation +
-                ", lieu='" + lieu + '\'' +
-                ", siteInternet='" + siteInternet + '\'' +
+                "NomSucc='" + NomSucc + '\'' +
+                ", Date_de_creation=" + Date_de_creation +
+                ", Lieu='" + Lieu + '\'' +
+                ", Site_internet='" + Site_internet + '\'' +
                 ", entreprise=" + entreprise +
                 '}';
     }
@@ -112,14 +114,14 @@ public class Succursales {
 
     /**
      * Fonction permettant l'ajout d'une Succursale à la BDD
-     * @param nomSucc
-     * @param dateCreation
-     * @param lieu
-     * @param siteInternet
+     * @param NomSucc
+     * @param Date_de_creation
+     * @param Lieu
+     * @param Site_internet
      * @param entreprise
      * @throws SQLException
      */
-    public void SuccursalesAddBDD(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) throws SQLException {
+    public void SuccursalesAddBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise) throws SQLException {
 
     }
 
@@ -138,14 +140,14 @@ public class Succursales {
 
     /**
      * Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
-     * @param nomSucc
-     * @param dateCreation
-     * @param lieu
-     * @param siteInternet
+     * @param NomSucc
+     * @param Date_de_creation
+     * @param Lieu
+     * @param Site_internet
      * @param entreprise
      * @throws SQLException
      */
-    public void SuccursalesModifBDD(String nomSucc, Timestamp dateCreation, String lieu, String siteInternet, Entreprise entreprise) throws SQLException {
+    public void SuccursalesModifBDD(String NomSucc, Timestamp Date_de_creation, String Lieu, String Site_internet, Entreprise entreprise) throws SQLException {
 
     }
 

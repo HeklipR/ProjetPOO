@@ -6,50 +6,59 @@ public class Event {
 
 
     //Variable de la class Event
-    private String type;
-    private String lieu;
-    private boolean presence;
+    private int idEvent;
+    private String Type;
+    private String Lieu;
+    private boolean Presence;
     private Entreprise entreprise;
 
 
 
     /**
      * Constructeur de la class Event
-     * @param type
-     * @param lieu
-     * @param presence
+     * @param Type
+     * @param Lieu
+     * @param Presence
      * @param entreprise
      */
-    public Event(String type, String lieu, boolean presence, Entreprise entreprise) {
-        this.type = type;
-        this.lieu = lieu;
-        this.presence = presence;
+    public Event(String Type, String Lieu, boolean Presence, Entreprise entreprise) {
+        this.Type = Type;
+        this.Lieu = Lieu;
+        this.Presence = Presence;
         this.entreprise = entreprise;
     }
 
     //Getter and Setter de la class Event
     public String getType() {
-        return type;
+        return Type;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String Type) {
+        this.Type = Type;
     }
 
     public String getLieu() {
-        return lieu;
+        return Lieu;
     }
 
-    public void setLieu(String lieu) {
-        this.lieu = lieu;
+    public void setLieu(String Lieu) {
+        this.Lieu = Lieu;
     }
 
     public boolean isPresence() {
-        return presence;
+        return Presence;
     }
 
-    public void setPresence(boolean presence) {
-        this.presence = presence;
+    public void setPresence(boolean Presence) {
+        this.Presence = Presence;
+    }
+
+    public int getIdEvent() {
+        return idEvent;
+    }
+
+    public void setIdEvent(int idEvent) {
+        this.idEvent = idEvent;
     }
 
     public Entreprise getEntreprise() {
@@ -66,9 +75,9 @@ public class Event {
     @Override
     public String toString() {
         return "Event{" +
-                "type='" + type + '\'' +
-                ", lieu='" + lieu + '\'' +
-                ", presence=" + presence +
+                "Type='" + Type + '\'' +
+                ", Lieu='" + Lieu + '\'' +
+                ", Presence=" + Presence +
                 ", entreprise=" + entreprise +
                 '}';
     }
@@ -77,13 +86,13 @@ public class Event {
 
     /**
      * Fonction permettant l'ajout d'un Event à la BDD
-     * @param type
-     * @param lieu
-     * @param presence
+     * @param Type
+     * @param Lieu
+     * @param Presence
      * @param entreprise
      * @throws SQLException
      */
-    public void EventAddBDD(String type, String lieu, boolean presence, Entreprise entreprise) throws SQLException {
+    public void EventAddBDD(String Type, String Lieu, boolean Presence, Entreprise entreprise) throws SQLException {
 
     }
     // Fonction permettant de supprimer un Event de la BDD
@@ -100,13 +109,13 @@ public class Event {
 
     /**
      * Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
-     * @param type
-     * @param lieu
-     * @param presence
+     * @param Type
+     * @param Lieu
+     * @param Presence
      * @param entreprise
      * @throws SQLException
      */
-    public void EventModifBDD(String type, String lieu, boolean presence, Entreprise entreprise) throws SQLException {
+    public void EventModifBDD(String Type, String Lieu, boolean Presence, Entreprise entreprise) throws SQLException {
 
     }
 }
