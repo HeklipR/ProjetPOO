@@ -9,16 +9,14 @@ public class Cours {
     private String matiere;
     private String filliere;
     private int annee;
-    private Personne personne;
 
 
 
-    public Cours(String matiere, String filliere, int annee, Personne personne, int idCours) {
+    public Cours(String matiere, String filliere, int annee, int idCours) {
         this.idCours = idCours;
         this.matiere = matiere;
         this.filliere = filliere;
         this.annee = annee;
-        this.personne = personne;
     }
 
     //Getter and Setter de la class Cours
@@ -46,14 +44,6 @@ public class Cours {
         this.annee = annee;
     }
 
-    public Personne getPersonne() {
-        return personne;
-    }
-
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
     public int getIdCours() {
         return idCours;
     }
@@ -62,23 +52,22 @@ public class Cours {
         this.idCours = idCours;
     }
 
+
     @Override
     public String toString() {
         return "Cours{" +
-                "matiere='" + matiere + '\'' +
+                "idCours=" + idCours +
+                ", matiere='" + matiere + '\'' +
                 ", filliere='" + filliere + '\'' +
                 ", annee=" + annee +
-                ", personne=" + personne +
                 '}';
     }
-
 
     /**
      * Fonction permettant l'ajout d'un cours à la BDD
      * @param matiere
      * @param filliere
      * @param annee
-     * @param personne
      * @throws SQLException
      */
     public void CoursAddBDD(String matiere, String filliere, int annee, Personne personne) throws SQLException {

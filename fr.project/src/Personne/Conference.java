@@ -13,7 +13,6 @@ public class Conference {
     private String theme;
     private int nombrePublique;
     private Timestamp duree;
-    private Personne personne;
 
 
 
@@ -24,15 +23,13 @@ public class Conference {
      * @param theme
      * @param nombrePublique
      * @param duree
-     * @param personne
      */
-    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, Personne personne, int idConference) {
+    public Conference(Timestamp date, String theme, int nombrePublique, Timestamp duree, int idConference) {
         this.idConference = idConference;
         this.date = date;
         this.theme = theme;
         this.nombrePublique = nombrePublique;
         this.duree = duree;
-        this.personne = personne;
     }
 
 
@@ -68,14 +65,6 @@ public class Conference {
         this.duree = duree;
     }
 
-    public Personne getPersonne() {
-        return personne;
-    }
-
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
     public int getIdConference() {
         return idConference;
     }
@@ -86,14 +75,15 @@ public class Conference {
 
     @Override
     public String toString() {
-        return "Conférence{" +
-                "date=" + date +
+        return "Conference{" +
+                "idConference=" + idConference +
+                ", date=" + date +
                 ", theme='" + theme + '\'' +
                 ", nombrePublique=" + nombrePublique +
                 ", duree=" + duree +
-                ", personne=" + personne +
                 '}';
     }
+
 
     /**
      * Fonction permettant l'ajout d'une conférence à la BDD
