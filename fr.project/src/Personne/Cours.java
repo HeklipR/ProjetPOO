@@ -7,15 +7,15 @@ public class Cours {
     //Variable de la class Cours
     private int idCours;
     private String matiere;
-    private String filliere;
+    private String filiere;
     private int annee;
 
 
 
-    public Cours(String matiere, String filliere, int annee, int idCours) {
+    public Cours(String matiere, String filiere, int annee, int idCours) {
         this.idCours = idCours;
         this.matiere = matiere;
-        this.filliere = filliere;
+        this.filiere = filiere;
         this.annee = annee;
     }
 
@@ -29,11 +29,11 @@ public class Cours {
     }
 
     public String getFilliere() {
-        return filliere;
+        return filiere;
     }
 
     public void setFilliere(String filliere) {
-        this.filliere = filliere;
+        this.filiere = filliere;
     }
 
     public int getAnnee() {
@@ -58,7 +58,7 @@ public class Cours {
         return "Cours{" +
                 "idCours=" + idCours +
                 ", matiere='" + matiere + '\'' +
-                ", filliere='" + filliere + '\'' +
+                ", filiere='" + filiere + '\'' +
                 ", annee=" + annee +
                 '}';
     }

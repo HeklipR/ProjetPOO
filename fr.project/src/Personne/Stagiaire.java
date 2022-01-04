@@ -9,7 +9,7 @@ public class Stagiaire {
 
     //Variable de la class Stagiaire
     private int idStagiaire;
-    private String niveauEtude;
+    private String Niveau_etudes;
     private Timestamp annee;
     private Timestamp duree;
     private String nom;
@@ -28,11 +28,11 @@ public class Stagiaire {
     }
 
     public String getNiveauEtude() {
-        return niveauEtude;
+        return Niveau_etudes;
     }
 
     public void setNiveauEtude(String niveauEtude) {
-        this.niveauEtude = niveauEtude;
+        this.Niveau_etudes = niveauEtude;
     }
 
     public Timestamp getAnnee() {
@@ -74,7 +74,7 @@ public class Stagiaire {
     public String toString() {
         return "Stagiaire{" +
                 "idStagiaire=" + idStagiaire +
-                ", niveauEtude='" + niveauEtude + '\'' +
+                ", niveauEtude='" + Niveau_etudes + '\'' +
                 ", annee=" + annee +
                 ", duree=" + duree +
                 ", nom='" + nom + '\'' +
@@ -93,7 +93,7 @@ public class Stagiaire {
     public Stagiaire(String niveauEtude, Timestamp annee, Timestamp duree, int idStagiaire, int idPersonne) {
         this.idPersonne = idPersonne;
         this.idStagiaire = idStagiaire;
-        this.niveauEtude = niveauEtude;
+        this.Niveau_etudes = niveauEtude;
         this.annee = annee;
         this.duree = duree;
 
