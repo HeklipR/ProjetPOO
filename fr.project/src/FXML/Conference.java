@@ -1,7 +1,9 @@
-package Personne;
+package FXML;
 
 
 
+
+import Personne.Personne;
 
 import java.sql.SQLException;
 
@@ -11,7 +13,7 @@ public class Conference {
     private int idConference;
     private String date;
     private String theme;
-    private int nombrePublique;
+    private int publique;
     private String duree;
 
 
@@ -21,14 +23,14 @@ public class Conference {
      * @param idConference
      * @param date
      * @param theme
-     * @param nombrePublique
+     * @param publique
      * @param duree
      */
-    public Conference(String date, String theme, int nombrePublique, String duree, int idConference) {
+    public Conference(int idConference, String date, String theme, int publique, String duree) {
         this.idConference = idConference;
         this.date = date;
         this.theme = theme;
-        this.nombrePublique = nombrePublique;
+        this.publique = publique;
         this.duree = duree;
     }
 
@@ -49,12 +51,12 @@ public class Conference {
         this.theme = theme;
     }
 
-    public int getNombrePublique() {
-        return nombrePublique;
+    public int getPublique() {
+        return publique;
     }
 
-    public void setNombrePublique(int nombrePublique) {
-        this.nombrePublique = nombrePublique;
+    public void setPublique(int publique) {
+        this.publique = publique;
     }
 
     public String getDuree() {
@@ -79,7 +81,7 @@ public class Conference {
                 "idConference=" + idConference +
                 ", date=" + date +
                 ", theme='" + theme + '\'' +
-                ", nombrePublique=" + nombrePublique +
+                ", nombrePublique=" + publique +
                 ", duree=" + duree +
                 '}';
     }
@@ -94,9 +96,7 @@ public class Conference {
      * @param personne
      * @throws SQLException
      */
-    public void ConferenceAddBDD(String date, String theme, int nombrePublique, String duree, Personne personne) throws SQLException {
 
-    }
 
     /**
      * Fonction permettant de supprimer une conférence de la BDD
@@ -116,8 +116,5 @@ public class Conference {
      * @param personne
      * @throws SQLException
      */
-    public void ConferenceModifBDD(String date, String theme, int nombrePublique, String duree, Personne personne) throws SQLException{
-
-    }
 
 }

@@ -15,12 +15,12 @@ import java.util.ResourceBundle;
 
 public class ControllerAjoutConf implements Initializable {
 
-@FXML private Button ValiderContact ;
-@FXML private TextField FonctionContact;
-@FXML private TextField MailContact;
-@FXML private TextField TelephoneContact;
-@FXML private TextField LinkContact;
-@FXML private TextField idPersContact;
+@FXML private Button ValiderConf ;
+@FXML private TextField DateConf;
+@FXML private TextField ThemeConf;
+@FXML private TextField PublicConf;
+@FXML private TextField DureeConf;
+
 
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -30,13 +30,13 @@ public class ControllerAjoutConf implements Initializable {
 
 
 
-    public void ActionValidax(ActionEvent actionEvent) {
+    public void ActionValidaxConf(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContact.getScene().getWindow();
+        Stage stage = (Stage) ValiderConf.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (Fonction ,Mail , Telephone, LinkeedIn , idPersonne )" +
-                    "VALUES ('"+FonctionContact.getText()+" ','"+MailContact.getText()+" ','"+TelephoneContact.getText()+" ','"+LinkContact.getText()+" ','"+idPersContact.getText()+"')";
+            String SQL = "INSERT INTO Contact (date ,theme , publique, duree)" +
+                    "VALUES ('"+DateConf.getText()+" ','"+ThemeConf.getText()+" ','"+PublicConf.getText()+" ','"+DureeConf.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);

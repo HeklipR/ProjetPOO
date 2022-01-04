@@ -20,15 +20,16 @@ import java.util.ResourceBundle;
 public class ControllerModifConf implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
-    @FXML private TextField idModif;
+    @FXML private Button ValiderConfModif ;
+    @FXML private TextField DateConfModif ;
+    @FXML private TextField ThemeConfModif ;
+    @FXML private TextField PublicConfModif ;
+    @FXML private TextField idConfModif ;
+    @FXML private TextField DureeConfModif ;
+    @FXML private TableView Conference ;
+    @FXML private Button OkConfModif ;
+    @FXML private Button ViderConfModif;
+
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -53,11 +54,11 @@ private Connection con;
 
     public void ActionValidaxModif(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderConfModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE conference SET date='"+DateConfModif.getText()+"', theme='"+ThemeConfModif.getText()+" ',publique='"+PublicConfModif.getText()+" ',duree='"+DureeConfModif.getText()+"' WHERE idConference='"+idConfModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -75,17 +76,16 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM conference WHERE idConference =" + Integer.parseInt(idConfModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+                DateConfModif.setText(rs.getString("date"));
+                ThemeConfModif.setText(rs.getString("theme"));
+                PublicConfModif.setText(rs.getString("publique"));
+                DureeConfModif.setText(rs.getString("duree"));
 
             }
 
@@ -96,12 +96,12 @@ private Connection con;
     }
 
     public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+        idConfModif.setText("");
+        DateConfModif.setText("");
+        ThemeConfModif.setText("");
+        PublicConfModif.setText("");
+        DureeConfModif.setText("");
+
 
     }
 }
