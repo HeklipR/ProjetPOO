@@ -87,7 +87,7 @@ public class ControllerPersonne implements Initializable {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Contact" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+                ,"recherche Entreprise" ,"recherche Contact" ,"recherche Specialité","recherche Stagiaire","recherche Succursales","recherche Taxes d'apprentissages" ) ;
 
             FiltreTablePers.setItems(FiltreTableList);
 

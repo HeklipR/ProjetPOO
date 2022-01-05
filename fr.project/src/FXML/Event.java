@@ -65,14 +65,17 @@ public class Event {
 
 
     // ToString de la class Event
+
     @Override
     public String toString() {
         return "Event{" +
-                "Type='" + Type + '\'' +
+                "idEvent=" + idEvent +
+                ", Type='" + Type + '\'' +
                 ", Lieu='" + Lieu + '\'' +
-                ", Presence=" + Presence +
+                ", Presence='" + Presence + '\'' +
                 '}';
     }
+
 
     // Fonction permettant l'ajout d'un Event à la BDD
 

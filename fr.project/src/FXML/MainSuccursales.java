@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 
 public class MainSuccursales extends Application {
+
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("recherche Succursales.fxml"));
 

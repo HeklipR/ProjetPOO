@@ -67,7 +67,7 @@ public class ControllerEntreprise implements Initializable {
             while (rs.next()){
                 data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
                         rs.getString("Raison_sociale"),rs.getString("Denomination"),
-                        rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                        rs.getString("Adresse_du_siege") ,rs.getString("Secteurs_d_activite"),
                         rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
             }
@@ -82,7 +82,7 @@ public class ControllerEntreprise implements Initializable {
         Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
         Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
         Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
-        Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+        Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteurs_d_activite"));
         Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
         Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
 
@@ -93,7 +93,7 @@ public class ControllerEntreprise implements Initializable {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Contact" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+                ,"recherche Contact" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succursales","recherche Taxes d'apprentissages" ) ;
 
             FiltreTableEntr.setItems(FiltreTableList);
 

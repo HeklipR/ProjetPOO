@@ -79,7 +79,7 @@ public class ControllerSpecialite implements Initializable {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Contact","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Contact","recherche Stagiaire","recherche Succursales","recherche Taxes d'apprentissages" ) ;
 
             FiltreTableSpe.setItems(FiltreTableList);
 

@@ -28,8 +28,8 @@
             <Button fx:id="BoutonSuppCour" layoutX="807.0" layoutY="173.0" mnemonicParsing="false" onAction="#ActionSuppCour" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
             <Button fx:id="BoutonModifCour" layoutX="807.0" layoutY="246.0" mnemonicParsing="false" onAction="#ActionModifCour" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
             <Button fx:id="BoutonRechargeCour" layoutX="808.0" layoutY="323.0" mnemonicParsing="false" onAction="#ActionRechargeCour" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox fx:id="FiltreAttributCour" editable="true" layoutX="586.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
-            <ComboBox fx:id="FiltreTableCour" editable="true" layoutX="781.0" layoutY="411.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <ComboBox fx:id="FiltreAttributCour" layoutX="586.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltreTableCour" layoutX="781.0" layoutY="411.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>

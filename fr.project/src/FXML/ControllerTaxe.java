@@ -87,7 +87,7 @@ public class ControllerTaxe implements Initializable {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Contact" ) ;
+                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succursales","recherche Contact" ) ;
 
             FiltreTableTaxe.setItems(FiltreTableList);
 
@@ -250,6 +250,35 @@ return URL ;
          Taxe.setItems(data);
 
 }
+       else if ( FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "somme" ) {
+         try {
+             this.con = SingleConnection.getInstance(urlb, password, login);
+             String SQL = "SELECT * FROM taxe_apprentissage WHERE `" + this.getAttribut() + "`='" + Double.parseDouble(RechercheTaxe.getText()) + "'";
+             PreparedStatement st = con.prepareStatement(SQL);
+             ResultSet rs = st.executeQuery();
+
+
+             while (rs.next()) {
+                 data.add(new TaxeApprentissage(rs.getInt("idTaxe"), rs.getString("date"),
+                         rs.getDouble("somme"), rs.getString("commentaire"),
+                         rs.getInt("idEntreprise")));
+
+             }
+
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+
+         idTaxe.setCellValueFactory(new PropertyValueFactory<>("idTaxe"));
+         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+         somme.setCellValueFactory(new PropertyValueFactory<>("somme"));
+         commentaire.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
+         idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
+
+
+         Taxe.setItems(data);
+     }
+
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
@@ -282,7 +311,7 @@ return URL ;
     }
 
 
-    public void ActionReinitialiserTaxe(ActionEvent actionEvent) {
+    public void ActionReinitialiseTaxe(ActionEvent actionEvent) {
 
         data.removeAll(data);
 

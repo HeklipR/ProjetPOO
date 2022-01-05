@@ -28,12 +28,12 @@ public class Cours {
         this.matiere = matiere;
     }
 
-    public String getFilliere() {
+    public String getFiliere() {
         return filiere;
     }
 
-    public void setFilliere(String filliere) {
-        this.filiere = filliere;
+    public void setFiliere(String filiere) {
+        this.filiere = filiere;
     }
 
     public int getAnnee() {

@@ -127,7 +127,7 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangeSucc(ActionEvent actionEvent) {
 
         Stage stage = (Stage) BoutonChangeSucc.getScene().getWindow();
 
