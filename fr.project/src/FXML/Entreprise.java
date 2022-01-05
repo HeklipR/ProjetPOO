@@ -1,4 +1,4 @@
-package Entreprise;
+package FXML;
 
 
 
@@ -28,8 +28,9 @@ public class Entreprise {
      * @param Site_internet
      */
 
-    public Entreprise(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) {
+    public Entreprise(int idEntreprise ,String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) {
         this.NomEntrep = NomEntrep;
+        this.idEntreprise = idEntreprise;
         this.Raison_sociale = Raison_sociale;
         this.Denomination = Denomination;
         this.Adresse_du_siege = Adresse_du_siege;

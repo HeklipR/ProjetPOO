@@ -23,24 +23,25 @@ import java.util.ResourceBundle;
 public class ControllerCours implements Initializable {
 
     //Tout le FXML
-    @FXML public Button ModifierContact;
-    @FXML public Button SupprimerContact;
+    @FXML public Button BoutonRechercheCours;
+    @FXML public Button BoutonAjoutCour;
     @FXML public Button AjouterContact;
-    @FXML private Button RechargerContact;
-    @FXML private TableView <Contact> Contact;
-    @FXML private TableColumn <Contact ,Integer> idContact;
-    @FXML private TableColumn <Contact,String> LinkeedIn;
-    @FXML private TableColumn <Contact,String> Telephone;
-    @FXML private TableColumn <Contact,String> Mail;
-    @FXML private TableColumn <Contact,String> Fonction;
-    @FXML private TableColumn <Contact, Integer> idPersonne ;
-    @FXML private ComboBox <String> FiltreTable;
-    @FXML private ComboBox <String> FiltresAttribut;
-    @FXML private Button Changer;
-    @FXML private TextField rechercheContact;
+    @FXML private Button BoutonChangeCour;
+    @FXML private Button BoutonSuppCour;
+    @FXML private Button BoutonModifCour;
+    @FXML private Button BoutonReinitialiserCour;
+    @FXML private Button BoutonRechargeCour;
+    @FXML private TableView <Cours> Cours;
+    @FXML private TableColumn <Cours ,Integer> idCours;
+    @FXML private TableColumn <Cours,String> matiere;
+    @FXML private TableColumn <Cours,String> filiere;
+    @FXML private TableColumn <Cours,Integer> annee;
+    @FXML private ComboBox <String> FiltreTableCour;
+    @FXML private ComboBox <String> FiltreAttributCour;
+    @FXML private TextField RechercheCours;
 
     // Liste permettant l'affichage dans le Table View
-    private ObservableList <Contact> data = FXCollections.observableArrayList() ;
+    private ObservableList <Cours> data = FXCollections.observableArrayList() ;
 
     // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -55,15 +56,14 @@ public class ControllerCours implements Initializable {
 
         try {
             this.con = SingleConnection.getInstance(urlb,password,login);
-            String SQL = "SELECT * FROM contact";
+            String SQL = "SELECT * FROM cours";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
 
             while (rs.next()){
-                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                        rs.getString("Mail"),rs.getString("Telephone"),
-                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                data.add(new Cours(rs.getInt("idCours"),rs.getString("matiere"),
+                        rs.getString("filiere"),rs.getInt("annee")));
 
             }
 
@@ -72,43 +72,42 @@ public class ControllerCours implements Initializable {
             e.printStackTrace();
         }
 
-        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+        idCours.setCellValueFactory(new PropertyValueFactory<>("idCours"));
+        matiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
+        filiere.setCellValueFactory(new PropertyValueFactory<>("filiere"));
+        annee.setCellValueFactory(new PropertyValueFactory<>("annee"));
 
-        Contact.setItems(data);
+
+        Cours.setItems(data);
     }
 
         public void FiltreTableComboBox() {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
-                "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
+                "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Contact"
                 ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
+            FiltreTableCour.setItems(FiltreTableList);
 
     }
 
     public void FiltresAttributComboBox() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idCours" ,
+                "matiere" , "filiere" , "annee" ) ;
 
-        FiltresAttribut.setItems(FiltreAttributsList);
+        FiltreAttributCour.setItems(FiltreAttributsList);
 
     }
 
     public String getURL () {
-String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
+String url = FiltreTableCour.getSelectionModel().getSelectedItem().toString();
 String URL = url +".fxml" ;
 return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltresAttribut.getSelectionModel().getSelectedItem().toString();
+        String attr =FiltreAttributCour.getSelectionModel().getSelectedItem().toString();
         return attr;
     }
 
@@ -125,9 +124,9 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangeCour(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) Changer.getScene().getWindow();
+        Stage stage = (Stage) BoutonChangeCour.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(getURL()));
         Parent root1 = null;
@@ -144,29 +143,29 @@ return URL ;
 
     }
 
-    public void ActionAjouter(ActionEvent actionEvent) throws IOException {
+    public void ActionAjoutCour(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterContact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterCours.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Ajouter un Contact");
+            stage.setTitle("Ajouter un Cours");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void ActionSupprimer(ActionEvent actionEvent) {
+    public void ActionSuppCour(ActionEvent actionEvent) {
 
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Cours.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Supprimer un Contact");
+            stage.setTitle("Supprimer un Cours");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -176,14 +175,14 @@ return URL ;
 
 
 
-    public void ActionRecharger(ActionEvent actionEvent) {
+    public void ActionRechargeCour(ActionEvent actionEvent) {
 
 
-        Stage stage = (Stage) RechargerContact.getScene().getWindow();
+        Stage stage = (Stage) BoutonRechargeCour.getScene().getWindow();
 
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Cours.fxml"));
         Parent root1 = null;
         try {
             this.AffichageDonnés();
@@ -200,13 +199,13 @@ return URL ;
     }
 
 
-    public void ActionModifier(ActionEvent actionEvent) {
+    public void ActionModifCour(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Cours.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier le Cours");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -215,22 +214,21 @@ return URL ;
     }
 
 
-    public void ActionRechercher(ActionEvent actionEvent) {
+    public void ActionRechercheCours(ActionEvent actionEvent) {
 
     data.removeAll(data);
 
-     if ( FiltresAttribut.getSelectionModel().getSelectedItem() == "idContact" || FiltresAttribut.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+     if ( FiltreAttributCour.getSelectionModel().getSelectedItem() == "idCours" || FiltreAttributCour.getSelectionModel().getSelectedItem() == "annee" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(rechercheContact.getText())+"'";
+             String SQL = "SELECT * FROM cours WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheCours.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                         rs.getString("Mail"),rs.getString("Telephone"),
-                         rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                 data.add(new Cours(rs.getInt("idCours"),rs.getString("matiere"),
+                         rs.getString("filiere"),rs.getInt("annee")));
 
              }
 
@@ -239,27 +237,25 @@ return URL ;
              e.printStackTrace();
          }
 
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idCours.setCellValueFactory(new PropertyValueFactory<>("idCours"));
+         matiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
+         filiere.setCellValueFactory(new PropertyValueFactory<>("filiere"));
+         annee.setCellValueFactory(new PropertyValueFactory<>("annee"));
 
-         Contact.setItems(data);
+
+         Cours.setItems(data);
 
 }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+rechercheContact.getText()+"'";
+                String SQL = "SELECT * FROM cours WHERE `"+this.getAttribut()+"`='"+RechercheCours.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
+
                 while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                    data.add(new Cours(rs.getInt("idCours"),rs.getString("matiere"),
+                            rs.getString("filiere"),rs.getInt("annee")));
 
                 }
 
@@ -267,21 +263,20 @@ return URL ;
             catch (Exception e){
                 e.printStackTrace();
             }
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         idCours.setCellValueFactory(new PropertyValueFactory<>("idCours"));
+         matiere.setCellValueFactory(new PropertyValueFactory<>("matiere"));
+         filiere.setCellValueFactory(new PropertyValueFactory<>("filiere"));
+         annee.setCellValueFactory(new PropertyValueFactory<>("annee"));
+
+
+         Cours.setItems(data);
 
         }
     }
 
 
-    public void ActionReinitialiser(ActionEvent actionEvent) {
+    public void ActionReinitialiserCour(ActionEvent actionEvent) {
 
         data.removeAll(data);
 

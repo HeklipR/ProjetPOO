@@ -23,24 +23,24 @@ import java.util.ResourceBundle;
 public class ControllerEvent implements Initializable {
 
     //Tout le FXML
-    @FXML public Button ModifierContact;
-    @FXML public Button SupprimerContact;
-    @FXML public Button AjouterContact;
-    @FXML private Button RechargerContact;
-    @FXML private TableView <Contact> Contact;
-    @FXML private TableColumn <Contact ,Integer> idContact;
-    @FXML private TableColumn <Contact,String> LinkeedIn;
-    @FXML private TableColumn <Contact,String> Telephone;
-    @FXML private TableColumn <Contact,String> Mail;
-    @FXML private TableColumn <Contact,String> Fonction;
-    @FXML private TableColumn <Contact, Integer> idPersonne ;
-    @FXML private ComboBox <String> FiltreTable;
-    @FXML private ComboBox <String> FiltresAttribut;
-    @FXML private Button Changer;
-    @FXML private TextField rechercheContact;
+    @FXML public Button BoutonRechercheEvent ;
+    @FXML public Button BoutonAjoutEvent;
+    @FXML public Button BoutonChangeEvent;
+    @FXML private Button BoutonSuppEvent ;
+    @FXML private Button BoutonModifEvent;
+    @FXML private Button BoutonRechargeEvent;
+    @FXML private Button BoutonReinitialiseEvent;
+    @FXML private TableView <Event> Event;
+    @FXML private TableColumn <Event ,Integer> idEvent;
+    @FXML private TableColumn <Event,String> Type;
+    @FXML private TableColumn <Event,String> Lieu;
+    @FXML private TableColumn <Event,String> Presence;
+    @FXML private ComboBox <String> FiltreTableEvent;
+    @FXML private ComboBox <String> FiltreAttributEvent;
+    @FXML private TextField RechercheEvent;
 
     // Liste permettant l'affichage dans le Table View
-    private ObservableList <Contact> data = FXCollections.observableArrayList() ;
+    private ObservableList <Event> data = FXCollections.observableArrayList() ;
 
     // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -61,9 +61,8 @@ public class ControllerEvent implements Initializable {
 
 
             while (rs.next()){
-                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                        rs.getString("Mail"),rs.getString("Telephone"),
-                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                data.add(new Event(rs.getInt("idEvent"),rs.getString("Type"),
+                        rs.getString("Lieu"), rs.getString("Presence")));
 
             }
 
@@ -72,43 +71,42 @@ public class ControllerEvent implements Initializable {
             e.printStackTrace();
         }
 
-        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+        idEvent.setCellValueFactory(new PropertyValueFactory<>("idEvent"));
+        Type.setCellValueFactory(new PropertyValueFactory<>("Type"));
+        Lieu.setCellValueFactory(new PropertyValueFactory<>("Lieu"));
+        Presence.setCellValueFactory(new PropertyValueFactory<>("Presence"));
 
-        Contact.setItems(data);
+
+        Event.setItems(data);
     }
 
         public void FiltreTableComboBox() {
 
-            ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
+            ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Contact" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
                 ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
+            FiltreTableEvent.setItems(FiltreTableList);
 
     }
 
     public void FiltresAttributComboBox() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idEvent" ,
+                "Type" , "Lieu" , "Presence") ;
 
-        FiltresAttribut.setItems(FiltreAttributsList);
+        FiltreAttributEvent.setItems(FiltreAttributsList);
 
     }
 
     public String getURL () {
-String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
+String url = FiltreTableEvent.getSelectionModel().getSelectedItem().toString();
 String URL = url +".fxml" ;
 return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltresAttribut.getSelectionModel().getSelectedItem().toString();
+        String attr =FiltreAttributEvent.getSelectionModel().getSelectedItem().toString();
         return attr;
     }
 
@@ -125,9 +123,9 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangeEvent(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) Changer.getScene().getWindow();
+        Stage stage = (Stage) BoutonChangeEvent.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(getURL()));
         Parent root1 = null;
@@ -144,29 +142,29 @@ return URL ;
 
     }
 
-    public void ActionAjouter(ActionEvent actionEvent) throws IOException {
+    public void ActionAjoutEvent(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterContact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterEvent.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Ajouter un Contact");
+            stage.setTitle("Ajouter un Event");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void ActionSupprimer(ActionEvent actionEvent) {
+    public void ActionSuppEvent(ActionEvent actionEvent) {
 
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Event.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Supprimer un Contact");
+            stage.setTitle("Supprimer un Event");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -176,14 +174,14 @@ return URL ;
 
 
 
-    public void ActionRecharger(ActionEvent actionEvent) {
+    public void ActionRechargeEvent(ActionEvent actionEvent) {
 
 
-        Stage stage = (Stage) RechargerContact.getScene().getWindow();
+        Stage stage = (Stage) BoutonRechargeEvent.getScene().getWindow();
 
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Event.fxml"));
         Parent root1 = null;
         try {
             this.AffichageDonnés();
@@ -200,13 +198,13 @@ return URL ;
     }
 
 
-    public void ActionModifier(ActionEvent actionEvent) {
+    public void ActionModifEvent(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Event.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier l'Event");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -215,22 +213,21 @@ return URL ;
     }
 
 
-    public void ActionRechercher(ActionEvent actionEvent) {
+    public void ActionRechercheEvent(ActionEvent actionEvent) {
 
     data.removeAll(data);
 
-     if ( FiltresAttribut.getSelectionModel().getSelectedItem() == "idContact" || FiltresAttribut.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+     if ( FiltreAttributEvent.getSelectionModel().getSelectedItem() == "idEvent") {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(rechercheContact.getText())+"'";
+             String SQL = "SELECT * FROM event WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheEvent.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                         rs.getString("Mail"),rs.getString("Telephone"),
-                         rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                 data.add(new Event(rs.getInt("idEvent"),rs.getString("Type"),
+                         rs.getString("Lieu"), rs.getString("Presence")));
 
              }
 
@@ -239,27 +236,25 @@ return URL ;
              e.printStackTrace();
          }
 
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idEvent.setCellValueFactory(new PropertyValueFactory<>("idEvent"));
+         Type.setCellValueFactory(new PropertyValueFactory<>("Type"));
+         Lieu.setCellValueFactory(new PropertyValueFactory<>("Lieu"));
+         Presence.setCellValueFactory(new PropertyValueFactory<>("Presence"));
 
-         Contact.setItems(data);
+
+         Event.setItems(data);
 
 }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+rechercheContact.getText()+"'";
+                String SQL = "SELECT * FROM event WHERE `"+this.getAttribut()+"`='"+RechercheEvent.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
+
                 while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                    data.add(new Event(rs.getInt("idEvent"),rs.getString("Type"),
+                            rs.getString("Lieu"), rs.getString("Presence")));
 
                 }
 
@@ -267,21 +262,19 @@ return URL ;
             catch (Exception e){
                 e.printStackTrace();
             }
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         idEvent.setCellValueFactory(new PropertyValueFactory<>("idEvent"));
+         Type.setCellValueFactory(new PropertyValueFactory<>("Type"));
+         Lieu.setCellValueFactory(new PropertyValueFactory<>("Lieu"));
+         Presence.setCellValueFactory(new PropertyValueFactory<>("Presence"));
 
+
+         Event.setItems(data);
         }
     }
 
 
-    public void ActionReinitialiser(ActionEvent actionEvent) {
+    public void ActionReinitialiseEvent(ActionEvent actionEvent) {
 
         data.removeAll(data);
 

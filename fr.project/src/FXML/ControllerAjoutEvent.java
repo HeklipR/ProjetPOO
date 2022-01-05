@@ -15,12 +15,11 @@ import java.util.ResourceBundle;
 
 public class ControllerAjoutEvent implements Initializable {
 
-@FXML private Button ValiderContact ;
-@FXML private TextField FonctionContact;
-@FXML private TextField MailContact;
-@FXML private TextField TelephoneContact;
-@FXML private TextField LinkContact;
-@FXML private TextField idPersContact;
+@FXML private Button  ValiderEvent;
+@FXML private TextField TypeEvent;
+@FXML private TextField LieuEvent;
+@FXML private TextField PresenceEvent;
+
 
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -30,13 +29,13 @@ public class ControllerAjoutEvent implements Initializable {
 
 
 
-    public void ActionValidax(ActionEvent actionEvent) {
+    public void ActionValidaxEvent(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContact.getScene().getWindow();
+        Stage stage = (Stage) ValiderEvent.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (Fonction ,Mail , Telephone, LinkeedIn , idPersonne )" +
-                    "VALUES ('"+FonctionContact.getText()+" ','"+MailContact.getText()+" ','"+TelephoneContact.getText()+" ','"+LinkContact.getText()+" ','"+idPersContact.getText()+"')";
+            String SQL = "INSERT INTO event (Type , Lieu, Presence)" +
+                    "VALUES ('"+TypeEvent.getText()+" ','"+LieuEvent.getText()+" ','"+PresenceEvent.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);

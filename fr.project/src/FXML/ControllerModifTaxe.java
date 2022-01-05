@@ -20,15 +20,16 @@ import java.util.ResourceBundle;
 public class ControllerModifTaxe implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
-    @FXML private TextField idModif;
+    @FXML private Button ValiderTaxeModif ;
+    @FXML private TextField SommeTaxeModif ;
+    @FXML private TextField CommTaxeModif ;
+    @FXML private TextField idTaxeModif ;
+    @FXML private TextField DateTaxeModif ;
+    @FXML private TextField idEntrTaxeModif ;
+    @FXML private TableView Taxe ;
+    @FXML private Button OkTaxeModif ;
+    @FXML private Button ViderTaxeModif;
+
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -53,11 +54,11 @@ private Connection con;
 
     public void ActionValidaxModif(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderTaxeModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE taxe_apprentissage SET date='"+DateTaxeModif.getText()+"', somme='"+SommeTaxeModif.getText()+" ',commentaire='"+CommTaxeModif.getText()+" ',idEntreprise='"+idEntrTaxeModif.getText()+"' WHERE idTaxe='"+idTaxeModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -75,17 +76,16 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM taxe_apprentissage WHERE idTaxe =" + Integer.parseInt(idTaxeModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+                SommeTaxeModif.setText(rs.getString("somme"));
+                CommTaxeModif.setText(rs.getString("commentaire"));
+                DateTaxeModif.setText(rs.getString("date"));
+                idEntrTaxeModif.setText(rs.getString("idEntreprise"));
 
             }
 
@@ -96,12 +96,11 @@ private Connection con;
     }
 
     public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+        idTaxeModif.setText("");
+        SommeTaxeModif.setText("");
+        CommTaxeModif.setText("");
+        DateTaxeModif.setText("");
+        idEntrTaxeModif.setText("");
 
     }
 }

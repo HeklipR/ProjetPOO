@@ -1,4 +1,4 @@
-package Personne;
+package FXML;
 
 
 
@@ -11,8 +11,8 @@ public class Stagiaire {
     private int idStagiaire;
     private String Niveau_etudes;
     private String annee;
-    private String duree;
-    private String nom;
+    private String Duree;
+    private String Nom;
     private int idPersonne;
 
 
@@ -27,12 +27,12 @@ public class Stagiaire {
         this.idStagiaire = idStagiaire;
     }
 
-    public String getNiveauEtude() {
+    public String getNiveau_etudes() {
         return Niveau_etudes;
     }
 
-    public void setNiveauEtude(String niveauEtude) {
-        this.Niveau_etudes = niveauEtude;
+    public void setNiveau_etudes(String Niveau_etudes) {
+        this.Niveau_etudes = Niveau_etudes;
     }
 
     public String getAnnee() {
@@ -44,19 +44,19 @@ public class Stagiaire {
     }
 
     public String getDuree() {
-        return duree;
+        return Duree;
     }
 
     public void setDuree(String duree) {
-        this.duree = duree;
+        this.Duree = duree;
     }
 
     public String getNom() {
-        return nom;
+        return Nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.Nom = nom;
     }
 
     public int getIdPersonne() {
@@ -76,8 +76,8 @@ public class Stagiaire {
                 "idStagiaire=" + idStagiaire +
                 ", niveauEtude='" + Niveau_etudes + '\'' +
                 ", annee=" + annee +
-                ", duree=" + duree +
-                ", nom='" + nom + '\'' +
+                ", duree=" + Duree +
+                ", nom='" + Nom + '\'' +
                 ", idPersonne=" + idPersonne +
                 '}';
     }
@@ -86,16 +86,18 @@ public class Stagiaire {
      * Constructeur de la class Stagiaire
      * @param idPersonne
      * @param idStagiaire
-     * @param niveauEtude
+     * @param Niveau_etudes
      * @param annee
-     * @param duree
+     * @param Duree
+     * @param Nom
      */
-    public Stagiaire(String niveauEtude, String annee, String duree, int idStagiaire, int idPersonne) {
+    public Stagiaire(int idStagiaire, String Niveau_etudes, String annee, String Duree,  String Nom ,int idPersonne) {
         this.idPersonne = idPersonne;
         this.idStagiaire = idStagiaire;
-        this.Niveau_etudes = niveauEtude;
+        this.Niveau_etudes = Niveau_etudes;
         this.annee = annee;
-        this.duree = duree;
+        this.Duree = Duree;
+        this.Nom = Nom;
 
     }
     // Fonction permettant l'ajout d'un Stagiaire à la BDD
@@ -117,9 +119,7 @@ public class Stagiaire {
      * @param ligne
      * @throws SQLException
      */
-    public void StagiaireRemoveBDD(int ligne) throws SQLException{
 
-    }
 
     // Fonction permettant de modifier les valeurs d'un Stagiaire puis les changer sur la BDD
 
@@ -130,8 +130,6 @@ public class Stagiaire {
      * @param duree
      * @throws SQLException
      */
-    public void StagiaireModifBDD(String niveauEtude, String annee, String duree) throws SQLException {
 
-    }
 
 }

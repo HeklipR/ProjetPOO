@@ -20,15 +20,12 @@ import java.util.ResourceBundle;
 public class ControllerModifSpe implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
-    @FXML private TextField idModif;
+    @FXML private Button ValiderSpeModif ;
+    @FXML private TextField idSpeModif ;
+    @FXML private Button ViderSpeModif ;
+    @FXML private TextField TechSpeModif ;
+    @FXML private Button OkSpeModif;
+
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -51,13 +48,13 @@ private Connection con;
 
 
 
-    public void ActionValidaxModif(ActionEvent actionEvent) {
+    public void ActionValidaxModifSpe(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderSpeModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE specialite SET Technologie='"+TechSpeModif.getText()+" ' WHERE idSpecialite='"+idSpeModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -75,17 +72,14 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM specialite WHERE idSpecialite =" + Integer.parseInt(idSpeModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+                TechSpeModif.setText(rs.getString("Technologie"));
+
 
             }
 
@@ -95,13 +89,10 @@ private Connection con;
 
     }
 
-    public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+    public void ActionViderModifSpe(ActionEvent actionEvent) {
+        idSpeModif.setText("");
+        TechSpeModif.setText("");
+
 
     }
 }

@@ -3,8 +3,6 @@ package FXML;
 
 
 
-import Personne.Personne;
-
 import java.sql.SQLException;
 
 public class Conference {

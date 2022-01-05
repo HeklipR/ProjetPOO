@@ -1,4 +1,4 @@
-package Entreprise;
+package FXML;
 
 import java.sql.SQLException;
 
@@ -9,7 +9,7 @@ public class Event {
     private int idEvent;
     private String Type;
     private String Lieu;
-    private boolean Presence;
+    private String Presence;
     
 
 
@@ -21,7 +21,8 @@ public class Event {
      * @param Presence
 
      */
-    public Event(String Type, String Lieu, boolean Presence ) {
+    public Event(int idEvent , String Type, String Lieu, String Presence ) {
+        this.idEvent = idEvent ;
         this.Type = Type;
         this.Lieu = Lieu;
         this.Presence = Presence;
@@ -45,11 +46,11 @@ public class Event {
         this.Lieu = Lieu;
     }
 
-    public boolean isPresence() {
+    public String getPresence() {
         return Presence;
     }
 
-    public void setPresence(boolean Presence) {
+    public void setPresence(String Presence) {
         this.Presence = Presence;
     }
 
@@ -82,9 +83,7 @@ public class Event {
      * @param Presence
      * @throws SQLException
      */
-    public void EventAddBDD(String Type, String Lieu, boolean Presence ) throws SQLException {
 
-    }
     // Fonction permettant de supprimer un Event de la BDD
 
     /**
@@ -104,7 +103,5 @@ public class Event {
      * @param Presence
      * @throws SQLException
      */
-    public void EventModifBDD(String Type, String Lieu, boolean Presence ) throws SQLException {
 
-    }
 }

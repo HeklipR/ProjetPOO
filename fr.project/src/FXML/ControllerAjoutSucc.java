@@ -13,14 +13,14 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
-public class ControllerAjoutTaxe implements Initializable {
+public class ControllerAjoutSucc implements Initializable {
 
-@FXML private Button ValiderTax ;
-@FXML private TextField DateTaxe;
-@FXML private TextField SommeTaxe;
-@FXML private TextField CommTaxe;
-@FXML private TextField idEntrTaxe;
-
+@FXML private Button ValiderSucc ;
+@FXML private TextField NomSucc;
+@FXML private TextField DateCreateSucc;
+@FXML private TextField LieuSucc;
+@FXML private TextField SiteSucc;
+@FXML private TextField idEntrSucc;
 
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -32,11 +32,11 @@ public class ControllerAjoutTaxe implements Initializable {
 
     public void ActionValidax(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderTax.getScene().getWindow();
+        Stage stage = (Stage) ValiderSucc.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO taxe_apprentissage ( date , somme, commentaire , idEntreprise )" +
-                    "VALUES ('"+DateTaxe.getText()+" ','"+SommeTaxe.getText()+" ','"+CommTaxe.getText()+" ','"+idEntrTaxe.getText()+"')";
+            String SQL = "INSERT INTO succursales (NomSucc , Date_de_creation, Lieu , Site_internet, idEntreprise )" +
+                    "VALUES ('"+NomSucc.getText()+" ','"+DateCreateSucc.getText()+" ','"+LieuSucc.getText()+" ','"+SiteSucc.getText()+" ','"+idEntrSucc.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);

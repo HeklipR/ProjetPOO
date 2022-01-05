@@ -20,15 +20,17 @@ import java.util.ResourceBundle;
 public class ControllerModifEntr implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
-    @FXML private TextField idModif;
+    @FXML private Button ValiderEntrModif ;
+    @FXML private TextField RaisonEntrModif ;
+    @FXML private TextField DenoEntrModif ;
+    @FXML private TextField AdresseEntrModif ;
+    @FXML private TextField idEntrModif ;
+    @FXML private TextField NomEntrModif ;
+    @FXML private TextField SiteEntrModif ;
+    @FXML private Button  OkEntrModif;
+    @FXML private Button ViderEntrModif;
+    @FXML private TextField DateEntrModif;
+    @FXML private TextField SecteurEntrModif;
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -51,13 +53,13 @@ private Connection con;
 
 
 
-    public void ActionValidaxModif(ActionEvent actionEvent) {
+    public void ActionValidaxModifEntr(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderEntrModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE entreprise SET  NomEntrep='"+NomEntrModif.getText()+" ',Raison_sociale='"+RaisonEntrModif.getText()+" ',Denomination='"+DenoEntrModif.getText()+" ',Adresse_du_siege='"+AdresseEntrModif.getText()+"',Secteur_d_activite='"+SecteurEntrModif.getText()+" ',Date_de_creation='"+DateEntrModif.getText()+" ',Site_internet='"+SiteEntrModif.getText()+" ' WHERE idEntreprise='"+idEntrModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -69,23 +71,25 @@ private Connection con;
         stage.close() ;
     }
 
-    public void OkModifAction(ActionEvent actionEvent) {
+    public void OkModifActionEntr(ActionEvent actionEvent) {
 
 
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM entreprise WHERE idEntreprise =" + Integer.parseInt(idEntrModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+                NomEntrModif.setText(rs.getString("NomEntrep"));
+                RaisonEntrModif.setText(rs.getString("Raison_sociale"));
+                DenoEntrModif.setText(rs.getString("Denomination"));
+                AdresseEntrModif.setText(rs.getString("Adresse_du_siege"));
+                SecteurEntrModif.setText(rs.getString("Secteur_d_activite"));
+                DateEntrModif.setText(rs.getString("Date_de_creation"));
+                SiteEntrModif.setText(rs.getString("Site_internet"));
 
             }
 
@@ -96,12 +100,14 @@ private Connection con;
     }
 
     public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+        idEntrModif.setText("");
+        NomEntrModif.setText("");
+        RaisonEntrModif.setText("");
+        DenoEntrModif.setText("");
+        AdresseEntrModif.setText("");
+        SecteurEntrModif.setText("");
+        DateEntrModif.setText("");
+        SiteEntrModif.setText("");
 
     }
 }

@@ -1,4 +1,4 @@
-package Personne;
+package FXML;
 
 import java.sql.SQLException;
 
@@ -12,7 +12,7 @@ public class Cours {
 
 
 
-    public Cours(String matiere, String filiere, int annee, int idCours) {
+    public Cours(int idCours, String matiere, String filiere, int annee) {
         this.idCours = idCours;
         this.matiere = matiere;
         this.filiere = filiere;

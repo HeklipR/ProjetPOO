@@ -15,12 +15,12 @@ import java.util.ResourceBundle;
 
 public class ControllerAjoutStag implements Initializable {
 
-@FXML private Button ValiderContact ;
-@FXML private TextField FonctionContact;
-@FXML private TextField MailContact;
-@FXML private TextField TelephoneContact;
-@FXML private TextField LinkContact;
-@FXML private TextField idPersContact;
+@FXML private Button ValiderStagiaire ;
+@FXML private TextField NomStagiaire;
+@FXML private TextField NivEtdudeStag;
+@FXML private TextField AnneeStagiaire;
+@FXML private TextField DureeStagiaire;
+@FXML private TextField idPersStag ;
 
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -32,11 +32,11 @@ public class ControllerAjoutStag implements Initializable {
 
     public void ActionValidax(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContact.getScene().getWindow();
+        Stage stage = (Stage) ValiderStagiaire.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (Fonction ,Mail , Telephone, LinkeedIn , idPersonne )" +
-                    "VALUES ('"+FonctionContact.getText()+" ','"+MailContact.getText()+" ','"+TelephoneContact.getText()+" ','"+LinkContact.getText()+" ','"+idPersContact.getText()+"')";
+            String SQL = "INSERT INTO stagiaire (Niveau_etudes, annee,  Duree, Nom, idPersonne )" +
+                    "VALUES ('"+NivEtdudeStag.getText()+" ','"+AnneeStagiaire.getText()+" ','"+DureeStagiaire.getText()+" ','"+NomStagiaire.getText()+" ','"+idPersStag.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);

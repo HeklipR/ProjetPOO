@@ -1,4 +1,4 @@
-package Entreprise;
+package FXML;
 
 
 
@@ -26,7 +26,7 @@ public class TaxeApprentissage {
      * @param somme
      * @param commentaire
      */
-    public TaxeApprentissage(String date, double somme, String commentaire, int idEntreprise, int idTaxe) {
+    public TaxeApprentissage( int idTaxe, String date, double somme, String commentaire, int idEntreprise) {
         this.idTaxe = idTaxe;
         this.idEntreprise = idEntreprise;
         this.date = date;

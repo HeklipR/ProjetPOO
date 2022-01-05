@@ -1,6 +1,4 @@
-package Personne;
-
-import Entreprise.Entreprise;
+package FXML;
 
 import java.sql.SQLException;
 

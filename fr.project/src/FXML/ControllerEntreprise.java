@@ -23,24 +23,28 @@ import java.util.ResourceBundle;
 public class ControllerEntreprise implements Initializable {
 
     //Tout le FXML
-    @FXML public Button ModifierContact;
-    @FXML public Button SupprimerContact;
-    @FXML public Button AjouterContact;
-    @FXML private Button RechargerContact;
-    @FXML private TableView <Contact> Contact;
-    @FXML private TableColumn <Contact ,Integer> idContact;
-    @FXML private TableColumn <Contact,String> LinkeedIn;
-    @FXML private TableColumn <Contact,String> Telephone;
-    @FXML private TableColumn <Contact,String> Mail;
-    @FXML private TableColumn <Contact,String> Fonction;
-    @FXML private TableColumn <Contact, Integer> idPersonne ;
-    @FXML private ComboBox <String> FiltreTable;
-    @FXML private ComboBox <String> FiltresAttribut;
-    @FXML private Button Changer;
-    @FXML private TextField rechercheContact;
+    @FXML public Button BoutonRechercheEntr ;
+    @FXML public Button BoutonAjoutEntr ;
+    @FXML public Button BoutonChangeEntr ;
+    @FXML private Button BoutonSuppEntr ;
+    @FXML private Button BoutonModifEntr ;
+    @FXML private Button BoutonRechargeEntr ;
+    @FXML private Button BoutonReinitialiserEntr ;
+    @FXML private TableView <Entreprise> Entreprise;
+    @FXML private TableColumn <Entreprise ,Integer> idEntreprise;
+    @FXML private TableColumn <Entreprise,String> NomEntrep;
+    @FXML private TableColumn <Entreprise,String> Raison_sociale;
+    @FXML private TableColumn <Entreprise,String> Denomination;
+    @FXML private TableColumn <Entreprise,String> Adresse_du_siege;
+    @FXML private TableColumn <Entreprise, String> Secteur_d_activite ;
+    @FXML private TableColumn <Entreprise,String> Date_de_creation;
+    @FXML private TableColumn <Entreprise, String> Site_internet ;
+    @FXML private ComboBox <String> FiltreTableEntr ;
+    @FXML private ComboBox <String> FiltreAttributEntr;
+    @FXML private TextField RechercheEntr;
 
     // Liste permettant l'affichage dans le Table View
-    private ObservableList <Contact> data = FXCollections.observableArrayList() ;
+    private ObservableList <Entreprise> data = FXCollections.observableArrayList() ;
 
     // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -55,15 +59,16 @@ public class ControllerEntreprise implements Initializable {
 
         try {
             this.con = SingleConnection.getInstance(urlb,password,login);
-            String SQL = "SELECT * FROM contact";
+            String SQL = "SELECT * FROM entreprise";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
 
             while (rs.next()){
-                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                        rs.getString("Mail"),rs.getString("Telephone"),
-                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
+                        rs.getString("Raison_sociale"),rs.getString("Denomination"),
+                        rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                        rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
             }
 
@@ -72,43 +77,45 @@ public class ControllerEntreprise implements Initializable {
             e.printStackTrace();
         }
 
-        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+        idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
+        NomEntrep.setCellValueFactory(new PropertyValueFactory<>("NomEntrep"));
+        Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
+        Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
+        Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
+        Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+        Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
+        Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
 
-        Contact.setItems(data);
+        Entreprise.setItems(data);
     }
 
         public void FiltreTableComboBox() {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+                ,"recherche Contact" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
+            FiltreTableEntr.setItems(FiltreTableList);
 
     }
 
     public void FiltresAttributComboBox() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idEntreprise" ,
+                "NomEntrep" , "Raison_sociale" , "Denomination" , "Adresse_du_siege" ,"Secteur_d_activite","Date_de_creation","Site_internet" ) ;
 
-        FiltresAttribut.setItems(FiltreAttributsList);
+        FiltreAttributEntr.setItems(FiltreAttributsList);
 
     }
 
     public String getURL () {
-String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
+String url = FiltreTableEntr.getSelectionModel().getSelectedItem().toString();
 String URL = url +".fxml" ;
 return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltresAttribut.getSelectionModel().getSelectedItem().toString();
+        String attr =FiltreAttributEntr.getSelectionModel().getSelectedItem().toString();
         return attr;
     }
 
@@ -125,9 +132,9 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangeEntr(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) Changer.getScene().getWindow();
+        Stage stage = (Stage) BoutonChangeEntr.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(getURL()));
         Parent root1 = null;
@@ -144,29 +151,29 @@ return URL ;
 
     }
 
-    public void ActionAjouter(ActionEvent actionEvent) throws IOException {
+    public void ActionAjoutEntr(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterContact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterEntreprise.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Ajouter un Contact");
+            stage.setTitle("Ajouter une Entreprise");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void ActionSupprimer(ActionEvent actionEvent) {
+    public void ActionSuppEntr(ActionEvent actionEvent) {
 
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Entreprise.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Supprimer un Contact");
+            stage.setTitle("Supprimer une Entreprise");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -176,14 +183,14 @@ return URL ;
 
 
 
-    public void ActionRecharger(ActionEvent actionEvent) {
+    public void ActionRechargeEntr(ActionEvent actionEvent) {
 
 
-        Stage stage = (Stage) RechargerContact.getScene().getWindow();
+        Stage stage = (Stage) BoutonRechargeEntr.getScene().getWindow();
 
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Entreprise.fxml"));
         Parent root1 = null;
         try {
             this.AffichageDonnés();
@@ -200,13 +207,13 @@ return URL ;
     }
 
 
-    public void ActionModifier(ActionEvent actionEvent) {
+    public void ActionModifEntr(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Entrprise.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier une Entreprise");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -215,22 +222,23 @@ return URL ;
     }
 
 
-    public void ActionRechercher(ActionEvent actionEvent) {
+    public void ActionRechercheEntr(ActionEvent actionEvent) {
 
     data.removeAll(data);
 
-     if ( FiltresAttribut.getSelectionModel().getSelectedItem() == "idContact" || FiltresAttribut.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+     if ( FiltreAttributEntr.getSelectionModel().getSelectedItem() == "idEntreprise" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(rechercheContact.getText())+"'";
+             String SQL = "SELECT * FROM entreprise WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheEntr.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                         rs.getString("Mail"),rs.getString("Telephone"),
-                         rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                 data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
+                         rs.getString("Raison_sociale"),rs.getString("Denomination"),
+                         rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                         rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
              }
 
@@ -239,27 +247,29 @@ return URL ;
              e.printStackTrace();
          }
 
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
+         NomEntrep.setCellValueFactory(new PropertyValueFactory<>("NomEntrep"));
+         Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
+         Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
+         Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
+         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+         Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
+         Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
 
-         Contact.setItems(data);
+         Entreprise.setItems(data);
 
 }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+rechercheContact.getText()+"'";
+                String SQL = "SELECT * FROM entreprise WHERE `"+this.getAttribut()+"`='"+RechercheEntr.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
                 while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                    data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
+                            rs.getString("Raison_sociale"),rs.getString("Denomination"),
+                            rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                            rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
                 }
 
@@ -267,21 +277,23 @@ return URL ;
             catch (Exception e){
                 e.printStackTrace();
             }
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
+         NomEntrep.setCellValueFactory(new PropertyValueFactory<>("NomEntrep"));
+         Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
+         Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
+         Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
+         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+         Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
+         Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
+
+         Entreprise.setItems(data);
 
         }
     }
 
 
-    public void ActionReinitialiser(ActionEvent actionEvent) {
+    public void ActionReinitialiserEntr(ActionEvent actionEvent) {
 
         data.removeAll(data);
 

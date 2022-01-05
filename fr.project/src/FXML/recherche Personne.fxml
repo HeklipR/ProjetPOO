@@ -22,7 +22,7 @@
                   <TableColumn fx:id="idEntreprise" editable="false" minWidth="4.0" prefWidth="139.0" text="idEntreprise" />
               </columns>
             </TableView>
-            <Button fx:id="BoutonAjoutPers" layoutX="760.0" layoutY="95.0" mnemonicParsing="false" onAction="#ActionAJoutPers" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
+            <Button fx:id="BoutonAjoutPers" layoutX="760.0" layoutY="95.0" mnemonicParsing="false" onAction="#ActionAjoutPers" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
             <TextField fx:id="RecherchePers" layoutX="14.0" layoutY="31.0" prefHeight="32.0" prefWidth="283.0" promptText="Rechercher" />
             <Button fx:id="BoutonChangePers" layoutX="747.0" layoutY="483.0" mnemonicParsing="false" onAction="#ActionChangePers" prefHeight="49.0" prefWidth="153.0" text="Changer de Panel" />
             <Button fx:id="BoutonSuppPers" layoutX="761.0" layoutY="178.0" mnemonicParsing="false" onAction="#ActionSuppPers" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />

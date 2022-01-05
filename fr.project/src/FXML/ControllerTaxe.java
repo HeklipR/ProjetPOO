@@ -23,24 +23,25 @@ import java.util.ResourceBundle;
 public class ControllerTaxe implements Initializable {
 
     //Tout le FXML
-    @FXML public Button ModifierContact;
-    @FXML public Button SupprimerContact;
-    @FXML public Button AjouterContact;
-    @FXML private Button RechargerContact;
-    @FXML private TableView <Contact> Contact;
-    @FXML private TableColumn <Contact ,Integer> idContact;
-    @FXML private TableColumn <Contact,String> LinkeedIn;
-    @FXML private TableColumn <Contact,String> Telephone;
-    @FXML private TableColumn <Contact,String> Mail;
-    @FXML private TableColumn <Contact,String> Fonction;
-    @FXML private TableColumn <Contact, Integer> idPersonne ;
-    @FXML private ComboBox <String> FiltreTable;
-    @FXML private ComboBox <String> FiltresAttribut;
-    @FXML private Button Changer;
-    @FXML private TextField rechercheContact;
+    @FXML public Button BoutonRechercheTaxe;
+    @FXML public Button BoutonAjoutTaxe;
+    @FXML public Button BoutonChangeTaxe;
+    @FXML private Button BoutonSuppTaxe;
+    @FXML private TableView <TaxeApprentissage> Taxe;
+    @FXML private TableColumn <TaxeApprentissage ,Integer> idTaxe;
+    @FXML private TableColumn <TaxeApprentissage,String> date;
+    @FXML private TableColumn <TaxeApprentissage,Double> somme;
+    @FXML private TableColumn <TaxeApprentissage,String> commentaire;
+    @FXML private TableColumn <TaxeApprentissage, Integer> idEntreprise ;
+    @FXML private ComboBox <String> FiltreAttributTaxe;
+    @FXML private ComboBox <String> FiltreTableTaxe;
+    @FXML private Button BoutonModifTaxe;
+    @FXML private Button BoutonRechargeTaxe;
+    @FXML private Button BoutonReinitialiseTaxe;
+    @FXML private TextField RechercheTaxe;
 
     // Liste permettant l'affichage dans le Table View
-    private ObservableList <Contact> data = FXCollections.observableArrayList() ;
+    private ObservableList <TaxeApprentissage> data = FXCollections.observableArrayList() ;
 
     // Connexion
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -55,15 +56,15 @@ public class ControllerTaxe implements Initializable {
 
         try {
             this.con = SingleConnection.getInstance(urlb,password,login);
-            String SQL = "SELECT * FROM contact";
+            String SQL = "SELECT * FROM taxe_apprentissage";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
 
             while (rs.next()){
-                data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                        rs.getString("Mail"),rs.getString("Telephone"),
-                        rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                data.add(new TaxeApprentissage(rs.getInt("idTaxe"),rs.getString("date"),
+                        rs.getDouble("somme"),rs.getString("commentaire"),
+                        rs.getInt("idEntreprise")));
 
             }
 
@@ -72,43 +73,43 @@ public class ControllerTaxe implements Initializable {
             e.printStackTrace();
         }
 
-        idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-        Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-        Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-        Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-        LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-        idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+        idTaxe.setCellValueFactory(new PropertyValueFactory<>("idTaxe"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        somme.setCellValueFactory(new PropertyValueFactory<>("somme"));
+        commentaire.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
+        idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
 
-        Contact.setItems(data);
+
+        Taxe.setItems(data);
     }
 
         public void FiltreTableComboBox() {
 
             ObservableList<String> FiltreTableList = FXCollections.observableArrayList("recherche Event" ,
                 "recherche Ancien Etudiant" , "recherche Conferences" , "recherche Cours"
-                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Taxes d'apprentissages" ) ;
+                ,"recherche Entreprise" ,"recherche Personne" ,"recherche Specialité","recherche Stagiaire","recherche Succurrsales","recherche Contact" ) ;
 
-        FiltreTable.setItems(FiltreTableList);
+            FiltreTableTaxe.setItems(FiltreTableList);
 
     }
 
     public void FiltresAttributComboBox() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idTaxe" ,
+                "date" , "somme" , "commentaire" , "idEntreprise" ) ;
 
-        FiltresAttribut.setItems(FiltreAttributsList);
+        FiltreAttributTaxe.setItems(FiltreAttributsList);
 
     }
 
     public String getURL () {
-String url = FiltreTable.getSelectionModel().getSelectedItem().toString();
+String url = FiltreTableTaxe.getSelectionModel().getSelectedItem().toString();
 String URL = url +".fxml" ;
 return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltresAttribut.getSelectionModel().getSelectedItem().toString();
+        String attr =FiltreAttributTaxe.getSelectionModel().getSelectedItem().toString();
         return attr;
     }
 
@@ -125,9 +126,9 @@ return URL ;
 
 
 
-    public void ActionChanger(ActionEvent actionEvent) {
+    public void ActionChangeTaxe(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) Changer.getScene().getWindow();
+        Stage stage = (Stage) BoutonChangeTaxe.getScene().getWindow();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(getURL()));
         Parent root1 = null;
@@ -144,29 +145,29 @@ return URL ;
 
     }
 
-    public void ActionAjouter(ActionEvent actionEvent) throws IOException {
+    public void ActionAjoutTaxe(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterContact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterTaxeApprentissage.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Ajouter un Contact");
+            stage.setTitle("Ajouter une Taxe");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void ActionSupprimer(ActionEvent actionEvent) {
+    public void ActionSuppTaxe(ActionEvent actionEvent) {
 
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Supprimez Taxe.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Supprimer un Contact");
+            stage.setTitle("Supprimer une Taxe");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -176,14 +177,14 @@ return URL ;
 
 
 
-    public void ActionRecharger(ActionEvent actionEvent) {
+    public void ActionRechargeTaxe(ActionEvent actionEvent) {
 
 
-        Stage stage = (Stage) RechargerContact.getScene().getWindow();
+        Stage stage = (Stage) BoutonRechargeTaxe.getScene().getWindow();
 
         stage.close();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Contact.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("recherche Taxes d'apprentissages.fxml"));
         Parent root1 = null;
         try {
             this.AffichageDonnés();
@@ -200,13 +201,13 @@ return URL ;
     }
 
 
-    public void ActionModifier(ActionEvent actionEvent) {
+    public void ActionModifTaxe(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Contact.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Taxe.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier la Taxe");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
@@ -215,22 +216,22 @@ return URL ;
     }
 
 
-    public void ActionRechercher(ActionEvent actionEvent) {
+    public void ActionRechercheTaxe(ActionEvent actionEvent) {
 
     data.removeAll(data);
 
-     if ( FiltresAttribut.getSelectionModel().getSelectedItem() == "idContact" || FiltresAttribut.getSelectionModel().getSelectedItem() == "idPersonne" ) {
+     if ( FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "idTaxe" || FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "idEntreprise" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(rechercheContact.getText())+"'";
+             String SQL = "SELECT * FROM taxe_apprentissage WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheTaxe.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                         rs.getString("Mail"),rs.getString("Telephone"),
-                         rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                 data.add(new TaxeApprentissage(rs.getInt("idTaxe"),rs.getString("date"),
+                         rs.getDouble("somme"),rs.getString("commentaire"),
+                         rs.getInt("idEntreprise")));
 
              }
 
@@ -239,27 +240,27 @@ return URL ;
              e.printStackTrace();
          }
 
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
+         idTaxe.setCellValueFactory(new PropertyValueFactory<>("idTaxe"));
+         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+         somme.setCellValueFactory(new PropertyValueFactory<>("somme"));
+         commentaire.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
+         idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
 
-         Contact.setItems(data);
+
+         Taxe.setItems(data);
 
 }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+rechercheContact.getText()+"'";
+                String SQL = "SELECT * FROM taxe_apprentissage WHERE `"+this.getAttribut()+"`='"+RechercheTaxe.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
+
                 while (rs.next()){
-                    data.add(new Contact(rs.getInt("idContact"),rs.getString("Fonction"),
-                            rs.getString("Mail"),rs.getString("Telephone"),
-                            rs.getString("LinkeedIn") ,rs.getInt("idPersonne")));
+                    data.add(new TaxeApprentissage(rs.getInt("idTaxe"),rs.getString("date"),
+                            rs.getDouble("somme"),rs.getString("commentaire"),
+                            rs.getInt("idEntreprise")));
 
                 }
 
@@ -267,21 +268,21 @@ return URL ;
             catch (Exception e){
                 e.printStackTrace();
             }
-         // AJout données dans la BDD
-         idContact.setCellValueFactory(new PropertyValueFactory<>("idContact"));
-         Fonction.setCellValueFactory(new PropertyValueFactory<>("Fonction"));
-         Mail.setCellValueFactory(new PropertyValueFactory<>("Mail"));
-         Telephone.setCellValueFactory(new PropertyValueFactory<>("Telephone"));
-         LinkeedIn.setCellValueFactory(new PropertyValueFactory<>("LinkeedIn"));
-         idPersonne.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
-         Contact.setItems(data);
+         idTaxe.setCellValueFactory(new PropertyValueFactory<>("idTaxe"));
+         date.setCellValueFactory(new PropertyValueFactory<>("date"));
+         somme.setCellValueFactory(new PropertyValueFactory<>("somme"));
+         commentaire.setCellValueFactory(new PropertyValueFactory<>("commentaire"));
+         idEntreprise.setCellValueFactory(new PropertyValueFactory<>("idEntreprise"));
+
+
+         Taxe.setItems(data);
 
         }
     }
 
 
-    public void ActionReinitialiser(ActionEvent actionEvent) {
+    public void ActionReinitialiserTaxe(ActionEvent actionEvent) {
 
         data.removeAll(data);
 

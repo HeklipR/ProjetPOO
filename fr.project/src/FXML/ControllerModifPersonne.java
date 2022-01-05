@@ -20,15 +20,16 @@ import java.util.ResourceBundle;
 public class ControllerModifPersonne implements Initializable {
 
 
-    @FXML private Button ValiderContactModif ;
-    @FXML private TextField FonctionContactModif ;
-    @FXML private TextField MailContactModif ;
-    @FXML private TextField TelephoneContactModif ;
-    @FXML private TextField LinkContactModif ;
-    @FXML private TextField idPersContactModif ;
-    @FXML private TableView Contact ;
-    @FXML private Button OkModif ;
-    @FXML private TextField idModif;
+    @FXML private Button ValiderPersModif ;
+    @FXML private Button OkPersModif  ;
+    @FXML private Button ViderPersModif ;
+    @FXML private TextField PrenomPersModif ;
+    @FXML private TextField AgePersModif ;
+    @FXML private TextField  idPersModif;
+    @FXML private TextField NomPersModif ;
+    @FXML private TextField  idEntrPersModif ;
+    @FXML private TableView Personne ;
+
 
 private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
 private final String login="root";
@@ -53,11 +54,11 @@ private Connection con;
 
     public void ActionValidaxModif(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContactModif.getScene().getWindow();
+        Stage stage = (Stage) ValiderPersModif.getScene().getWindow();
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET Fonction='"+FonctionContactModif.getText()+"', Mail='"+MailContactModif.getText()+" ',Telephone='"+TelephoneContactModif.getText()+" ',LinkeedIn='"+LinkContactModif.getText()+" ',idPersonne='"+idPersContactModif.getText()+"' WHERE idContact='"+idModif.getText()+"'";
+            String SQL = "UPDATE personne SET nom='"+NomPersModif.getText()+"', prenom='"+PrenomPersModif.getText()+" ',age='"+AgePersModif.getText()+" ',idEntreprise='"+idEntrPersModif.getText()+" ' WHERE idPersonne='"+idPersModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -75,17 +76,16 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "SELECT * FROM contact WHERE idContact =" + Integer.parseInt(idModif.getText());
+            String SQL = "SELECT * FROM personne WHERE idPersonne =" + Integer.parseInt(idPersModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()){
 
-                FonctionContactModif.setText(rs.getString("Fonction"));
-                MailContactModif.setText(rs.getString("Mail"));
-                TelephoneContactModif.setText(rs.getString("Telephone"));
-                LinkContactModif.setText(rs.getString("LinkeedIn"));
-                idPersContactModif.setText(rs.getString("idPersonne"));
+                PrenomPersModif.setText(rs.getString("prenom"));
+                AgePersModif.setText(rs.getString("age"));
+                NomPersModif.setText(rs.getString("nom"));
+                idEntrPersModif.setText(rs.getString("idEntreprise"));
 
             }
 
@@ -96,12 +96,11 @@ private Connection con;
     }
 
     public void ActionViderModif(ActionEvent actionEvent) {
-        idModif.setText("");
-        FonctionContactModif.setText("");
-        MailContactModif.setText("");
-        TelephoneContactModif.setText("");
-        LinkContactModif.setText("");
-        idPersContactModif.setText("");
+        PrenomPersModif.setText("");
+        AgePersModif.setText("");
+        idPersModif.setText("");
+        NomPersModif.setText("");
+        idEntrPersModif.setText("");
 
     }
 }

@@ -15,12 +15,14 @@ import java.util.ResourceBundle;
 
 public class ControllerAjoutEntr implements Initializable {
 
-@FXML private Button ValiderContact ;
-@FXML private TextField FonctionContact;
-@FXML private TextField MailContact;
-@FXML private TextField TelephoneContact;
-@FXML private TextField LinkContact;
-@FXML private TextField idPersContact;
+@FXML private Button ValiderEntreprise ;
+@FXML private TextField NomEntr;
+@FXML private TextField RaisonSociale;
+@FXML private TextField Dénomination;
+@FXML private TextField Adresse;
+@FXML private TextField Activites;
+@FXML private TextField DateCreation;
+@FXML private TextField Site;
 
 
     private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
@@ -30,13 +32,13 @@ public class ControllerAjoutEntr implements Initializable {
 
 
 
-    public void ActionValidax(ActionEvent actionEvent) {
+    public void ActionValidaxEntr(ActionEvent actionEvent) {
 
-        Stage stage = (Stage) ValiderContact.getScene().getWindow();
+        Stage stage = (Stage) ValiderEntreprise.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (Fonction ,Mail , Telephone, LinkeedIn , idPersonne )" +
-                    "VALUES ('"+FonctionContact.getText()+" ','"+MailContact.getText()+" ','"+TelephoneContact.getText()+" ','"+LinkContact.getText()+" ','"+idPersContact.getText()+"')";
+            String SQL = "INSERT INTO entreprise ( NomEntrep , Raison_sociale, Denomination , Adresse_du_siege, Secteur_d_activite , Date_de_creation, Site_internet )" +
+                    "VALUES ('"+NomEntr.getText()+" ','"+RaisonSociale.getText()+" ','"+Dénomination.getText()+" ','"+Adresse.getText()+" ','"+Activites.getText()+"','"+DateCreation.getText()+" ','"+Site.getText()+"')";
 
             Statement st = con.createStatement();
              st.executeUpdate(SQL);

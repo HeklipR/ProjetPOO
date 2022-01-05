@@ -1,4 +1,4 @@
-package Entreprise;
+package FXML;
 
 
 
@@ -28,7 +28,7 @@ public class Succursales {
      * @param Lieu
      * @param Site_internet
      */
-    public Succursales(String NomSucc, String Date_de_creation, String Lieu, String Site_internet, int idSuccursale, int idEntreprise) {
+    public Succursales(int idSuccursale, String NomSucc, String Date_de_creation, String Lieu, String Site_internet,  int idEntreprise) {
         this.idSuccursale = idSuccursale;
         this.idEntreprise = idEntreprise;
         this.NomSucc = NomSucc;

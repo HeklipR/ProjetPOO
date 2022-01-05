@@ -1,4 +1,4 @@
-package Personne;
+package FXML;
 
 import java.sql.SQLException;
 
@@ -14,7 +14,7 @@ public class Specialite {
      * @param idSpecialite
      * @param technologie
      */
-    public Specialite(String technologie, int idSpecialite) {
+    public Specialite(int idSpecialite, String technologie) {
         this.idSpecialite = idSpecialite;
         Technologie = technologie;
     }

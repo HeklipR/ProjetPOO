@@ -16,12 +16,12 @@
             <Button fx:id="BoutonRechercheSucc" layoutX="311.0" layoutY="31.0" mnemonicParsing="false" onAction="#ActionRechercheSucc" prefHeight="33.0" prefWidth="100.0" text="Recherche" />
             <TableView fx:id="Succursale" layoutY="74.0" prefHeight="674.0" prefWidth="829.0">
               <columns>
-                <TableColumn fx:id="idSuccursales" prefWidth="88.0" text="idSuccursales" />
+                <TableColumn fx:id="idSuccursale" prefWidth="88.0" text="idSuccursales" />
                   <TableColumn fx:id="NomSucc" prefWidth="131.0" text="Nom" />
                   <TableColumn fx:id="Date_de_creation" prefWidth="172.0" text="Date de création" />
                   <TableColumn fx:id="Lieu" prefWidth="214.0" text="Lieu" />
                   <TableColumn fx:id="Site_internet" prefWidth="131.0" text="Site Internet" />
-                  <TableColumn fx:id="Site_internet1" prefWidth="92.0" text="idEntreprise" />
+                  <TableColumn fx:id="idEntreprise" prefWidth="92.0" text="idEntreprise" />
               </columns>
             </TableView>
             <Button fx:id="BoutonAjoutSucc" layoutX="868.0" layoutY="105.0" mnemonicParsing="false" onAction="#ActionAjoutSucc" prefHeight="49.0" prefWidth="127.0" text="Ajouter" />
