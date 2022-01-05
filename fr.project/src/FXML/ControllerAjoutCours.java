@@ -29,12 +29,12 @@ public class ControllerAjoutCours implements Initializable {
 
 
 
-    public void ActionValidax(ActionEvent actionEvent) {
+    public void ActionValidaxCour(ActionEvent actionEvent) {
 
         Stage stage = (Stage) ValiderCours.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Cours (matiere ,filiere ,annee)" +
+            String SQL = "INSERT INTO cours (matiere ,filiere ,annee)" +
                     "VALUES ('"+MatièreCours.getText()+" ','"+FilièreCours.getText()+" ','"+AnnéeCours.getText()+"')";
 
             Statement st = con.createStatement();

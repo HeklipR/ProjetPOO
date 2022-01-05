@@ -57,7 +57,7 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE contact SET matiere='"+MatiereCourModif.getText()+"', filiere='"+FiliereCourModif.getText()+" ',annee='"+AnneeCourfModif.getText()+"' WHERE idCours='"+idCourModif.getText()+"'";
+            String SQL = "UPDATE cours SET matiere='"+MatiereCourModif.getText()+"', filiere='"+FiliereCourModif.getText()+" ',annee='"+AnneeCourfModif.getText()+"' WHERE idCours='"+idCourModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

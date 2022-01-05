@@ -50,7 +50,7 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE event SET Type='"+TypeEventModif.getText()+"', Lieu='"+LieuEventModif.getText()+" ',Presence='"+PresenceEventModif.getText()+" ' WHERE idContact='"+idEventModif.getText()+"'";
+            String SQL = "UPDATE event SET Type='"+TypeEventModif.getText()+"', Lieu='"+LieuEventModif.getText()+" ',Presence='"+PresenceEventModif.getText()+" ' WHERE idEvent='"+idEventModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

@@ -59,7 +59,7 @@ private Connection con;
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "UPDATE entreprise SET  NomEntrep='"+NomEntrModif.getText()+" ',Raison_sociale='"+RaisonEntrModif.getText()+" ',Denomination='"+DenoEntrModif.getText()+" ',Adresse_du_siege='"+AdresseEntrModif.getText()+"',Secteur_d_activite='"+SecteurEntrModif.getText()+" ',Date_de_creation='"+DateEntrModif.getText()+" ',Site_internet='"+SiteEntrModif.getText()+" ' WHERE idEntreprise='"+idEntrModif.getText()+"'";
+            String SQL = "UPDATE entreprise SET  NomEntrep='"+NomEntrModif.getText()+" ',Raison_sociale='"+RaisonEntrModif.getText()+" ',Denomination='"+DenoEntrModif.getText()+" ',Adresse_du_siege='"+AdresseEntrModif.getText()+"',Secteurs_d_activite='"+SecteurEntrModif.getText()+" ',Date_de_creation='"+DateEntrModif.getText()+" ',Site_internet='"+SiteEntrModif.getText()+" ' WHERE idEntreprise='"+idEntrModif.getText()+"'";
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);
@@ -87,7 +87,7 @@ private Connection con;
                 RaisonEntrModif.setText(rs.getString("Raison_sociale"));
                 DenoEntrModif.setText(rs.getString("Denomination"));
                 AdresseEntrModif.setText(rs.getString("Adresse_du_siege"));
-                SecteurEntrModif.setText(rs.getString("Secteur_d_activite"));
+                SecteurEntrModif.setText(rs.getString("Secteurs_d_activite"));
                 DateEntrModif.setText(rs.getString("Date_de_creation"));
                 SiteEntrModif.setText(rs.getString("Site_internet"));
 

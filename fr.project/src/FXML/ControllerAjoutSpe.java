@@ -32,7 +32,7 @@ public class ControllerAjoutSpe implements Initializable {
         Stage stage = (Stage) ValiderSpe.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact ( Technologie )" +
+            String SQL = "INSERT INTO specialite ( Technologie )" +
                     "VALUES ('"+Techno.getText()+"')";
 
             Statement st = con.createStatement();

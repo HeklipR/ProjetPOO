@@ -95,8 +95,8 @@ public class ControllerPersonne implements Initializable {
 
     public void FiltresAttributComboBox() {
 
-        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idContact" ,
-                "Fonction" , "Mail" , "Telephone" , "LinkeedIn" ,"idPersonne" ) ;
+        ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idPersonne" ,
+                "nom" , "prenom" , "age" , "idEntreprise") ;
 
         FiltreAttributPers.setItems(FiltreAttributsList);
 
@@ -203,7 +203,7 @@ return URL ;
 
     public void ActionModifPers(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Personne.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modfier Personne.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

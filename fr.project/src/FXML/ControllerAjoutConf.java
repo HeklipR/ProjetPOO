@@ -35,7 +35,7 @@ public class ControllerAjoutConf implements Initializable {
         Stage stage = (Stage) ValiderConf.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact (date ,theme , publique, duree)" +
+            String SQL = "INSERT INTO conference (date ,theme , publique, duree)" +
                     "VALUES ('"+DateConf.getText()+" ','"+ThemeConf.getText()+" ','"+PublicConf.getText()+" ','"+DureeConf.getText()+"')";
 
             Statement st = con.createStatement();

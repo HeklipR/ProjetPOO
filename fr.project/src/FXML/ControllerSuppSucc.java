@@ -36,7 +36,7 @@ public class ControllerSuppSucc implements Initializable {
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "DELETE FROM succursale WHERE idSuccursale =" + Integer.parseInt(idSuppSucc.getText());
+            String SQL = "DELETE FROM succursales WHERE idSuccursale =" + Integer.parseInt(idSuppSucc.getText());
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

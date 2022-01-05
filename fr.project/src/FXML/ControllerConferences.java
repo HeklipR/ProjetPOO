@@ -97,7 +97,7 @@ public class ControllerConferences implements Initializable {
     public void FiltresAttributComboBox() {
 
         ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idConference" ,
-                "date" , "theme" , "public" , "duree" ) ;
+                "date" , "theme" , "publique" , "duree" ) ;
 
         FiltreAttributConf.setItems(FiltreAttributsList);
 
@@ -224,7 +224,7 @@ return URL ;
      if ( FiltreAttributConf.getSelectionModel().getSelectedItem() == "idConference" || FiltreAttributConf.getSelectionModel().getSelectedItem() == "public" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheConf.getText())+"'";
+             String SQL = "SELECT * FROM conference WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheConf.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
@@ -254,7 +254,7 @@ return URL ;
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+RechercheConf.getText()+"'";
+                String SQL = "SELECT * FROM conference WHERE `"+this.getAttribut()+"`='"+RechercheConf.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
 

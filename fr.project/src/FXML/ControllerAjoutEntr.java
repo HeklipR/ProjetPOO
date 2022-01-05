@@ -37,7 +37,7 @@ public class ControllerAjoutEntr implements Initializable {
         Stage stage = (Stage) ValiderEntreprise.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO entreprise ( NomEntrep , Raison_sociale, Denomination , Adresse_du_siege, Secteur_d_activite , Date_de_creation, Site_internet )" +
+            String SQL = "INSERT INTO entreprise ( NomEntrep , Raison_sociale, Denomination , Adresse_du_siege, Secteurs_d_activite , Date_de_creation, Site_internet )" +
                     "VALUES ('"+NomEntr.getText()+" ','"+RaisonSociale.getText()+" ','"+Dénomination.getText()+" ','"+Adresse.getText()+" ','"+Activites.getText()+"','"+DateCreation.getText()+" ','"+Site.getText()+"')";
 
             Statement st = con.createStatement();

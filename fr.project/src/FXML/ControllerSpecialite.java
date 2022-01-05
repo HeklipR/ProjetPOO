@@ -140,7 +140,7 @@ return URL ;
     public void ActionAjoutSpe(ActionEvent actionEvent) throws IOException {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Ajouter Specialite.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AjouterSpecialite.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
@@ -240,7 +240,7 @@ return URL ;
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM specialite WHERE `"+this.getAttribut()+"`='"+BoutonRechercheSpe.getText()+"'";
+                String SQL = "SELECT * FROM specialite WHERE `"+this.getAttribut()+"`='"+RechercheSpe.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
 

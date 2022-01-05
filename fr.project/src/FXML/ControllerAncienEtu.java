@@ -228,15 +228,15 @@ return URL ;
      if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "idAncienEtudiant" || FiltreAttributAE.getSelectionModel().getSelectedItem() == "idPersonne" ) {
          try {
              this.con = SingleConnection.getInstance(urlb, password, login);
-             String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheAE.getText())+"'";
+             String SQL = "SELECT * FROM ancien_etudiants WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheAE.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
 
 
              while (rs.next()){
-                 data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
-                         rs.getString("Année"),rs.getString("Type de Contrat"),
-                         rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
+                 data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau_etudes"),
+                         rs.getString("Annee"),rs.getString("Type_de_contrat_de_travail"),
+                         rs.getString("Duree"),rs.getString("Nom"),rs.getInt("idPersonne")));
 
              }
 
@@ -245,99 +245,30 @@ return URL ;
              e.printStackTrace();
          }
 
-         // AJout données dans la BDD
          idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
-         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
-         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
-         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
-         Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau_etudes"));
+         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Annee"));
+         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type_de_contrat_de_travail"));
+         Duree.setCellValueFactory(new PropertyValueFactory<>("Duree"));
          Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
          idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 
          Ancien_Etudiant.setItems(data);
 
 
-
 }
-       else if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "Duree") {
-            try {
-                this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Timestamp.valueOf(RechercheAE.getText())+"'";
-                PreparedStatement st = con.prepareStatement(SQL);
-                ResultSet rs = st.executeQuery();
 
-
-                while (rs.next()){
-                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
-                            rs.getString("Année"),rs.getString("Type de Contrat"),
-                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
-
-                }
-
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-
-            // AJout données dans la BDD
-            idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
-            Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
-            AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
-            Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
-            Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
-            Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-            idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
-
-            Ancien_Etudiant.setItems(data);
-
-
-
-        }
-        else if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "Annee" || FiltreAttributAE.getSelectionModel().getSelectedItem() == "idPersonne" ) {
-            try {
-                this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+Date.parse(RechercheAE.getText())+"'";
-                PreparedStatement st = con.prepareStatement(SQL);
-                ResultSet rs = st.executeQuery();
-
-
-                while (rs.next()){
-                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
-                            rs.getString("Année"),rs.getString("Type de Contrat"),
-                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
-
-                }
-
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-
-            // AJout données dans la BDD
-            idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
-            Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
-            AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
-            Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
-            Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
-            Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-            idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
-
-            Ancien_Etudiant.setItems(data);
-
-
-
-        }
     else{
             try {
                 this.con = SingleConnection.getInstance(urlb, password, login);
-                String SQL = "SELECT * FROM contact WHERE `"+this.getAttribut()+"`='"+RechercheAE.getText()+"'";
+                String SQL = "SELECT * FROM ancien_etudiants WHERE `"+this.getAttribut()+"`='"+RechercheAE.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
 
                 while (rs.next()){
-                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau d'etudes"),
-                            rs.getString("Année"),rs.getString("Type de Contrat"),
-                            rs.getString("Durée"),rs.getString("Nom"),rs.getInt("idPersonne")));
+                    data.add(new AncienEtudiants(rs.getInt("idAncienEtudiant"),rs.getString("Niveau_etudes"),
+                            rs.getString("Annee"),rs.getString("Type_de_contrat_de_travail"),
+                            rs.getString("Duree"),rs.getString("Nom"),rs.getInt("idPersonne")));
 
                 }
 
@@ -345,12 +276,12 @@ return URL ;
             catch (Exception e){
                 e.printStackTrace();
             }
-         // AJout données dans la BDD
+
          idAncienEtudiant.setCellValueFactory(new PropertyValueFactory<>("idAncienEtudiant"));
-         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau d'etudes"));
-         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Année"));
-         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type de Contrat"));
-         Duree.setCellValueFactory(new PropertyValueFactory<>("Durée"));
+         Niveau_etudes.setCellValueFactory(new PropertyValueFactory<>("Niveau_etudes"));
+         AnneeEtudiant.setCellValueFactory(new PropertyValueFactory<>("Annee"));
+         Type_de_contrat_de_travail.setCellValueFactory(new PropertyValueFactory<>("Type_de_contrat_de_travail"));
+         Duree.setCellValueFactory(new PropertyValueFactory<>("Duree"));
          Nom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
          idPersAE.setCellValueFactory(new PropertyValueFactory<>("idPersonne"));
 

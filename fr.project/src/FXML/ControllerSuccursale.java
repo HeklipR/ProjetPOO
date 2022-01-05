@@ -204,7 +204,7 @@ return URL ;
 
     public void ActionModifSucc(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifier Succursale.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Modifer Succursale.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

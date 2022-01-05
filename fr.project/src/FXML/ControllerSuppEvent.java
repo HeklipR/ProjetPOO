@@ -36,7 +36,7 @@ public class ControllerSuppEvent implements Initializable {
 
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "DELETE FROM event WHERE idEvent =" + Integer.parseInt(idSuppEvent.getText());
+            String SQL = "DELETE FROM event WHERE idEvent ="+Integer.parseInt(idSuppEvent.getText());
 
             Statement st = con.createStatement();
             st.executeUpdate(SQL);

@@ -35,7 +35,7 @@ public class ControllerAjoutPersonne implements Initializable {
         Stage stage = (Stage) ValiderPers.getScene().getWindow();
         try {
             this.con = SingleConnection.getInstance(urlb, password, login);
-            String SQL = "INSERT INTO Contact ( nom, prenom, age, idEntreprise )" +
+            String SQL = "INSERT INTO personne ( nom, prenom, age, idEntreprise )" +
                     "VALUES ('"+NomPers.getText()+" ','"+PrenomPers.getText()+" ','"+AgePers.getText()+" ','"+idEntrPers.getText()+"')";
 
             Statement st = con.createStatement();

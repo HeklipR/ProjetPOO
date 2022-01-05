@@ -102,7 +102,7 @@ public class ControllerEntreprise implements Initializable {
     public void FiltresAttributComboBox() {
 
         ObservableList<String> FiltreAttributsList = FXCollections.observableArrayList("idEntreprise" ,
-                "NomEntrep" , "Raison_sociale" , "Denomination" , "Adresse_du_siege" ,"Secteur_d_activite","Date_de_creation","Site_internet" ) ;
+                "NomEntrep" , "Raison_sociale" , "Denomination" , "Adresse_du_siege" ,"Secteurs_d_activite","Date_de_creation","Site_internet" ) ;
 
         FiltreAttributEntr.setItems(FiltreAttributsList);
 
@@ -237,7 +237,7 @@ return URL ;
              while (rs.next()){
                  data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
                          rs.getString("Raison_sociale"),rs.getString("Denomination"),
-                         rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                         rs.getString("Adresse_du_siege") ,rs.getString("Secteurs_d_activite"),
                          rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
              }
@@ -252,7 +252,7 @@ return URL ;
          Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
          Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
          Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
-         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteurs_d_activite"));
          Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
          Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
 
@@ -268,7 +268,7 @@ return URL ;
                 while (rs.next()){
                     data.add(new Entreprise(rs.getInt("idEntreprise"),rs.getString("NomEntrep"),
                             rs.getString("Raison_sociale"),rs.getString("Denomination"),
-                            rs.getString("Adresse_du_siege") ,rs.getString("Secteur_d_activite"),
+                            rs.getString("Adresse_du_siege") ,rs.getString("Secteurs_d_activite"),
                             rs.getString("Date_de_creation") ,rs.getString("Site_internet")));
 
                 }
@@ -283,7 +283,7 @@ return URL ;
          Raison_sociale.setCellValueFactory(new PropertyValueFactory<>("Raison_sociale"));
          Denomination.setCellValueFactory(new PropertyValueFactory<>("Denomination"));
          Adresse_du_siege.setCellValueFactory(new PropertyValueFactory<>("Adresse_du_siege"));
-         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteur_d_activite"));
+         Secteur_d_activite.setCellValueFactory(new PropertyValueFactory<>("Secteurs_d_activite"));
          Date_de_creation.setCellValueFactory(new PropertyValueFactory<>("Date_de_creation"));
          Site_internet.setCellValueFactory(new PropertyValueFactory<>("Site_internet"));
 
