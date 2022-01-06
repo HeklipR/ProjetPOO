@@ -121,6 +121,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -291,6 +292,17 @@ return URL ;
         data.removeAll(data);
 
         this.AffichageDonnés();
+    }
+
+    public void permUser () {
+
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+             ModifierContact.setVisible(false);
+             SupprimerContact.setVisible(false);;
+             AjouterContact.setVisible(false);;
+
+        }
+
     }
 }
 
