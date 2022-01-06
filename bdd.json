@@ -1,6 +1,6 @@
 {
   "url" : "localhost",
-  "dbName" : "projet",
+  "dbName" : "projettest",
   "login" : "root",
   "password" : "root",
   "port" : "3306"

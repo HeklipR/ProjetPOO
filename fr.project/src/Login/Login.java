@@ -23,49 +23,20 @@ public class Login {
         this.password = password;
     }
 
-    /**
-     * Getter pour récupérer le role de l'utilisateur
-     * @return
-     */
+
     public String getRole() {
         return role;
     }
 
-    /**
-     * Getters et Setters
-     */
-    public String getLogin() {
-        return login;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public String getPassword() {
-        return password;
-    }
-    //ToString de la class Login (Pour les test à supprimer plus tard)
-
-    /**
-     * ToString de la class Login
-     * @return
-     */
-    @Override
-    public String toString() {
-        return "Login{" +
-                "role='" + role + '\'' +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-
-
-    /**
-     * Fonction permettant de vérifier la validité du compte ainsi que son rôle afin d'afficher les bonnes interfaces
-     * @throws SQLException
-     */
-    public void AccountcheckBDD() throws SQLException{
-
-
+    public void setPassword(String password) {
+        this.password = password;
     }
-
-
 }

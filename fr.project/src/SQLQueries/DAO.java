@@ -95,44 +95,4 @@ public class DAO {
     }
 
 
-    public void Insert(String tableName, String a, String b, String c, String d, String e, String f, String g, String h, String un, String deux, String trois, String quatre, String cinq, String six, String sept, String huit) throws SQLException{
-
-        String rqt3 = null;
-
-
-        if (a.isEmpty() == true){
-            System.out.println("Aucun arg");
-        }else if(b.isEmpty() == true){
-            System.out.println("y'a rien avec 2 arg");
-        }else if(c.isEmpty() == true){
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`) VALUES ('" + un + "'" + ", '" +  deux + "')";
-        }else if(d.isEmpty() == true){
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`) VALUES ('" + un + "'" + ", '" +  deux + "', '" + trois + "')";
-        }else if(e.isEmpty() == true) {
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`,`" + d + "`) VALUES ('" + un + "'" + ", '" + deux + "', '" + trois + "', '" + quatre + "')";
-        }else if(f.isEmpty() == true){
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`,`" + d + "`,`" + e + "`) VALUES ('" + un + "'" + ", '" +  deux + "', '" + trois + "', '" + quatre + "', '" + cinq + "')";
-        }else if(g.isEmpty() == true) {
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`,`" + d + "`,`" + e + "`,`" + f + "`) VALUES ('" + un + "'" + ", '" + deux + "', '" + trois + "', '" + quatre + "', '" + cinq + "', '" + six + "')";
-        }else if(h.isEmpty() == true) {
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`,`" + d + "`,`" + e + "`,`" + f + "`,`" + g + "`) VALUES ('" + un + "'" + ", '" + deux + "', '" + trois + "', '" + quatre + "', '" + cinq + "', '" + six + "', '" + sept + "')";
-        }else {
-            rqt3 = "INSERT INTO `" + tableName + "` (`" + a + "`, `" + b + "`,`" + c + "`,`" + d + "`,`" + e + "`,`" + f + "`,`" + g + "`,`" + h + "`) VALUES ('" + un + "'" + ", '" +  deux + "', '" + trois + "', '" + quatre + "', '" + cinq + "', '" + six + "', '" + sept + "', '" + huit + "')";
-        }
-
-        System.out.println(rqt3);
-
-        try {
-            this.test = null;
-            this.test = con.createStatement();
-            test.executeUpdate(rqt3);
-
-            System.out.println("Execution de la requête : " + rqt3);
-
-        }catch (Exception v){
-            v.printStackTrace();
-        }
-
-    }
-
 }

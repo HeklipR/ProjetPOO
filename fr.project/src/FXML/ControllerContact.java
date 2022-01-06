@@ -54,6 +54,8 @@ public class ControllerContact implements Initializable {
     public void AffichageDonnés () {
 
         try {
+
+
             test.Instance();
             this.con=test.getCon();
             String SQL = "SELECT * FROM contact";
