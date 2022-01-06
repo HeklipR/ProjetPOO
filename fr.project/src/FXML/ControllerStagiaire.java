@@ -120,6 +120,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -281,6 +282,14 @@ return URL ;
 
          Stagiaire.setItems(data);
 
+        }
+    }
+
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutStag.setVisible(false);
+            BoutonModifStag.setVisible(false);
+            BoutonSuppStag.setVisible(false);
         }
     }
 

@@ -120,6 +120,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -280,6 +281,13 @@ return URL ;
 
          Conferences.setItems(data);
 
+        }
+    }
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutConf.setVisible(false);
+            BoutonModifConf.setVisible(false);
+            BoutonSuppConf.setVisible(false);
         }
     }
 

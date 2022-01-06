@@ -125,6 +125,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -291,6 +292,13 @@ return URL ;
 
          Entreprise.setItems(data);
 
+        }
+    }
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutEntr.setVisible(false);
+            BoutonModifEntr.setVisible(false);
+            BoutonSuppEntr.setVisible(false);
         }
     }
 

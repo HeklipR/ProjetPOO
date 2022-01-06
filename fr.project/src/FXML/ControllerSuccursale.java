@@ -120,6 +120,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -280,6 +281,14 @@ return URL ;
 
          Succursale.setItems(data);
 
+        }
+    }
+
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutSucc.setVisible(false);
+            BoutonModifSucc.setVisible(false);
+            BoutonSuppSucc.setVisible(false);
         }
     }
 

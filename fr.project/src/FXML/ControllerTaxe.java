@@ -119,6 +119,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -310,6 +311,14 @@ return URL ;
 
          Taxe.setItems(data);
 
+        }
+    }
+
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutTaxe.setVisible(false);
+            BoutonModifTaxe.setVisible(false);
+            BoutonSuppTaxe.setVisible(false);
         }
     }
 

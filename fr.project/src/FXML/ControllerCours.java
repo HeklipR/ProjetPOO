@@ -117,6 +117,7 @@ return URL ;
        this.FiltreTableComboBox();
        this.AffichageDonnés();
        this.FiltresAttributComboBox();
+       this.permUser();
 
         }
 
@@ -277,6 +278,13 @@ return URL ;
         }
     }
 
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutCour.setVisible(false);
+            BoutonModifCour.setVisible(false);
+            BoutonSuppCour.setVisible(false);
+        }
+    }
 
     public void ActionReinitialiserCour(ActionEvent actionEvent) {
 

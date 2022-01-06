@@ -124,6 +124,7 @@ return URL ;
        this.FiltreTableComboBoxAE();
        this.AffichageDonnésAE();
        this.FiltresAttributComboBoxAE();
+       this.permUser();
 
         }
 
@@ -291,6 +292,14 @@ return URL ;
 
         }
     }
+    public void permUser(){
+        if(ControllerConnexion.currentLog.getRole().equals("Utilisateur")){
+            BoutonAjoutAE.setVisible(false);
+            BoutonModifAE.setVisible(false);
+            BoutonSuppAE.setVisible(false);
+        }
+    }
+
 
 
     public void ActionReinitialiserAE(ActionEvent actionEvent) {
