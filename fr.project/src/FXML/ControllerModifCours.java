@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,10 +31,8 @@ public class ControllerModifCours implements Initializable {
     @FXML private Button ViderCourModif;
 
 
-private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-private final String login="root";
-private final String password="root";
-private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -56,7 +55,8 @@ private Connection con;
         Stage stage = (Stage) ValiderCourModif.getScene().getWindow();
 
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "UPDATE cours SET matiere='"+MatiereCourModif.getText()+"', filiere='"+FiliereCourModif.getText()+" ',annee='"+AnneeCourfModif.getText()+"' WHERE idCours='"+idCourModif.getText()+"'";
 
             Statement st = con.createStatement();
@@ -74,7 +74,8 @@ private Connection con;
 
 
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "SELECT * FROM cours WHERE idCours =" + Integer.parseInt(idCourModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();

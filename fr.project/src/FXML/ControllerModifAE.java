@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,10 +41,8 @@ public class ControllerModifAE implements Initializable {
     @FXML private TableColumn <AncienEtudiants,String> Nom ;
     @FXML private TableColumn <AncienEtudiants,Integer> idPersAE ;
 
-private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-private final String login="root";
-private final String password="root";
-private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -66,7 +65,8 @@ private Connection con;
         Stage stage = (Stage) ValiderAEModif.getScene().getWindow();
 
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "UPDATE ancien_etudiants SET Niveau_etudes='"+niveauetuAEModif.getText()+"', Annee='"+anneeAEModif.getText()+" ',Type_de_contrat_de_travail='"+ContratAEModif.getText()+" ',Nom='"+NomAEModif.getText()+" ',Duree='"+DureeAEModif.getText()+" ',idPersonne='"+idPersAEModif.getText()+" 'WHERE idAncienEtudiant='"+idAEModif.getText()+"'";
 
             Statement st = con.createStatement();
@@ -84,7 +84,8 @@ private Connection con;
 
 
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "SELECT * FROM ancien_etudiants WHERE idAncienEtudiant="+ Integer.parseInt(idAEModif.getText());
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();

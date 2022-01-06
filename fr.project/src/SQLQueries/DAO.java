@@ -21,7 +21,16 @@ public class DAO {
     private Connection con;
     private Statement test;
 
-    public DAO() throws SQLException, ClassNotFoundException, IOException {
+    public DAO(Connection con) {
+        this.con = con;
+    }
+
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public void Instance() throws SQLException, ClassNotFoundException, IOException {
 
         Gson gson = new Gson();
         Reader reader = Files.newBufferedReader(Path.of("./bdd.json"));

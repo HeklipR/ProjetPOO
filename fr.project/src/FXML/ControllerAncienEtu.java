@@ -30,7 +30,7 @@ public class ControllerAncienEtu implements Initializable {
     @FXML public Button ChangerTableAE;
     @FXML private Button BoutonSuppAE;
     @FXML private Button BoutonModifAE;
-    @FXML private Button BoutonRechargeAE;
+    @FXML public Button BoutonRechargeAE;
     @FXML private Button BoutonReinitialiserAE;
     @FXML private TableView <AncienEtudiants> Ancien_Etudiant;
     @FXML private TableColumn <AncienEtudiants ,Integer> idAncienEtudiant;
@@ -56,7 +56,7 @@ public class ControllerAncienEtu implements Initializable {
 
 
 
-    public void AffichageDonnésAE () {
+    public void AffichageDonnésAE() {
 
         try {
             this.con = SingleConnection.getInstance(urlb,password,login);

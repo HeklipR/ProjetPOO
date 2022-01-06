@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,10 +45,8 @@ public class ControllerTaxe implements Initializable {
     private ObservableList <TaxeApprentissage> data = FXCollections.observableArrayList() ;
 
     // Connexion
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -55,7 +54,8 @@ public class ControllerTaxe implements Initializable {
     public void AffichageDonnés () {
 
         try {
-            this.con = SingleConnection.getInstance(urlb,password,login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "SELECT * FROM taxe_apprentissage";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
@@ -222,7 +222,8 @@ return URL ;
 
      if ( FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "idTaxe" || FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "idEntreprise" ) {
          try {
-             this.con = SingleConnection.getInstance(urlb, password, login);
+             test.Instance();
+             this.con=test.getCon();
              String SQL = "SELECT * FROM taxe_apprentissage WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheTaxe.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
@@ -252,7 +253,8 @@ return URL ;
 }
        else if ( FiltreAttributTaxe.getSelectionModel().getSelectedItem() == "somme" ) {
          try {
-             this.con = SingleConnection.getInstance(urlb, password, login);
+             test.Instance();
+             this.con=test.getCon();
              String SQL = "SELECT * FROM taxe_apprentissage WHERE `" + this.getAttribut() + "`='" + Double.parseDouble(RechercheTaxe.getText()) + "'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
@@ -281,7 +283,8 @@ return URL ;
 
     else{
             try {
-                this.con = SingleConnection.getInstance(urlb, password, login);
+                test.Instance();
+                this.con=test.getCon();
                 String SQL = "SELECT * FROM taxe_apprentissage WHERE `"+this.getAttribut()+"`='"+RechercheTaxe.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();

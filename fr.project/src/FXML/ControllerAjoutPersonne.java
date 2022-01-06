@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,10 +24,8 @@ public class ControllerAjoutPersonne implements Initializable {
 
 
 
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -34,7 +33,8 @@ public class ControllerAjoutPersonne implements Initializable {
 
         Stage stage = (Stage) ValiderPers.getScene().getWindow();
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "INSERT INTO personne ( nom, prenom, age, idEntreprise )" +
                     "VALUES ('"+NomPers.getText()+" ','"+PrenomPers.getText()+" ','"+AgePers.getText()+" ','"+idEntrPers.getText()+"')";
 

@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,10 +42,8 @@ public class ControllerSpecialite implements Initializable {
     private ObservableList <Specialite> data = FXCollections.observableArrayList() ;
 
     // Connexion
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -52,7 +51,8 @@ public class ControllerSpecialite implements Initializable {
     public void AffichageDonnés () {
 
         try {
-            this.con = SingleConnection.getInstance(urlb,password,login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "SELECT * FROM specialite";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
@@ -214,7 +214,8 @@ return URL ;
 
      if ( FiltreAttributSpe.getSelectionModel().getSelectedItem() == "idSpecialite" ) {
          try {
-             this.con = SingleConnection.getInstance(urlb, password, login);
+             test.Instance();
+             this.con=test.getCon();
              String SQL = "SELECT * FROM specialite WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheSpe.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
@@ -239,7 +240,8 @@ return URL ;
 }
     else{
             try {
-                this.con = SingleConnection.getInstance(urlb, password, login);
+                test.Instance();
+                this.con=test.getCon();
                 String SQL = "SELECT * FROM specialite WHERE `"+this.getAttribut()+"`='"+RechercheSpe.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();

@@ -1,13 +1,18 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -22,11 +27,10 @@ public class ControllerAjoutAE implements Initializable {
 @FXML private TextField Duree;
 @FXML private TextField TypeContrat;
 @FXML private TextField idPersonne;
+@FXML public Button BoutonRechargeAE;
 
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -34,7 +38,8 @@ public class ControllerAjoutAE implements Initializable {
 
         Stage stage = (Stage) ValiderAncienEtudiant.getScene().getWindow();
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "INSERT INTO ancien_etudiants (Niveau_etudes ,Annee , Type_de_contrat_de_travail ,Duree, Nom, idPersonne )" +
                     "VALUES ('"+NiveauEtude.getText()+" ','"+Annee.getText()+" ','"+TypeContrat.getText()+" ','"+Duree.getText()+" ','"+NomAncienEtudiant.getText()+" ','"+idPersonne.getText()+"')";
 
@@ -46,6 +51,8 @@ public class ControllerAjoutAE implements Initializable {
             e.printStackTrace();
         }
         stage.close();
+
+
     }
 
 

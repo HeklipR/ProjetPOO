@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,10 +20,9 @@ public class ControllerSuppConf implements Initializable {
     public TableView<Conference> Conference;
     public TextField idSuppConf ;
     public Button OkSuppConf ;
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
     @Override
@@ -35,7 +35,8 @@ public class ControllerSuppConf implements Initializable {
         Stage stage = (Stage) OkSuppConf.getScene().getWindow();
 
         try {
-            this.con = SingleConnection.getInstance(urlb, password, login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "DELETE FROM conference WHERE idConference =" + Integer.parseInt(idSuppConf.getText());
 
             Statement st = con.createStatement();
