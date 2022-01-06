@@ -1,6 +1,7 @@
 package FXML;
 
 import CRUDExemple.SingleConnection;
+import SQLQueries.DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,10 +49,8 @@ public class ControllerAncienEtu implements Initializable {
     private ObservableList <AncienEtudiants> data = FXCollections.observableArrayList() ;
 
     // Connexion
-    private final String urlb="jdbc:mysql://localhost:3306/projet?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
-    private final String login="root";
-    private final String password="root";
-    private Connection con;
+    private Connection con ;
+    private DAO test= new DAO(con);
 
 
 
@@ -59,7 +58,8 @@ public class ControllerAncienEtu implements Initializable {
     public void AffichageDonnésAE() {
 
         try {
-            this.con = SingleConnection.getInstance(urlb,password,login);
+            test.Instance();
+            this.con=test.getCon();
             String SQL = "SELECT * FROM ancien_etudiants";
             PreparedStatement st =  con.prepareStatement(SQL);
             ResultSet rs = st.executeQuery();
@@ -227,7 +227,8 @@ return URL ;
 
      if ( FiltreAttributAE.getSelectionModel().getSelectedItem() == "idAncienEtudiant" || FiltreAttributAE.getSelectionModel().getSelectedItem() == "idPersonne" ) {
          try {
-             this.con = SingleConnection.getInstance(urlb, password, login);
+             test.Instance();
+             this.con=test.getCon();
              String SQL = "SELECT * FROM ancien_etudiants WHERE `"+this.getAttribut()+"`='"+Integer.parseInt(RechercheAE.getText())+"'";
              PreparedStatement st = con.prepareStatement(SQL);
              ResultSet rs = st.executeQuery();
@@ -260,7 +261,8 @@ return URL ;
 
     else{
             try {
-                this.con = SingleConnection.getInstance(urlb, password, login);
+                test.Instance();
+                this.con=test.getCon();
                 String SQL = "SELECT * FROM ancien_etudiants WHERE `"+this.getAttribut()+"`='"+RechercheAE.getText()+"'";
                 PreparedStatement st = con.prepareStatement(SQL);
                 ResultSet rs = st.executeQuery();
