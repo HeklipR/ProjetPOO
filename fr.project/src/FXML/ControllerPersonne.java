@@ -139,7 +139,7 @@ return URL ;
             e.printStackTrace();
         }
 
-
+        stage.setTitle("");
         stage.setScene(new Scene(root1));
         stage.show();
 

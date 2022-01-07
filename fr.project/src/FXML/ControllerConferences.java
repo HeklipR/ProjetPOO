@@ -209,7 +209,7 @@ return URL ;
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.setTitle("Modifier le Contact");
+            stage.setTitle("Modifier la  Conference");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
