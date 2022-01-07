@@ -31,8 +31,8 @@
             <Button fx:id="BoutonSuppAE" layoutX="899.0" layoutY="174.0" mnemonicParsing="false" onAction="#ActionSuppAE" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
             <Button fx:id="BoutonModifAE" layoutX="899.0" layoutY="266.0" mnemonicParsing="false" onAction="#ActionModifAE" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
             <Button fx:id="BoutonRechargeAE" layoutX="900.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionRechargeAE" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox fx:id="FiltreAttributAE" editable="true" layoutX="561.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
-            <ComboBox fx:id="FiltreTableAE" editable="true" layoutX="880.0" layoutY="434.0" prefHeight="39.0" prefWidth="164.0" promptText="Info Table">
+            <ComboBox fx:id="FiltreAttributAE" layoutX="561.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltreTableAE" layoutX="880.0" layoutY="434.0" prefHeight="39.0" prefWidth="164.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>

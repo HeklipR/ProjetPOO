@@ -29,8 +29,8 @@
             <Button fx:id="BoutonSuppConf" layoutX="807.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionSuppConf" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
             <Button fx:id="BoutonModifConf" layoutX="809.0" layoutY="258.0" mnemonicParsing="false" onAction="#ActionModifConf" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
             <Button fx:id="BoutonRechargeConf" layoutX="810.0" layoutY="330.0" mnemonicParsing="false" onAction="#ActionRechargeConf" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox fx:id="FiltreAttributConf" editable="true" layoutX="583.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
-            <ComboBox fx:id="FiltresTableConf" editable="true" layoutX="783.0" layoutY="422.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <ComboBox fx:id="FiltreAttributConf" layoutX="583.0" layoutY="32.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltresTableConf" layoutX="783.0" layoutY="422.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>

@@ -28,8 +28,8 @@
             <Button fx:id="BoutonSuppEvent" layoutX="869.0" layoutY="182.0" mnemonicParsing="false" onAction="#ActionSuppEvent" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
             <Button fx:id="BoutonModifEvent" layoutX="869.0" layoutY="259.0" mnemonicParsing="false" onAction="#ActionModifEvent" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
             <Button fx:id="BoutonRechargeEvent" layoutX="871.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionRechargeEvent" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox fx:id="FiltreAttributEvent" editable="true" layoutX="578.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
-            <ComboBox fx:id="FiltreTableEvent" editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <ComboBox fx:id="FiltreAttributEvent" layoutX="578.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attributs" />
+            <ComboBox fx:id="FiltreTableEvent" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>

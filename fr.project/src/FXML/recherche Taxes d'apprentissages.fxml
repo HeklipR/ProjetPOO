@@ -29,8 +29,8 @@
             <Button fx:id="BoutonSuppTaxe" layoutX="871.0" layoutY="180.0" mnemonicParsing="false" onAction="#ActionSuppTaxe" prefHeight="49.0" prefWidth="126.0" text="Supprimer" />
             <Button fx:id="BoutonModifTaxe" layoutX="870.0" layoutY="263.0" mnemonicParsing="false" onAction="#ActionModifTaxe" prefHeight="48.0" prefWidth="125.0" text="Modifier" />
             <Button fx:id="BoutonRechargeTaxe" layoutX="871.0" layoutY="347.0" mnemonicParsing="false" onAction="#ActionRechargeTaxe" prefHeight="48.0" prefWidth="124.0" text="Recharger" />
-            <ComboBox fx:id="FiltreAttributTaxe" editable="true" layoutX="594.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attribut" />
-            <ComboBox fx:id="FiltreTableTaxe" editable="true" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
+            <ComboBox fx:id="FiltreAttributTaxe" layoutX="594.0" layoutY="31.0" prefHeight="32.0" prefWidth="164.0" promptText="Attribut" />
+            <ComboBox fx:id="FiltreTableTaxe" layoutX="844.0" layoutY="470.0" prefHeight="39.0" prefWidth="179.0" promptText="Info Table">
                <opaqueInsets>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </opaqueInsets>

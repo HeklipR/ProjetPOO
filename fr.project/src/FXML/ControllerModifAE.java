@@ -5,10 +5,7 @@ import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -75,6 +72,10 @@ public class ControllerModifAE implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setContentText("Attention aux erreurs de syntaxes ou bien des id qui n'éxiste pas !");
+            alert.showAndWait();
         }
         stage.close() ;
     }
@@ -105,6 +106,10 @@ public class ControllerModifAE implements Initializable {
 
         } catch (Exception e) {
             e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setContentText("Attention aux erreurs de syntaxes ou bien des id qui n'éxiste pas !");
+            alert.showAndWait();
         }
 
     }
