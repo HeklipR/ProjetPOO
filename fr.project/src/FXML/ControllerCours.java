@@ -137,7 +137,7 @@ return URL ;
             e.printStackTrace();
         }
 
-        stage.setTitle("");
+        stage.setTitle(getURL());
         stage.setScene(new Scene(root1));
         stage.show();
 
