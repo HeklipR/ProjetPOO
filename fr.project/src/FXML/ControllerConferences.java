@@ -110,7 +110,18 @@ return URL ;
     }
 
     public String getAttribut() {
-        String attr =FiltreAttributConf.getSelectionModel().getSelectedItem().toString();
+        String attr = null;
+        try{
+            attr =FiltreAttributConf.getSelectionModel().getSelectedItem().toString();
+            return attr;
+        }catch (Exception e){
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setContentText("Veuillez mettre un filtre");
+            alert.showAndWait();
+
+        }
         return attr;
     }
 
