@@ -85,34 +85,4 @@ public class Conference {
     }
 
 
-    /**
-     * Fonction permettant l'ajout d'une conférence à la BDD
-     * @param date
-     * @param theme
-     * @param nombrePublique
-     * @param duree
-     * @param personne
-     * @throws SQLException
-     */
-
-
-    /**
-     * Fonction permettant de supprimer une conférence de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void ConferenceRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une conférence puis les changer sur la BDD
-     * @param date
-     * @param theme
-     * @param nombrePublique
-     * @param duree
-     * @param personne
-     * @throws SQLException
-     */
-
 }

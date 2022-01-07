@@ -47,37 +47,5 @@ public class Specialite {
     }
 
 
-    // Fonction permettant l'ajout d'une Specialite à la BDD
-
-    /**
-     * Fonction permettant l'ajout d'une Specialite à la BDD
-     * @param technologie
-     * @throws SQLException
-     */
-    public void SpecialiteAddBDD(String technologie) throws SQLException{
-
-    }
-
-    // Fonction permettant de supprimer une Specialite de la BDD
-
-    /**
-     * Fonction permettant de supprimer une Specialite de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void SpecialiteRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    // Fonction permettant de modifier les valeurs d'une Specialite puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une Specialite puis les changer sur la BDD
-     * @param technologie
-     * @throws SQLException
-     */
-    public void SpecialiteModifBDD(String technologie) throws SQLException {
-
-    }
 
 }

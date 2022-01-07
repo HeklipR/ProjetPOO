@@ -63,38 +63,6 @@ public class Cours {
                 '}';
     }
 
-    /**
-     * Fonction permettant l'ajout d'un cours à la BDD
-     * @param matiere
-     * @param filliere
-     * @param annee
-     * @throws SQLException
-     */
-    public void CoursAddBDD(String matiere, String filliere, int annee, Personne personne) throws SQLException {
 
-    }
-
-
-
-    /**
-     * Fonction permettant de supprimer un cours de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void CoursRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    /**
-     * Fonction permettant de modifier les valeurs d'un cours puis les changer sur la BDD
-     * @param matiere
-     * @param filliere
-     * @param annee
-     * @param personne
-     * @throws SQLException
-     */
-    public void CoursModifBDD(String matiere, String filliere, int annee, Personne personne) throws SQLException {
-
-    }
 
 }

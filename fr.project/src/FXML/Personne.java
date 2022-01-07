@@ -81,55 +81,5 @@ public class Personne {
                 '}';
     }
 
-    /**
-     * Fonction permettant l'ajout d'une Personne à la BDD
-     * @param nom
-     * @param prenom
-     * @param age
-     * @throws SQLException
-     */
-    public void PersonneAddBDD(String nom, String prenom, int age) throws SQLException{
 
     }
-
-    /**
-     * Fonction permettant de supprimer une Personne de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void PersonneRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    //
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une Personne puis les changer sur la BDD
-     * @param nom
-     * @param prenom
-     * @param age
-     * @throws SQLException
-     */
-    public void PersonneModifBDD(String nom, String prenom, int age) throws SQLException {
-        String rqt1 = "UPDATE PERSONNE SET nom = ?, prenom = ?, age = ? WHERE idPersonne = ?";
-
-
-    }
-
-}
-//    private String nom;
-//    private String prenom;
-//    private int age;
-
-/*  public fr.noah.CRUD.Employes findById(String id) throws SQLException {
-
-        String rqt1 = "SELECT * FROM employes WHERE id = ?" ;
-        PreparedStatement test = this.con.prepareStatement(rqt1);
-        test.setString(1, id);
-        ResultSet res = test.executeQuery();
-        res.next();
-        fr.noah.CRUD.Employes Wow = new fr.noah.CRUD.Employes(res.getInt("id"), res.getString("lastname"), res.getString("firstname"), res.getString("city"), res.getInt("salary"));
-
-        return Wow;
-    }
-    */

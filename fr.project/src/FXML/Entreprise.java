@@ -121,46 +121,4 @@ public class Entreprise {
 
 
 
-
-    /**
-     * Fonction permettant l'ajout d'une entreprise à la BDD
-     * @param NomEntrep
-     * @param Raison_sociale
-     * @param Denomination
-     * @param Adresse_du_siege
-     * @param Secteurs_d_activite
-     * @param Date_de_creation
-     * @param Site_internet
-     * @throws SQLException
-     */
-    public void EntrepriseAddBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) throws SQLException {
-
-    }
-
-
-    /**
-     * Fonction permettant de supprimer une entreprise de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void EntrepriseRemoveBDD(int ligne) throws SQLException {
-
-    }
-
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une entreprise puis les changer sur la BDD
-     * @param NomEntrep
-     * @param Raison_sociale
-     * @param Denomination
-     * @param Adresse_du_siege
-     * @param Secteurs_d_activite
-     * @param Date_de_creation
-     * @param Site_internet
-     * @throws SQLException
-     */
-    public void EntrepriseModifBDD(String NomEntrep, String Raison_sociale, String Denomination, String Adresse_du_siege, String Secteurs_d_activite, String Date_de_creation, String Site_internet) throws SQLException {
-
-    }
-
 }

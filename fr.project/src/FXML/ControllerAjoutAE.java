@@ -1,6 +1,6 @@
 package FXML;
 
-import CRUDExemple.SingleConnection;
+
 import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,6 +40,7 @@ public class ControllerAjoutAE implements Initializable {
         try {
             test.Instance();
             this.con=test.getCon();
+
             String SQL = "INSERT INTO ancien_etudiants (Niveau_etudes ,Annee , Type_de_contrat_de_travail ,Duree, Nom, idPersonne )" +
                     "VALUES ('"+NiveauEtude.getText()+" ','"+Annee.getText()+" ','"+TypeContrat.getText()+" ','"+Duree.getText()+" ','"+NomAncienEtudiant.getText()+" ','"+idPersonne.getText()+"')";
 

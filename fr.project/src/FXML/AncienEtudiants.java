@@ -106,35 +106,4 @@ public class AncienEtudiants {
                 '}';
     }
 
-    /**
-     * Fonction permettant l'ajout d'un Ancien Etudiant à la BDD
-     * @param niveauEtude
-     * @param annee
-     * @param typeDeContrat
-     * @param duree
-     * @param personne
-     * @throws SQLException
-     */
-
-
-    /**
-     * Fonction permettant de supprimer un Ancien Etudiant de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void AncienEtudiantsRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    /**
-     * Fonction permettant de modifier les valeurs d'un Ancien Etudiant puis les changer sur la BDD
-     * @param niveauEtude
-     * @param annee
-     * @param typeDeContrat
-     * @param duree
-     * @param personne
-     * @throws SQLException
-     */
-
-
 }

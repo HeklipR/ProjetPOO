@@ -101,43 +101,6 @@ public class Succursales {
                 '}';
     }
 
-    // Fonction permettant l'ajout d'une Succursale à la BDD
 
-    /**
-     * Fonction permettant l'ajout d'une Succursale à la BDD
-     * @param NomSucc
-     * @param Date_de_creation
-     * @param Lieu
-     * @param Site_internet
-     * @throws SQLException
-     */
-    public void SuccursalesAddBDD(String NomSucc, String Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
-
-    }
-
-    // Fonction permettant de supprimer une Succursale de la BDD
-
-    /**
-     * Fonction permettant de supprimer une Succursale de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void SuccursalesRemoveBDD(int ligne) throws SQLException {
-
-    }
-
-    // Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une Succursale puis les changer sur la BDD
-     * @param NomSucc
-     * @param Date_de_creation
-     * @param Lieu
-     * @param Site_internet
-     * @throws SQLException
-     */
-    public void SuccursalesModifBDD(String NomSucc, String Date_de_creation, String Lieu, String Site_internet ) throws SQLException {
-
-    }
 
 }

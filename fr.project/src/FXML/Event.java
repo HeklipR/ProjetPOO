@@ -77,34 +77,6 @@ public class Event {
     }
 
 
-    // Fonction permettant l'ajout d'un Event à la BDD
 
-    /**
-     * Fonction permettant l'ajout d'un Event à la BDD
-     * @param Type
-     * @param Lieu
-     * @param Presence
-     * @throws SQLException
-     */
-
-    // Fonction permettant de supprimer un Event de la BDD
-
-    /**
-     * Fonction permettant de supprimer un Event de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void EventRemoveBDD(int ligne) throws SQLException {
-
-    }
-    // Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'un Event puis les changer sur la BDD
-     * @param Type
-     * @param Lieu
-     * @param Presence
-     * @throws SQLException
-     */
 
 }

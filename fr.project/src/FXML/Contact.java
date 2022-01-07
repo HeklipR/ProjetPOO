@@ -10,24 +10,25 @@ public class Contact {
     private String mail;
     private String telephone;
     private String LinkeedIn;
-    private int idPersonne ;
+    private int idPersonne;
 
 
     /**
      * Constructeur de la class Contact
+     *
      * @param fonction
      * @param mail
      * @param telephone
      * @param LinkeedIn
      * @param idPersonne
      */
-    public Contact(int idContact , String fonction, String mail, String telephone, String LinkeedIn , int idPersonne) {
-        this.idContact = idContact ;
+    public Contact(int idContact, String fonction, String mail, String telephone, String LinkeedIn, int idPersonne) {
+        this.idContact = idContact;
         this.fonction = fonction;
         this.mail = mail;
         this.telephone = telephone;
         this.LinkeedIn = LinkeedIn;
-        this.idPersonne = idPersonne ;
+        this.idPersonne = idPersonne;
 
     }
 
@@ -80,8 +81,6 @@ public class Contact {
     }
 
 
-
-
     @Override
     public String toString() {
         return "Contact{" +
@@ -92,44 +91,7 @@ public class Contact {
                 ", personne=" + idPersonne +
                 '}';
     }
-
-    /**
-     * Fonction permettant l'ajout d'un contact à la BDD
-     * @param fonction
-     * @param mail
-     * @param telephone
-     * @param linkeedIn
-     * @param personne
-     * @throws SQLException
-     */
-    public void ContactAddBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne) throws SQLException {
-
-    }
-
-    // Fonction permettant de supprimer un contact de la BDD$
-
-    /**
-     * Fonction permettant de supprimer un contact de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void ContactRemoveBDD(int ligne) throws SQLException{
-
-    }
-
-    // Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'un contact puis les changer sur la BDD
-     * @param fonction
-     * @param mail
-     * @param telephone
-     * @param linkeedIn
-     * @param personne
-     * @throws SQLException
-     */
-    public void ContactModifBDD(String fonction, String mail, String telephone, String linkeedIn, Personne personne) throws SQLException{
-
-    }
-
 }
+
+
+

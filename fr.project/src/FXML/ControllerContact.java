@@ -1,6 +1,6 @@
 package FXML;
 
-import CRUDExemple.SingleConnection;
+
 import SQLQueries.DAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

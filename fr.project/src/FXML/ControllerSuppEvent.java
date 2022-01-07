@@ -1,6 +1,6 @@
 package FXML;
 
-import CRUDExemple.SingleConnection;
+
 import SQLQueries.DAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -88,39 +88,4 @@ public class TaxeApprentissage {
                 '}';
     }
 
-    // Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
-
-    /**
-     * Fonction permettant l'ajout d'une Taxe d'apprentissage à la BDD
-     * @param date
-     * @param somme
-     * @param commentaire
-     * @throws SQLException
-     */
-    public void TaxeApprentissageAddBDD(String date, double somme, String commentaire ) throws SQLException{
-
-    }
-
-    // Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
-
-    /**
-     * Fonction permettant de supprimer une Taxe d'apprentissage de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-    public void TaxeApprentissageRemoveBDD(int ligne) throws SQLException{
-
-    }
-    // Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'une Taxe d'apprentissage puis les changer sur la BDD
-     * @param date
-     * @param somme
-     * @param commentaire
-     * @throws SQLException
-     */
-    public void TaxeApprentissageModifBDD(String date, double somme, String commentaire ) throws SQLException {
-
-    }
 }

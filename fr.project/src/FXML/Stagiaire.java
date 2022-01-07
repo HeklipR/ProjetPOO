@@ -100,36 +100,7 @@ public class Stagiaire {
         this.Nom = Nom;
 
     }
-    // Fonction permettant l'ajout d'un Stagiaire à la BDD
 
-    /**
-     * Fonction permettant l'ajout d'un Stagiaire à la BDD
-     * @param niveauEtude
-     * @param annee
-     * @param duree
-     * @throws SQLException
-     */
-    public void StagiaireAddBDD(String niveauEtude, String annee, String duree) throws SQLException{
-
-    }
-    // Fonction permettant de supprimer un Stagiaire de la BDD
-
-    /**
-     * Fonction permettant de supprimer un Stagiaire de la BDD
-     * @param ligne
-     * @throws SQLException
-     */
-
-
-    // Fonction permettant de modifier les valeurs d'un Stagiaire puis les changer sur la BDD
-
-    /**
-     * Fonction permettant de modifier les valeurs d'un Stagiaire puis les changer sur la BDD
-     * @param niveauEtude
-     * @param annee
-     * @param duree
-     * @throws SQLException
-     */
 
 
 }
